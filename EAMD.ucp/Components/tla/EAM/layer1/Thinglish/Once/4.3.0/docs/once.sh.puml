@@ -1,0 +1,43 @@
+@startuml
+
+title once.sh - State Diagram 
+
+[*] --> uninitalized
+uninitalized -right-> discover: start
+discover -right-> initalized: [.once not found] init
+
+initalized -right-> .once: hibernate update
+initalized -down-> domain.set: once.domain.set
+domain.set -down-> check.privileges: check.privileges
+check.privileges -down-> root: root
+check.privileges -down-> user: user
+
+discover -down---> ONCE_STATE: [.once loaded]
+state ONCE_STATE {
+    ONCE_STATE -down-> installation.checked: stage
+    user -down-> user.installation: user.installation
+    user -down-> custom.installation: custom.installation
+    root -down-> root.installation: root.installation
+
+    user.installation -down-> installation.checked: check.installation
+    custom.installation -down-> installation.checked: check.installation
+    root.installation -down-> installation.checked: check.installation
+    
+    installation.checked -down-> root.installed: repo.found
+    installation.checked -right-> not.installed: repo.not.found
+    not.installed -down-> repo.installed: once.repo.init
+
+    root.installed -down--> sceanrio.updated: scenario
+}
+repo.installed -down-> sceanrio.updated: server.start
+
+sceanrio.updated -down---> started: server.start
+started --> [*]
+stopped ---> [*]
+uninitalized -----> stopped: stop
+uninitalized -----> already.started: start [ONCE_SERVER_PID found]
+uninitalized -----> started: start [no ONCE_SERVER_PID found]
+uninitalized -----> started: start new
+
+already.started --> [*]
+@enduml

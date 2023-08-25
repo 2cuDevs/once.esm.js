@@ -1,0 +1,20 @@
+{
+  "name": "once",
+  "version": "3.5.0",
+  "description": "Object Network Communication Engine",
+  "main": "src/js/Once.class.mjs",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "tootsie": "node ./test/mjs/Once.test.class.mjs",
+    "start": "node ./src/js/Once.class.mjs"
+  },
+  "author": "Marcel Donges",
+  "license": "AGPL-3.0-or-later",
+  "devDependencies": {
+
+  }
+}

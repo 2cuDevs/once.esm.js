@@ -1,0 +1,50 @@
+{
+  "name": "once",
+  "version": "4.3.0",
+  "description": "m2m web operating system",
+  "main": "js/Once.class.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "echo $0; npm update; source ~/.once; node -r dotenv/config src/js/Once.class.js dotenv_config_path=$ONCE_DEFAULT_SCENARIO/.once.env",
+    "test": "export NODE_TLS_REJECT_UNAUTHORIZED=0; source ~/.once; node_modules/.bin/mocha -r dotenv/config --recursive './test/*.mocha.test.js' dotenv_config_path=$ONCE_DEFAULT_SCENARIO/.once.env",
+    "autotest": "source ~/.once; ./node_modules/.bin/supervisor -w './' -q -n exit -- ./node_modules/.bin/mocha -r dotenv/config --recursive './test/*.mocha.test.js' dotenv_config_path=$ONCE_DEFAULT_SCENARIO/.once.env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "developking@cerulean.it:/var/dev/GIT/EAMD.ucp.Components.git"
+  },
+  "keywords": [
+    "OS",
+    "OSS",
+    "M2M"
+  ],
+  "author": "Marcel Donges",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cors-anywhere": "",
+    "dotenv": "",
+    "dotenv-config": "",
+    "express": "^4.17.1",
+    "express-force-https": "^1.0.0",
+    "express-session": "^1.17.2",
+    "fs": "0.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "keycloak-connect": "^14.0.0",
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.7.1",
+    "pg": "^8.7.1",
+    "request": "^2.88.2",
+    "serve-index": "^1.9.1",
+    "vm": "^0.1.0",
+    "ws": "^7.5.0"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "mocha": "^6.2.3",
+    "supervisor": "0.12.0"
+  }
+}

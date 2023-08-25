@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html onload="">
+
+<head>
+    <title>ONCE 1.0.0 Testing</title>
+    <meta charset="utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+      class App {
+        static async start() {
+          const ucpComponents = await Structr.find("UcpComponentDescriptor");
+          if (!ucpComponents || ucpComponents.length === 0) {
+            console.log("no ucp components");
+            return;
+          }
+          ucpComponents.forEach(comp => {
+            if(!comp.model) {
+              console.warn(comp);
+              return;
+            }
+            const name = comp.name;
+            // console.log(`======> ${name}`);
+            const lVersion = (comp.model.version !== null) ? comp.model.version.name : '';
+            // const pkg = (comp.package !== null) ? comp.package : '';
+
+            if (comp.model.path.indexOf("org/demos") < 0 && comp.model.path.indexOf("org/playground") < 0 && comp.model.path.indexOf("org/playgound") < 0) {
+              console.log(`trying to create test for ${name}`);
+              const leftDiv = document.createElement("div"); //Create left div
+              leftDiv.id = 'left'; //Assign div id
+              leftDiv.setAttribute('style', 'width:25%;'); //Set div attributes
+              //leftDiv.style.background =  "#777777";
+              const a = document.createElement('a');
+              a.href = comp.model.path.replace(name, '') + 'test/html/' + name.replace('.component.xml', '') + 'Test.html';
+              a.innerHTML = `${name} | Version: ${lVersion}`;
+              a.target = 'testPageFrame';
+              leftDiv.appendChild(a); // Append the link to the div
+              document.body.appendChild(leftDiv);
+            }
+          });
+          return 'Hello World';
+        }
+
+        static init() {
+          console.log("start loading App components...");
+          return "start loading App components...";
+        }
+
+        discover() {
+          return this.models;
+        }
+      }
+
+      const app = new App();
+
+    </script>
+    <script src="/EAMD.ucp/Components/tla/EAM/layer1/Thinglish/Once/2.5.0/src/js/Once.class.js" type="text/javascript"></script>
+
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+
+<iframe name="testPageFrame" style="float:right;width:75%;height:100%"/>
+
+</body>
+
+</html>

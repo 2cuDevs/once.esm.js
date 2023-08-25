@@ -1,0 +1,32 @@
+@startuml
+
+title Thinglish Overview - Deployment Diagram 
+
+skinparam rectangle<<behavior>> {
+	roundCorner 25
+}
+
+skinparam class {
+    BackgroundColor White
+    
+    BorderColor RoyalBlue
+    BorderColor<<primary>> #FF2C24
+    BorderColor<<secondary>> #FF9924
+}
+
+hide stereotype
+
+frame EAM {
+
+        frame layer2:Thinglish {
+            class Thinglish
+            class TypedFunction
+            class Interface
+            class TestInterface
+            TestInterface -up-|> Interface
+            class Test
+            class Thing
+            Test -up-|> Thing
+        }
+}
+@enduml

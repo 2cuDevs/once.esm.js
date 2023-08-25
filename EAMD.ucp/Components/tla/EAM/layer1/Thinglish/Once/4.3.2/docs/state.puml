@@ -1,0 +1,16 @@
+@startuml
+
+title once.sh - State Diagram 
+
+[*] --> uninitalized
+uninitalized -right-> discover: start
+discover -right-> initalized: if once.check.initalized \n then private.stage initalized \n else once.initalize
+
+initalized -right-> .once: hibernate update
+initalized -down-> domain.set: once.domain.set \n if once.check.domain.set \n then private.stage domain.set
+domain.set -down-> check.privileges: once.check.privileges \n if once.privileges.checked \n then private.stage privileges.checked
+check.privileges -down-> root: root
+check.privileges -down-> user: user
+
+
+@enduml

@@ -1,0 +1,60 @@
+@startuml
+
+title ONCE Overview - Deployment Diagram 
+
+
+skinparam rectangle<<behavior>> {
+	roundCorner 25
+}
+
+skinparam class {
+    BackgroundColor White
+    
+    BorderColor RoyalBlue
+    BorderColor<<primary>> #FF2C24
+    BorderColor<<secondary>> #FF9924
+}
+
+hide stereotype
+
+
+frame EAM {
+
+        frame layer2:Once {
+            class SavetySwitch
+            class Loader
+            class DocumentScriptLoader
+            DocumentScriptLoader -up-|> Loader
+            class WeBeanLoader
+            WeBeanLoader -up-|> Loader
+            class EAMDucpLoader
+            EAMDucpLoader -up-|> Loader
+            class TypeDescriptor
+            class Namespace
+            class Thinglish
+            class Version
+            Version -up-|> Namespace
+            class ArraySet
+            class Array
+            ArraySet -up-|> Array
+            class DefaultLogger
+            class IOR
+            class Thing
+            class Store
+            class FeatureDescriptor
+            FeatureDescriptor -up-|> Thing
+            class PropertyDescriptor
+            PropertyDescriptor --up-|> FeatureDescriptor
+            class RelationshipDescriptor
+            RelationshipDescriptor --up-|> FeatureDescriptor
+            class CollectionDescriptor
+            CollectionDescriptor --up-|> RelationshipDescriptor
+            class MethodDescriptor
+            MethodDescriptor --up-|> FeatureDescriptor
+            class DropSupport
+            class Once
+            Once -up-|> Thing
+
+        }
+}
+@enduml

@@ -1,0 +1,66 @@
+{
+  // Verwendet IntelliSense zum Ermitteln möglicher Attribute.
+  // Zeigen Sie auf vorhandene Attribute, um die zugehörigen Beschreibungen anzuzeigen.
+  // Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "node",
+          "request": "launch",
+          "name": "Mocha Tests",
+          "program": "${workspaceFolder}/tla/EAM/layer1/Thinglish/Once/4.0.0/node_modules/.bin/mocha",
+          "args": [
+              "--timeout",
+              "999999",
+              "--colors",
+              "${workspaceFolder}/tla/EAM/layer1/Thinglish/Once/4.0.0/test"
+          ],
+          "internalConsoleOptions": "openOnSessionStart"
+      },
+
+
+      {
+
+          "name": "Once 4.0",
+          "type": "node",
+          "request": "launch",
+          "program": "${workspaceRoot}/tla/EAM/layer1/Thinglish/Once/4.0.0/src/js/Once.class.js",
+      },
+      {
+          "timeout": 20000,
+          "name": "Once 3.0",
+          "type": "node",
+          "request": "launch",
+          "program": "${workspaceRoot}/tla/EAM/layer1/Thinglish/Once/3.0.0/src/js/Once.class.js",
+          "stopOnEntry": false,
+          "args": [],
+          "cwd": "${workspaceRoot}",
+          "preLaunchTask": null,
+          //"runtimeExecutable": "${workspaceRoot}/tla/EAM/layer1/Thinglish/Once/3.0.0/src/js/Once.class.js",
+          "runtimeArgs": [
+              "--nolazy"
+          ],
+          "env": {
+              "NODE_ENV": "development",
+              "DEBUG": "device, recium, script, socketServer, tracker"
+          },
+          "sourceMaps": true
+      },
+
+      {
+          "type": "chrome",
+          "request": "launch",
+          "name": "Launch WODA in Chrome",
+          "url": "localhost:8888/EAMD.ucp/Components/com/ceruleanCircle/EAM/5_ux/WODA/1.0.0/src/html/WODA.html",
+          "webRoot": "${workspaceFolder}"
+      },
+      {
+          "type": "chrome",
+          "request": "attach",
+          "name": "Attach to Chrome",
+          "port": 9222,
+          "webRoot": "${workspaceFolder}"
+      },
+
+  ]
+}

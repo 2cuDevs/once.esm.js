@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.2" xmlns:Model="org.omg.xmi.namespace.Model" timestamp="2020-01-02 11:45:08">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>5.1</XMI.exporterVersion>
+		</XMI.documentation>
+		<XMI.metamodel xmi.name="org.omg.mof.Model" xmi.version="1.4"/>
+	</XMI.header>
+	<XMI.content>
+		<Model:Package name="namespace" xmi.id="EAPK_D445C445_1CB4_4dc9_A751_DE3763CEF032" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+			<Model:Namespace.contents>
+				<Model:Class name="TestClass4" xmi.id="EAID_20BAA30A_13A2_4e53_9A9A_0073F3D0182C" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Attribute name="type:class" xmi.id="EAID_2E1A8015_95EF_4687_968A_926F4107AABF" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:dependencies" xmi.id="EAID_444C0A5E_F3C4_4960_BC3B_45BFFDFEB5FF" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:TypedElement.type>
+								<Model:PrimitiveType xmi.idref="EAID_D916C5A8_D7FF_48ea_B253_226F178213B6"/>
+							</Model:TypedElement.type>
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:extends" xmi.id="EAID_0D07268F_27B9_4c01_B6E4_30630B6E17FF" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:implementations" xmi.id="EAID_94C3B2BE_54B0_483f_9D1B_73F370F0D610" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:implements" xmi.id="EAID_D01E0BA7_EB3F_456c_B094_92F5E52E85B6" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:name" xmi.id="EAID_001D555E_8B5B_4d38_8DDF_B1EF9D800BFD" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:package" xmi.id="EAID_BCF468B0_048C_4b70_A88A_67F1380DDF73" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+					</Model:Namespace.contents>
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_6E0F9776_18A4_4a31_AD78_83716D172C31"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:PrimitiveType name="Array" xmi.id="EAID_D916C5A8_D7FF_48ea_B253_226F178213B6" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<Model:Class name="TestClass2" xmi.id="EAID_6E0F9776_18A4_4a31_AD78_83716D172C31" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Attribute name="type:class" xmi.id="EAID_104BE949_CD40_41a2_96CE_E65F65A0E90F" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:dependencies" xmi.id="EAID_D4CB752E_19DF_4ee1_A811_11BA727BEA69" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:extends" xmi.id="EAID_62AF0F5F_9CBA_4bf3_AB8E_E399A352CAF9" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:implementations" xmi.id="EAID_F4EE2A97_10BA_4f24_9CFD_0D1C2CBAC927" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:implements" xmi.id="EAID_7F770C9B_22A5_439c_A688_60D4C3AED7F3" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:name" xmi.id="EAID_D1804E12_70FC_4819_BA48_28388E43D884" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:package" xmi.id="EAID_3ACAD4A7_7FA3_4a42_8782_87EB0744F8AE" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+					</Model:Namespace.contents>
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_E9A11B5E_18CD_432e_A1E7_358C19F614A5"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="TestClass3" xmi.id="EAID_A2AB8C00_CCA2_48d3_B1C7_6995913D2C67" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Attribute name="type:class" xmi.id="EAID_3FFA7B00_9193_47cc_8C09_F4965F08AAED" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:dependencies" xmi.id="EAID_4E420382_8C1E_46df_B0CF_409CF4B04B82" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:extends" xmi.id="EAID_496694B7_2610_4a1f_80B0_7E99FBC78F8A" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:implementations" xmi.id="EAID_75215102_3F5C_4b6c_9B33_01CBAEC34090" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:implements" xmi.id="EAID_D89FF76D_1A47_48a5_BE34_0D5EA2E6E631" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:name" xmi.id="EAID_C8C84F6D_9A30_44a8_9A43_3E46328F9E70" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:package" xmi.id="EAID_E96AF677_5759_4a86_B9BD_C3AF87C22A0D" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+					</Model:Namespace.contents>
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_E9A11B5E_18CD_432e_A1E7_358C19F614A5"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="TestClass5" xmi.id="EAID_DC44F04B_D55A_4cf0_89C4_4C13F17C93FB" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Attribute name="type:class" xmi.id="EAID_55A12121_3720_41d6_8551_D098667CDBE8" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:dependencies" xmi.id="EAID_E077EF85_2870_44f6_875A_F67F2E7D88BC" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:extends" xmi.id="EAID_CE6D9611_E0D9_4ff7_BFBB_170D9E1982A0" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:implementations" xmi.id="EAID_E2E9B50A_DF7B_4b5c_8126_609F27B5BB97" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:implements" xmi.id="EAID_4FA0A21A_9669_4f59_B582_ACC27DD8B920" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:name" xmi.id="EAID_178DBC2A_4105_4bb0_818D_B5DF41588281" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:package" xmi.id="EAID_F00BE184_703D_4061_B6D8_51EC0F9B0D6A" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+					</Model:Namespace.contents>
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_A2AB8C00_CCA2_48d3_B1C7_6995913D2C67"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="TestClass1" xmi.id="EAID_E9A11B5E_18CD_432e_A1E7_358C19F614A5" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Attribute name="type:class" xmi.id="EAID_55E3EC0C_0F3B_49d2_B150_5DA623F06BC1" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:dependencies" xmi.id="EAID_63F79DB8_0406_42a6_B638_D74F4F0B20F6" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:extends" xmi.id="EAID_D9622D16_906F_4869_A495_099C38207500" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:implementations" xmi.id="EAID_399F028C_66B8_45a3_8F59_0E448DD67FAF" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:implements" xmi.id="EAID_EBB79D4C_AD13_4fe3_AB16_F4D382670267" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:name" xmi.id="EAID_FC64BC74_3613_4acf_A3EE_C0D88FD14F21" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="type:package" xmi.id="EAID_833E97B3_D16A_4b1b_8CE0_4D72CBA567B2" scope="classifier_level" visibility="public_vis" isChangeable="true" isDerived="false">
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+					</Model:Namespace.contents>
+				</Model:Class>
+			</Model:Namespace.contents>
+		</Model:Package>
+		<Model:Package name="Once" xmi.id="EAPK_A506E181_FA5D_4dd0_9F71_07A293106CC9" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+			<Model:Namespace.contents>
+				<Model:Class name="Version" xmi.id="EAID_02305B2B_92D2_47e1_BA7F_1FE44CC87942" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_BD3D49F5_07F5_4e31_9408_4F18C5C79513"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="PropertyDescriptor" xmi.id="EAID_13104D8E_F01C_471f_B875_C6051729587D" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_BBCB4A2E_3B92_444c_A0AD_B9A37295FB25"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="Store" xmi.id="EAID_175B54DC_94E5_4627_A19E_F56F138CC506" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="IOR" xmi.id="EAID_19C792B2_1CF7_4e85_BAB9_830E14DAFDF7" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="RelationshipDescriptor" xmi.id="EAID_4BFF4A39_99DB_4fee_BB6E_0A660D5A7487" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_BBCB4A2E_3B92_444c_A0AD_B9A37295FB25"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="WeBeanLoader" xmi.id="EAID_4FE8D80F_FBC5_46a5_A451_6F80E1D3A567" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_ADE0370C_C977_4f4e_A318_BC37403A19F0"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="SavetySwitch" xmi.id="EAID_70053FE8_6843_46b5_A97F_035CA545CF5A" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="JavaScriptObjectDescriptor" xmi.id="EAID_7ADC53F3_0487_41f0_9EC8_C6439C88F2E9" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Attribute name="attributes" xmi.id="EAID_CF102827_A2A4_497e_BBA4_63667325DC53" scope="classifier_level" visibility="private_vis" isChangeable="true" isDerived="false">
+							<Model:TypedElement.type>
+								<Model:PrimitiveType xmi.idref="EAID_DA47F614_6C80_48dd_8EA3_9E946F83767F"/>
+							</Model:TypedElement.type>
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="collections" xmi.id="EAID_FFBB6925_7A3C_41ee_943E_48DB22A55382" scope="classifier_level" visibility="private_vis" isChangeable="true" isDerived="false">
+							<Model:TypedElement.type>
+								<Model:PrimitiveType xmi.idref="EAID_5DA348D3_3EBA_4c2d_99DD_004DDF0836DB"/>
+							</Model:TypedElement.type>
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Attribute name="properties" xmi.id="EAID_D1103F81_4270_4c7e_9352_FF5E52147372" scope="classifier_level" visibility="private_vis" isChangeable="true" isDerived="false">
+							<Model:TypedElement.type>
+								<Model:PrimitiveType xmi.idref="EAID_72CDB65F_182B_47fe_B065_14633D5BF71D"/>
+							</Model:TypedElement.type>
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Reference xmi.id="rEAID_src371BFE_9CE9_4352_B689_C8878647F037" name="descriptor" scope="instance_level" visibility="public_vis" isChangeable="true" type="EAID_DD3136B9_1153_47c6_828E_833D6AFCC32A" referencedEnd="EAID_src371BFE_9CE9_4352_B689_C8878647F037">
+							<Model:StructuralFeature.multiplicity>
+								<Model:MultiplicityType lower="0" upper="-1" is_ordered="false" is_unique="true"/>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Reference>
+					</Model:Namespace.contents>
+				</Model:Class>
+				<Model:PrimitiveType name="Array" xmi.id="EAID_DA47F614_6C80_48dd_8EA3_9E946F83767F" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<Model:PrimitiveType name="Array" xmi.id="EAID_5DA348D3_3EBA_4c2d_99DD_004DDF0836DB" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<Model:PrimitiveType name="Array" xmi.id="EAID_72CDB65F_182B_47fe_B065_14633D5BF71D" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<Model:Class name="Thinglish" xmi.id="EAID_89028512_B7BA_44df_A7F2_B7B1AEF70CF3" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="Loader" xmi.id="EAID_ADE0370C_C977_4f4e_A318_BC37403A19F0" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="FeatureDescriptor" xmi.id="EAID_BBCB4A2E_3B92_444c_A0AD_B9A37295FB25" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_DF7B0432_F921_499b_88D1_EC9BDEC188C0"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="Namespace" xmi.id="EAID_BD3D49F5_07F5_4e31_9408_4F18C5C79513" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="DefaultLogger" xmi.id="EAID_C2D705C9_5394_4476_8D2B_FD8FF0436B49" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="CollectionDescriptor" xmi.id="EAID_C5B30BCC_A32F_4bfb_B8A2_1F5CE101E5B1" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_4BFF4A39_99DB_4fee_BB6E_0A660D5A7487"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="MethodDescriptor" xmi.id="EAID_CE28BF64_133D_4a07_930B_C850C2C85EAD" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_BBCB4A2E_3B92_444c_A0AD_B9A37295FB25"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="Once" xmi.id="EAID_CE66BD4A_488C_4fe3_9AB6_DB5AC006BE26" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_DF7B0432_F921_499b_88D1_EC9BDEC188C0"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="DocumentScriptLoader" xmi.id="EAID_D98C5B22_B140_47c3_B9ED_493014C65DAE" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_ADE0370C_C977_4f4e_A318_BC37403A19F0"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="TypeDescriptor" xmi.id="EAID_DD3136B9_1153_47c6_828E_833D6AFCC32A" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Reference xmi.id="rEAID_dst371BFE_9CE9_4352_B689_C8878647F037" name="javascriptobjectdescriptor" scope="instance_level" visibility="public_vis" isChangeable="true" type="EAID_7ADC53F3_0487_41f0_9EC8_C6439C88F2E9" referencedEnd="EAID_dst371BFE_9CE9_4352_B689_C8878647F037">
+							<Model:StructuralFeature.multiplicity>
+								<Model:MultiplicityType lower="0" upper="-1" is_ordered="false" is_unique="true"/>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Reference>
+						<Model:Reference xmi.id="rEAID_src8600DD_8E1C_4d81_9216_331E3B9293AE" name="type" scope="instance_level" visibility="public_vis" isChangeable="true" type="EAID_DF7B0432_F921_499b_88D1_EC9BDEC188C0" referencedEnd="EAID_src8600DD_8E1C_4d81_9216_331E3B9293AE">
+							<Model:StructuralFeature.multiplicity>
+								<Model:MultiplicityType lower="0" upper="-1" is_ordered="false" is_unique="true"/>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Reference>
+					</Model:Namespace.contents>
+				</Model:Class>
+				<Model:Class name="EAMDucpLoader" xmi.id="EAID_DEE60426_7C21_4dcd_9F10_8D03CC2C8037" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_D98C5B22_B140_47c3_B9ED_493014C65DAE"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="Thing" xmi.id="EAID_DF7B0432_F921_499b_88D1_EC9BDEC188C0" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Reference xmi.id="rEAID_dst8600DD_8E1C_4d81_9216_331E3B9293AE" name="typedescriptor" scope="instance_level" visibility="public_vis" isChangeable="true" type="EAID_DD3136B9_1153_47c6_828E_833D6AFCC32A" referencedEnd="EAID_dst8600DD_8E1C_4d81_9216_331E3B9293AE">
+							<Model:StructuralFeature.multiplicity>
+								<Model:MultiplicityType lower="0" upper="-1" is_ordered="false" is_unique="true"/>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Reference>
+					</Model:Namespace.contents>
+				</Model:Class>
+				<Model:Class name="DropSupport" xmi.id="EAID_EF9502BE_0527_4df7_B40E_87769083C3BB" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+			</Model:Namespace.contents>
+		</Model:Package>
+		<Model:Package name="Persistence" xmi.id="EAPK_08A02698_175A_4816_A603_15A93B41310F" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+			<Model:Namespace.contents>
+				<Model:Class name="Neo4JUser" xmi.id="EAID_065E5B9D_4496_4884_B57C_12BD0944A4B8" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="StuctrObject" xmi.id="EAID_2FC09149_FBD3_4889_A13A_5A6BBA01637E" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_250785C1_9D3C_4896_B366_AAA434B77E14"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="DefaultUser" xmi.id="EAID_6351AB5E_8ED4_4818_BBD9_E58A024FF2EC" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="DefaultAccount" xmi.id="EAID_63934B40_6AFB_4a62_9B7F_E68001394DA1" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="DefaultSchemaNode" xmi.id="EAID_67504F6A_CF19_41ca_B2B6_B62A90CD3E96" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Operation xmi.id="EAID_8EF6FE6A_3C89_4a18_B8AC_2593EA8C6BD5" name="create" annotation="object is a JSON object with data for the new Instance object" scope="instance_level" visibility="public_vis" isQuery="false">
+							<Model:Namespace.contents>
+								<Model:Parameter xmi.id="EAID_CADA8A27_66DC_4e6b_939D_E2A9A1067E73" name="object" annotation="object" direction="in_dir">
+									<Model:TypedElement.type>
+										<sType xmi.idref="EAID_D06A382C_298E_4e8b_A59B_6762999EF72B"/>
+									</Model:TypedElement.type>
+									<Model:StructuralFeature.multiplicity>
+										<XMI.field>1</XMI.field>
+										<XMI.field>1</XMI.field>
+										<XMI.field>false</XMI.field>
+										<XMI.field>false</XMI.field>
+									</Model:StructuralFeature.multiplicity>
+								</Model:Parameter>
+								<Model:Parameter xmi.id="EAID_9C831E01_0C2F_4192_8578_EE3306B22465" name="return" annotation="return" direction="return_dir">
+									<Model:TypedElement.type>
+										<sType xmi.idref="EAID_3DD44F84_98FE_4f21_9238_1F4A34765D11"/>
+									</Model:TypedElement.type>
+									<Model:StructuralFeature.multiplicity>
+										<XMI.field>1</XMI.field>
+										<XMI.field>1</XMI.field>
+										<XMI.field>false</XMI.field>
+										<XMI.field>false</XMI.field>
+									</Model:StructuralFeature.multiplicity>
+								</Model:Parameter>
+							</Model:Namespace.contents>
+						</Model:Operation>
+					</Model:Namespace.contents>
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_C5B45BC4_8FFA_458b_8628_1C34195AABD0"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:PrimitiveType name="Object" xmi.id="EAID_D06A382C_298E_4e8b_A59B_6762999EF72B" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<Model:PrimitiveType name="Object" xmi.id="EAID_3DD44F84_98FE_4f21_9238_1F4A34765D11" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<Model:Class name="StructrUser" xmi.id="EAID_802D3389_A834_4c7d_94C6_B008DDD4773C" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="RESTClient" xmi.id="EAID_B89F6A0E_9F2F_4475_BABE_8F44F1D65EE6" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="StructrComponent" xmi.id="EAID_C5B45BC4_8FFA_458b_8628_1C34195AABD0" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_9E269EC3_B827_4a6c_9647_094FA6CE9BB8"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="Structr" xmi.id="EAID_E9846288_90B9_4904_84D0_19AA0820077F" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+			</Model:Namespace.contents>
+		</Model:Package>
+		<Model:Package name="Thinglish" xmi.id="EAPK_6AC00874_D0DB_49a9_8B1C_3EFE97D61BF5" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+			<Model:Namespace.contents>
+				<Model:Class name="Interface" xmi.id="EAID_63C5B38F_8876_4d5d_82D5_B6027DF23CFF" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="TestInterface" xmi.id="EAID_70FE8775_C1D9_4772_A7B5_200E2D2571EE" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_63C5B38F_8876_4d5d_82D5_B6027DF23CFF"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="TypedFunction" xmi.id="EAID_AAA8371B_3D67_4d62_95B7_6DBD8682CB70" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="Thinglish" xmi.id="EAID_BD3EEABC_0634_47dc_9A52_0F26E2CF4CAC" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Operation xmi.id="EAID_A1CDCD66_76BB_4d70_8A23_C01D5FD741B6" name="getDescriptor" scope="classifier_level" visibility="public_vis" isQuery="false">
+							<Model:Namespace.contents>
+								<Model:Parameter xmi.id="EAID_A0E11513_13E9_45ac_A491_CEAA7C1B46F4" name="object" annotation="object" direction="in_dir">
+									<Model:TypedElement.type>
+										<sType xmi.idref="EAID_2DD6496D_A752_4348_A328_21ED45B33C61"/>
+									</Model:TypedElement.type>
+									<Model:StructuralFeature.multiplicity>
+										<XMI.field>1</XMI.field>
+										<XMI.field>1</XMI.field>
+										<XMI.field>false</XMI.field>
+										<XMI.field>false</XMI.field>
+									</Model:StructuralFeature.multiplicity>
+								</Model:Parameter>
+								<Model:Parameter xmi.id="EAID_042281E5_5D58_4e56_AF27_7CD11D3BD519" name="return" annotation="return" direction="return_dir">
+									<Model:TypedElement.type>
+										<sType xmi.idref="EAID_7ADC53F3_0487_41f0_9EC8_C6439C88F2E9"/>
+									</Model:TypedElement.type>
+									<Model:StructuralFeature.multiplicity>
+										<XMI.field>1</XMI.field>
+										<XMI.field>1</XMI.field>
+										<XMI.field>false</XMI.field>
+										<XMI.field>false</XMI.field>
+									</Model:StructuralFeature.multiplicity>
+								</Model:Parameter>
+							</Model:Namespace.contents>
+						</Model:Operation>
+						<Model:Operation xmi.id="EAID_634AB6EF_062E_4b77_BE99_396D4D7C8FD9" name="initType" scope="instance_level" visibility="public_vis" isQuery="false">
+							<Model:Namespace.contents>
+								<Model:Parameter xmi.id="EAID_3B4E8A07_6351_42b7_AA7B_3F708E4A3135" name="object" annotation="object" direction="in_dir">
+									<Model:TypedElement.type>
+										<sType xmi.idref="EAID_1BBBAA51_0F3E_49e2_8540_41FAA726043A"/>
+									</Model:TypedElement.type>
+									<Model:StructuralFeature.multiplicity>
+										<XMI.field>1</XMI.field>
+										<XMI.field>1</XMI.field>
+										<XMI.field>false</XMI.field>
+										<XMI.field>false</XMI.field>
+									</Model:StructuralFeature.multiplicity>
+								</Model:Parameter>
+								<Model:Parameter xmi.id="EAID_6CBAEBB1_BEE5_4c35_9890_F2A3528307E4" name="packageName" annotation="packageName" direction="in_dir">
+									<Model:TypedElement.type>
+										<sType xmi.idref="EAID_627C25B1_8622_4fd2_BCEA_A44A17CCC9DC"/>
+									</Model:TypedElement.type>
+									<Model:StructuralFeature.multiplicity>
+										<XMI.field>1</XMI.field>
+										<XMI.field>1</XMI.field>
+										<XMI.field>false</XMI.field>
+										<XMI.field>false</XMI.field>
+									</Model:StructuralFeature.multiplicity>
+								</Model:Parameter>
+								<Model:Parameter xmi.id="EAID_4BC93E40_789F_4870_B6F3_C2A121D5AE08" name="return" annotation="return" direction="return_dir">
+									<Model:TypedElement.type>
+										<sType xmi.idref="EAID_FA749E44_E08B_4547_9DBD_314DF8263FFD"/>
+									</Model:TypedElement.type>
+									<Model:StructuralFeature.multiplicity>
+										<XMI.field>1</XMI.field>
+										<XMI.field>1</XMI.field>
+										<XMI.field>false</XMI.field>
+										<XMI.field>false</XMI.field>
+									</Model:StructuralFeature.multiplicity>
+								</Model:Parameter>
+							</Model:Namespace.contents>
+						</Model:Operation>
+					</Model:Namespace.contents>
+				</Model:Class>
+				<Model:PrimitiveType name="Object" xmi.id="EAID_2DD6496D_A752_4348_A328_21ED45B33C61" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<Model:PrimitiveType name="Object" xmi.id="EAID_1BBBAA51_0F3E_49e2_8540_41FAA726043A" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<Model:PrimitiveType name="String" xmi.id="EAID_627C25B1_8622_4fd2_BCEA_A44A17CCC9DC" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<Model:PrimitiveType name="void" xmi.id="EAID_FA749E44_E08B_4547_9DBD_314DF8263FFD" isRoot="false" isLeaf="false" isAbstract="false"/>
+			</Model:Namespace.contents>
+		</Model:Package>
+		<Model:Package name="tla" xmi.id="EAPK_4C578988_A43B_47c2_9D46_EBF5C5408375" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+			<Model:Namespace.contents>
+				<Model:Package name="EAM" xmi.id="EAPK_C7BFE333_ED23_4873_AED7_75C040CD39B2" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+					<Model:Namespace.contents/>
+				</Model:Package>
+				<Model:Package name="MDA" xmi.id="EAPK_EF47925D_CBA6_4b7a_A856_B0413618FB99" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Package name="M3" xmi.id="EAPK_8CA49229_4A0A_4ec2_8A5A_9C9489B952C5" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+							<Model:Namespace.contents>
+								<Model:GeneralizableElement.supertypes>
+									<Model:Class xmi.idref="EAID_855D07C9_5988_41f8_B920_4825F1717539"/>
+									<Model:Class xmi.idref="EAID_FD4DFBAF_5808_4d94_9B57_C53887AABF78"/>
+								</Model:GeneralizableElement.supertypes>
+								<Model:Class name="MDA_M0_Relationship" xmi.id="EAID_80A8C9A0_B09E_4860_B2F1_CBE8DC4CBE66" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+								<Model:Class name="MDA_M0_Collection" xmi.id="EAID_CDA7E7C8_C370_4c98_A4B3_AA6D5E569264" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+							</Model:Namespace.contents>
+						</Model:Package>
+					</Model:Namespace.contents>
+				</Model:Package>
+			</Model:Namespace.contents>
+		</Model:Package>
+		<Model:Package name="TypeRefelction" xmi.id="EAPK_3B45E0B3_4CE7_488e_823C_9899FF7EDA89" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+			<Model:Namespace.contents>
+				<Model:Class name="Class" xmi.id="EAID_3457FDBC_AF61_4e34_96E3_A46B023FAFA9" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:Namespace.contents>
+						<Model:Attribute name="type" xmi.id="EAID_8ABB2E16_C838_4461_A73B_99EF9960BDE9" scope="classifier_level" visibility="private_vis" isChangeable="true" isDerived="false">
+							<Model:TypedElement.type>
+								<Model:PrimitiveType xmi.idref="EAID_4E0A670D_B09C_4b2e_9EBD_96D9F55F5141"/>
+							</Model:TypedElement.type>
+							<Model:StructuralFeature.multiplicity>
+								<XMI.field>1</XMI.field>
+								<XMI.field>1</XMI.field>
+								<XMI.field>true</XMI.field>
+								<XMI.field>false</XMI.field>
+							</Model:StructuralFeature.multiplicity>
+						</Model:Attribute>
+						<Model:Operation xmi.id="EAID_AD46B8B4_C58C_429e_892F_7DE7F4834C1B" name="getInstance" scope="classifier_level" visibility="public_vis" isQuery="false">
+							<Model:Namespace.contents>
+								<Model:Parameter xmi.id="EAID_83A35D4F_C44F_49d1_B4B3_1D94A5BC6F99" name="return" annotation="return" direction="return_dir">
+									<Model:TypedElement.type>
+										<sType xmi.idref="EAID_46B54528_72A0_465d_BB19_20B925B13147"/>
+									</Model:TypedElement.type>
+									<Model:StructuralFeature.multiplicity>
+										<XMI.field>1</XMI.field>
+										<XMI.field>1</XMI.field>
+										<XMI.field>false</XMI.field>
+										<XMI.field>false</XMI.field>
+									</Model:StructuralFeature.multiplicity>
+								</Model:Parameter>
+							</Model:Namespace.contents>
+						</Model:Operation>
+					</Model:Namespace.contents>
+				</Model:Class>
+				<Model:PrimitiveType name="TypeDesctiptor" xmi.id="EAID_4E0A670D_B09C_4b2e_9EBD_96D9F55F5141" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<Model:PrimitiveType name="Object" xmi.id="EAID_46B54528_72A0_465d_BB19_20B925B13147" isRoot="false" isLeaf="false" isAbstract="false"/>
+			</Model:Namespace.contents>
+		</Model:Package>
+		<Model:Package name="UcpComponentSupport" xmi.id="EAPK_D8A306CE_DB3A_4f76_91F7_0301CAFC34AB" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+			<Model:Namespace.contents>
+				<Model:Class name="Component" xmi.id="EAID_391FBC99_F2DE_4c19_A644_CC73AD5F9BC6" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="EAMLayer" xmi.id="EAID_47A1D7B8_1101_4e05_93D3_840F8022B75A" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_94689EDF_CE70_46e5_86E1_1B05BA8D2B38"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="DefaultUcpComponentDescriptor" xmi.id="EAID_8255B5A8_E542_43fd_8985_B9EB8B961D16" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_9E269EC3_B827_4a6c_9647_094FA6CE9BB8"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="Container" xmi.id="EAID_92C64CBF_371C_4e8a_B681_FFD2BF2FBEC4" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_23AC28FC_95A6_4af1_B955_0032F75881B3"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="Folder" xmi.id="EAID_94689EDF_CE70_46e5_86E1_1B05BA8D2B38" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_B246A63F_E238_4241_9AC4_2F03CC73134F"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="ManagedProperties" xmi.id="EAID_A2CF08C7_7138_407d_AED2_A7DCBC774E2A" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="FileSmart" xmi.id="EAID_A3F700EA_F583_4d4c_A8E5_AFEDA3B101D9" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_B246A63F_E238_4241_9AC4_2F03CC73134F"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="File" xmi.id="EAID_B246A63F_E238_4241_9AC4_2F03CC73134F" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_23AC28FC_95A6_4af1_B955_0032F75881B3"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+				<Model:Class name="ManagedProperty" xmi.id="EAID_DDE5B0AB_73FD_4832_B399_5BEA9172B691" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis"/>
+				<Model:Class name="DefaultView" xmi.id="EAID_EBEAC391_65B8_440d_896D_D5AF632D4071" isRoot="false" isLeaf="false" isAbstract="false" isSingleton="false" visibility="public_vis">
+					<Model:GeneralizableElement.supertypes>
+						<Model:Class xmi.idref="EAID_8F647BED_B112_4274_ACB9_6C3418225CC8"/>
+					</Model:GeneralizableElement.supertypes>
+				</Model:Class>
+			</Model:Namespace.contents>
+		</Model:Package>
+		<Model:Package name="Accounting" xmi.id="EAPK_8BEE9BDE_9247_4384_9798_175FAEC39B47" isRoot="true" isLeaf="false" isAbstract="false" visibility="public_vis">
+			<Model:Namespace.contents>
+				<Model:GeneralizableElement.supertypes>
+					<Model:Class xmi.idref="EAID_5E4DFC23_7A94_4583_9538_1D08DAE16FAE"/>
+					<Model:Class xmi.idref="EAID_E9858A02_80B9_49f8_A6F8_050FC64353BD"/>
+					<Model:Class xmi.idref="EAID_9A29C9E1_B979_4425_B397_83433F96CB0B"/>
+					<Model:Class xmi.idref="EAID_E9858A02_80B9_49f8_A6F8_050FC64353BD"/>
+				</Model:GeneralizableElement.supertypes>
+			</Model:Namespace.contents>
+		</Model:Package>
+	</XMI.content>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5">
+		<EAModel.Attribute.DefaultValue xmi.idref="EAID_444C0A5E_F3C4_4960_BC3B_45BFFDFEB5FF" value="&quot;/EAMD.ucp/Components/com/twitter/Bootstrap/Panel/3.3.7/Panel.component.xml&quot;"/>
+		<EAModel.Attribute.DefaultValue xmi.idref="EAID_BCF468B0_048C_4b70_A88A_67F1380DDF73" value="tmp.test1"/>
+		<EAModel.Attribute.DefaultValue xmi.idref="EAID_62AF0F5F_9CBA_4bf3_AB8E_E399A352CAF9" value="TestClass1"/>
+		<EAModel.Attribute.DefaultValue xmi.idref="EAID_7F770C9B_22A5_439c_A688_60D4C3AED7F3" value="TestInterface1"/>
+		<EAModel.Attribute.DefaultValue xmi.idref="EAID_3ACAD4A7_7FA3_4a42_8782_87EB0744F8AE" value="tmp.test1"/>
+		<EAModel.Attribute.DefaultValue xmi.idref="EAID_E96AF677_5759_4a86_B9BD_C3AF87C22A0D" value="tmp.test1"/>
+		<EAModel.Attribute.DefaultValue xmi.idref="EAID_CE6D9611_E0D9_4ff7_BFBB_170D9E1982A0" value="TestClass3"/>
+		<EAModel.Attribute.DefaultValue xmi.idref="EAID_F00BE184_703D_4061_B6D8_51EC0F9B0D6A" value="tmp.test1"/>
+		<EAModel.Attribute.DefaultValue xmi.idref="EAID_833E97B3_D16A_4b1b_8CE0_4D72CBA567B2" value="tmp.test1"/>
+	</XMI.extensions>
+</XMI>

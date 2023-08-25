@@ -1,0 +1,2874 @@
+#!/bin/bash
+# you can't use /bin/sh because only bash contains 'let' declaration
+EAMD_VERSION="20210308 18:55"
+
+if ! [ -x "$(command -v warn.log)" ]; then
+    echo "no warn.log.... mitigated using internal functions...status: ok"
+    console.log() {
+        #test -t 1 && tput bold; tput setf 7                                            ## white bold
+        echo -e "\033[0m>  $@"
+        #test -t 1 && tput sgr0 # Reset terminal
+    }
+    error.log() {
+        err.log "$@"
+    }
+    err.log() {
+        #test -t 1 && tput bold; tput setf 4  
+        #echo "ERROR>  $@"
+        echo -e "\033[1;31mERROR> $@\033[0m"    
+        #test -t 1 && tput sgr0 # Reset terminal
+        if [ "ON" = "$DEBUG" ]; then 
+            export STEP_DEBUG=ON
+        fi   
+    }
+    warn.log() {
+        #test -t 1 && tput bold; tput setf 6
+        echo -e "\033[1;33m> WARNING $@\033[0m"                                    ## yellow
+        #test -t 1 && tput sgr0 # Reset terminal
+    }
+    debug.log() {
+        if [ "ON" = "$DEBUG" ]; then
+            #test -t 1 && tput setf 7     
+            echo -e "\033[1;36m- $@\033[0m"
+            #echo "- $@"
+            #test -t 1 && tput sgr0 # Reset terminal
+        fi
+    }
+    stop.log() {
+        if [ "ON" = "$DEBUG" ]; then 
+            #test -t 1 && tput bold; tput setf 6                                    ## green
+            #echo "BREAKPOINT> $@"
+            echo -e "\033[1;32mBREAKPOINT> $@\033[0m" 
+            #test -t 1 && tput sgr0 # Reset terminal
+            export STEP_DEBUG=ON
+        fi  
+    }
+    success.log() {
+        if [ "ON" = "$DEBUG" ]; then 
+            echo -e "\033[1;32mSUCCESS> $@\033[0m" 
+        fi  
+    }
+fi
+
+checkAndFix() {
+    debug.log "checkAndFix(1:$1 2:$2 3:$3 4:$4  silent:$5)"
+    if [ $2 "$3" ]; then
+        if [ -z "$5" ]; then
+    	    echo "ok            : $1: $3"
+        fi
+    else
+        if [ -z "$5" ]; then
+            echo "does not exist: $1: $3        ...fixing with: $4"
+        fi
+        $4
+    fi
+}
+
+initConfig() {
+    #. once.sh path 
+    EAMDdirectory=""
+    currentDirectory=$(pwd)
+    checkAndFix "Default Repository location - workspacePrefix" -n "$workspacePrefix" "export workspacePrefix=/var/dev" silent
+    
+    checkAndFix "EAMDdirectoryName" -n "$EAMDdirectoryName" "export EAMDdirectoryName=EAMD.ucp" silent
+    checkAndFix "EAMDdirectory" -n "$EAMDdirectory" "export EAMDdirectory=/$EAMDdirectoryName/" silent
+
+    checkAndFix "componentDir" -n "$componentDir" "export componentDir=$ONCE_REPO_COMPONENTS" silent
+    checkAndFix "componentDir" -n "$componentDir" "export componentDir=Components" silent
+
+    checkAndFix "scenarioDir" -n "$scenarioDir" "export scenarioDir=$ONCE_REPO_SCENARIOS" silent
+    checkAndFix "scenarioDir" -n "$scenarioDir" "export scenarioDir=Scenarios" silent
+
+    checkAndFix "defaultWorkspace" -n "$defaultWorkspace" "export defaultWorkspace=$workspacePrefix/$EAMDdirectoryName/$componentDir" silent
+    checkAndFix "EAMDworkspace" -n "$EAMDworkspace" "export defaultWorkspace=$workspacePrefix/$EAMDdirectoryName" silent
+
+    #checkAndFix "currentDirectory" -n "$currentDirectory" "export currentDirectory=$(cd .;pwd)" silent
+    checkAndFix "defaultUser" -n "$defaultUser" "export defaultUser=$USERNAME" silent
+    checkAndFix "defaultUser" -n "$defaultUser" "export defaultUser=freemiumUser" silent
+    checkAndFix "loggedInUser" -n "$loggedInUser" "export loggedInUser=$USER" silent
+
+
+    checkAndFix "defaultVersion" -n "$defaultVersion" "export defaultVersion=0.0.0-GIT-Repository" silent
+    checkAndFix "mochaTemplateDir" -n "$mochaTemplateDir" "export mochaTemplateDir=${EAMDdirectory}Components/tla/EAMD/MochaTemplates" silent
+    checkAndFix "mochaTemplateVerison" -n "$mochaTemplateVerison" "export mochaTemplateVerison=1.0.0" silent
+
+    checkAndFix "Default Git Server" -n "$defaultGitServer" "export defaultGitServer=$ONCE_DEFAULT_SERVER" silent
+    checkAndFix "Default Git Server" -n "$defaultGitServer" "export defaultGitServer=test.wo-da.de" silent
+    
+    checkAndFix "Default Git User" -n "$defaultGitUser" "export defaultGitUser=developking" silent
+    checkAndFix "Default Git Repo" -n "$defaultGitRepo" "export defaultGitRepo=EAMD.ucp.v1.0" silent
+
+
+
+    checkAndFix "Default Structr Server" -n "$defaultStructrServer" "export defaultStructrServer=$ONCE_STRUCTR_SERVER" silent
+    #checkAndFix "Default Structr Server" -n "$defaultStructrServer" "export defaultStructrServer=http://structr.cerulean.it:8082" silent
+    checkAndFix "Default Structr Server" -n "$defaultServer" "export defaultServer=$defaultStructrServer" silent
+    checkAndFix "Default Q! Server" -n "$defaultQServer" "export defaultQServer=http://woda.q-nnect.com" silent
+
+    gitEnabled="true";
+    serverUpdate="true";
+}
+##### done initConfig
+initConfig
+
+#done set defaults
+reset() {
+    # properties reset to defaults
+    currentDirectory=$(pwd)
+    EAMDdirectory=""
+    scenarioDir=""
+
+    defaultWorkspace=""        
+    workspacePrefix=""        
+    workspace=""    
+    currentWorkspace=""    
+    EAMDworkspace=""
+
+    defaultServer=""
+    defaultUser=""
+    loggedInUser=""
+
+    defaultGitServer="" 
+    defaultGitRepo="" 
+    defaultGitUser=""
+
+    defaultVersion=""
+    mochaTemplateDir=""
+    mochaTemplateVerison=""
+    
+    initConfig
+    checkConfig list
+}
+
+class() {
+
+    PARAMETER=class:methods
+    list PARAMETER set $*
+    #list PARAMETER env $*
+    if [ -z "$CLASSES" ]; then
+        export CLASSES=CLASSES:
+    fi
+
+    list CLASSES find $1 silent
+    if [ -z "$found" ]; then
+        list CLASSES add $class
+        CLASSES=$list
+        classMethods=CLASS_${class}_METHODS
+        eval $classMethods=$methods
+        debug.log ">> Initialized: ${class} > $classMethods > ${!classMethods} "
+    else
+        debug.log ">> found class: $found"
+        classMethods=CLASS_${found}_METHODS
+        debug.log ">> CLASSES_METHODS: CLASS_${found}_METHODS | ${!classMethods} | $classMethods"
+        methods=${!classMethods}
+    fi
+
+}
+
+property() {
+    thisClass=${FUNCNAME[0]}
+    class $thisClass set:init
+
+    PARAMETER=class:propertyName:propertyDefaultCommand:propertyDefaultValue:propertyDefaultCondition
+    list PARAMETER set $*
+    #list PARAMETER env
+
+    call $thisClass $propertyName $propertyDefaultCommand $propertyDefaultValue $propertyDefaultCondition
+}
+
+property.set() {
+    checkAndFix "Property $propertyName" -n "$propertyName" "export $propertyName=$propertyDefaultValue" silent
+}
+
+call() {
+    debug.log " function ${FUNCNAME[0]}($*)"
+    class=$1
+    shift
+    if [ "$1" = "static" ]; then
+        shift
+        if [ "ON" = "$DEBUG" ]; then 
+            stepDebugger ON
+        fi
+        debug.log "do static call to $class $1"
+        staticCall $class $*
+        return 0
+    fi
+
+    if [ -z "$1" ]; then
+        echo $class methods are:
+        list methods
+    else
+        object=$1
+        shift
+        if [ -z "$1" ]; then
+            err.log "no object for $class.$method"
+            object=
+        else
+            debug.log ">> call $class.$1"
+            list methods find $1 
+            if [ -z "$found" ]; then
+                warn.log "Method $1 not found in class $class"
+                echo "$object methods are: $methods"
+                list methods
+            else
+                method=$1
+                shift
+                if [ "ON" = "$DEBUG" ]; then 
+                    stepDebugger ON
+                fi
+                $class.$method $*
+            fi
+        fi
+    fi   
+}
+
+
+staticCall() {
+    # like call but with no object required
+    debug.log " function ${FUNCNAME[0]}($*)"
+    class=$1
+    object=$class
+    shift
+
+    if [ -z "$1" ]; then
+        console.log $class methods are:
+        list methods
+    else
+        debug.log ">> call $class.static.$1 $*"
+        list methods find $1 
+        if [ -z "$found" ]; then
+            warn.log "Method $1 not found in class $class"
+            echo "$object methods are: $methods"
+            list methods
+        else
+            method=$1
+            shift
+            $class.static.$method $*
+        fi
+    fi   
+}
+
+
+
+once() {
+    thisClass=${FUNCNAME[0]}
+    class    $thisClass getInstance:check
+        property $thisClass EAMDdirectoryName      set EAMD.ucp
+        #echo ">>>>   EAMDdirectoryName    = $EAMDdirectoryName"
+
+        property $thisClass EAMDdirectory          set /$EAMDdirectoryName/
+        property $thisClass componentDir           set Components
+        property $thisClass scenarioDir            set Scenarios
+
+        property $thisClass workspacePrefix        set /var/dev
+        property $thisClass defaultWorkspace       set $workspacePrefix/$EAMDdirectoryName/$componentDir
+        property $thisClass EAMDWorkspace          set $workspacePrefix/$EAMDdirectoryName/
+
+        property $thisClass defaultUser            set $USERNAME
+        property $thisClass defaultUser            set $freemiumUser
+        property $thisClass loggedInUser           set $USER
+        
+        property $thisClass currentDirectory       set $(cd .;pwd)
+
+        property $thisClass defaultVersion         set 0.0.0-GIT-Repository
+        property $thisClass mochaTemplateDir       set ${EAMDdirectory}Components/tla/EAMD/MochaTemplates
+        property $thisClass mochaTemplateVerison   set 1.0.0
+
+        property $thisClass defaultGitServer       set wo-da.de
+        property $thisClass defaultGitUser         set developking
+        property $thisClass defaultGitRepo         set EAMD.ucp.v1.0
+
+
+        property $thisClass defaultStructrServer   set http://structr.cerulean.it:8082
+        property $thisClass defaultServer          set $defaultStructrServer
+        property $thisClass defaultQServer         set http://woda.q-nnect.com
+
+    #call ${FUNCNAME[0]} $*
+}
+
+once.getInstance() {
+    list ONCE_PROPERTIES clear
+}
+
+once.check() {
+    list ONCE_PROPERTIES env
+}
+
+## class op ##########################################
+
+op() {
+    thisClass=${FUNCNAME[0]}
+    class    $thisClass up:down:global:which:scripts
+    
+    staticCall ${FUNCNAME[0]} $*
+}
+
+op.static.up() {
+    debug.log "static requires no object"
+    debug.log "success: ${FUNCNAME[0]}($*)"
+    
+    scp -P 22 /Users/Shared/dev/Workspaces/2CUbitBucket/EAMD.ucp/Components/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd  developking@wo-da.de:/EAMD.ucp/Components/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd
+    echo eamd pushed 
+}
+
+op.static.scripts() {
+    debug.log "static requires no object"
+    debug.log "success: ${FUNCNAME[0]}($*)"
+
+    cd $userHome/scripts
+    rm $userHome/scripts/eamd
+    wget http://192.168.178.49:8080/EAMD.ucp/Components/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd -O $userHome/scripts/eamd
+    chmod 777 $userHome/scripts/eamd
+}
+
+op.static.global() {
+    debug.log "static requires no object"
+    debug.log "success: ${FUNCNAME[0]}($*)"
+
+    rm /usr/local/sbin/eamd
+    wget http://192.168.178.49:8080/EAMD.ucp/Components/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd -O /usr/local/sbin/eamd
+    chmod 777 /usr/local/sbin/eamd
+    list PATH rm .
+    PATH=$list
+    list PATH put .
+    PATH=$list
+    list PATH
+}
+
+op.static.down() {
+    debug.log "static requires no object"
+    debug.log "success: ${FUNCNAME[0]}($*)"
+
+    debug.log "op $*"
+
+    cd /root/scripts
+    rm /root/scripts/eamd
+    wget http://192.168.178.49:8080/EAMD.ucp/Components/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd -O /root/scripts/eamd
+    chmod 777 /root/scripts/eamd
+}
+
+op.static.which() {
+    debug.log "static requires no object"
+    debug.log "success: ${FUNCNAME[0]}($*)"
+    list PATH 
+    list PATH call "tree -L 1 " | grep -E -i -w 'eamd|ˆ\/'
+}
+
+
+## class user ##########################################
+user() {
+    thisClass=${FUNCNAME[0]}
+    class    $thisClass create:check:set:switch:run:init:log:delete
+    
+    call $thisClass $*
+}
+
+user.static.check() {
+    loop ${FUNCNAME[0]} . silent
+    thisMethod=$lastItem
+    debug.log "executing method: $thisClass.static.$thisMethod $*"
+
+    current=$1
+    if [ "$current" == "log" ]; then
+        log=true
+        current=
+    fi
+
+
+    if [ -z "$current" ]; then
+        user=root
+        debug.log "   Root User: $user"
+    else
+        user=$current
+    fi
+
+    if [ "$user" = "root" ]; then
+        userHome=/$user
+    else 
+        userHome=/home/$user
+    fi
+
+    if [ "$log" == "true" ]; then
+        console.log "   USER    : $USER"
+        console.log "   user    : $user"
+        console.log "   userHome: $userHome"
+        console.log "   whomai  : $(whoami)"
+    fi
+
+    shift
+
+    if [ "$2" == "create" ]; then
+        user create $user
+    fi
+}
+
+user.static.set() {
+    loop ${FUNCNAME[0]} . silent
+    thisMethod=$lastItem
+    debug.log "executing method: $thisClass.static.$thisMethod"
+
+    if [ -z "$1" ]; then
+        echo "ERROR: no USEER specified!     example: $thisClass freemiumUser <?log>"
+        return -1
+    fi
+    user $1 check log
+    if [ ! -d "$userHome" ]; then
+        user create $1 
+    fi
+}
+
+user.switch() {
+    loop ${FUNCNAME[0]} . silent
+    thisMethod=$lastItem
+    debug.log "executing method: $thisClass.static.$thisMethod"
+
+    if [ -z "$1" ]; then
+        echo "ERROR: no USEER specified!     example: $0 $thisClass $thisMethod freemiumUser <?log>"
+        return -1
+    fi
+    user static check $object log
+    if [ "$user" = "$(whoami)" ]; then
+        echo "I am alredy user: $user"
+        return 0
+    fi
+    if [ -d "$userHome" ]; then
+        echo exec su $user -c \"$0 $initialParameter\"
+        exec su $user -c "$0 $initialParameter"
+        exit $result
+    fi
+}
+
+user.static.create() {
+    loop ${FUNCNAME[0]} . silent
+    thisMethod=$lastItem
+    debug.log "executing method: $thisClass.static.$thisMethod"
+
+    if [ -z "$1" ]; then
+        echo "ERROR: no USEER specified!     example: $thisClass freemiumUser"
+        return -1
+    fi
+    if [ ! -d "$userHome" ]; then
+        checkPMs 
+        console.log "   User Home: $userHome    does not exist!      ... creating it"
+        $groupAddCommand dev
+        $userAddCommand -g dev $user
+    fi
+}
+
+user.static.log() {
+    printf "WHO am I: "
+    whoami
+}
+
+#test: eamd class user free run eamd class user depp check log
+user.run() {
+    loop ${FUNCNAME[0]} . silent
+    thisMethod=$lastItem
+    debug.log "executing method: $thisClass $object.$thisMethod"
+
+    if [ -z "$object" ]; then
+        echo "ERROR: no USEER object specified!     example: $0 $thisClass freemiumUser $thisMethod <?log>"
+        return -1
+    fi
+    user static check $object log
+    if [ "$user" = "$(whoami)" ]; then
+        echo "I am alredy user: $user"
+        return 0
+    fi
+    if [ -d "$userHome" ]; then
+        echo exec su $user -c \"$*\"
+        su $user -c "$*"
+        echo "try to continue"
+        #exit $result
+    fi
+}
+
+user.check() {
+    loop ${FUNCNAME[0]} . silent
+    thisMethod=$lastItem
+    console.log "executing method: $thisClass $object.$thisMethod $*"
+
+    current=$1
+    if [ "$current" == "log" ]; then
+        log=true
+        current=$object
+    fi
+
+
+    if [ -z "$current" ]; then
+        user=root
+        debug.log "   Root User: $user"
+    else
+        user=$current
+    fi
+
+    if [ "$user" = "root" ]; then
+        userHome=/$user
+    else 
+        userHome=/home/$user
+    fi
+
+    if [ "$log" == "true" ]; then
+        console.log "   USER    : $USER"
+        console.log "   user    : $user"
+        console.log "   userHome: $userHome"
+        console.log "   whomai  : $(whoami)"
+    fi
+
+    shift
+
+    if [ "$2" == "create" ]; then
+        user create $user
+    fi
+}
+
+## class log ##########################################
+############### eamd class log console list PATH silent
+log() {
+    thisClass=${FUNCNAME[0]}
+    shift
+    object=$1
+    shift
+    LOG_command=$1
+    shift
+
+    debug.log "log($object) > $LOG_command $*"
+
+    $LOG_command $*
+
+    debug.log "        done > $LOG_command $*"
+
+    if [ $LOG_command = "list" ]; then
+        echo "listname: $listname
+           firstItem: $firstItem | lastItem: $lastItem | current: $current
+           found: $found
+        
+        list: $list"
+        return 0
+    fi
+
+    if [ $LOG_command = "loop" ]; then
+        echo "list: $list
+           firstItem: $firstItem | lastItem: $lastItem | current: $current
+           found: $found
+        
+        list: $list"
+        return 0
+    fi
+    echo "$LOG_command result: $result"
+}
+
+
+
+
+
+## class init ##########################################
+init() {
+    thisClass=${FUNCNAME[0]}
+    class    $thisClass user:ssh:profile
+    
+    user static log
+    user free run eamd class user depp check log
+    user static log
+
+    #user check genius log create
+    #user run genius eamd test list PATH 
+    
+    call ${FUNCNAME[0]} $*
+}
+
+
+
+
+
+##  functional ##########################################
+
+create() {
+    shift
+    debug.log " function ${FUNCNAME[0]}($*)"
+    while [ -n "$1" ]; do
+        let i++
+        debug.log "Parameter($i): $1"
+
+        case $1 in
+            local)
+                debug.log "...disable git and server update"
+                gitEnabled="false";
+                serverUpdate="false";
+                ;;
+            component)
+                debug.log "...create component"
+                createComponent $2 $3 $4
+                break
+                ;;
+            weBean)
+                debug.log "create WeBean"
+                createWeBean $2 $3 $4
+                break
+                ;;
+            version)
+                debug.log "create version"
+                createVersion $2 $3 $4
+                break
+                ;;
+            descriptor)
+                debug.log "create descriptor"
+                createDescriptor $2 $3 $4
+                break
+                ;;
+
+             test)
+                debug.log "create test"
+                createTest $2 $3 $4
+                break
+                ;;
+             mochaTest)
+                debug.log "create mocha test"
+                createMochaTest $2 $3
+                break
+               ;;
+            *)
+                err.log "don\'t know $1"
+                console.log "You can create: component | descriptor | weBean | version | mochaTest"
+
+                ;;
+       esac
+
+        shift
+    done
+    echo "You can create:"
+    echo "      component some.component.Name 0.1.0"
+    echo "      local component some.component.Name 0.1.0"
+    echo "      version   some.component.Name 0.2.0"
+    echo "      weBean    . <?version> <?weBeanName=Name>"
+    echo "      test some.namespace.component 0.1.0"
+    echo "      mochaTest some.namespace.component 0.1.0"
+}
+
+createComponent() {
+    component=$1
+    version=$2
+    debug.log " function ${FUNCNAME[0]}(component:$1, version:$2 ...:$3)"
+
+    if [ -z "$version" ]; then
+        version=$defaultVersion
+    fi
+
+    createComponentNamescpaces $component $version
+
+    #createDir $componentPath/$componentName
+    #createDir $componentPath/$componentName/$version
+
+    createFile $workspacePrefix$componentPath/$componentName.component.xml
+    cd $workspacePrefix$componentPath
+
+    if [ "$gitEnabled" == "true" ]; then
+        git init
+    fi
+
+    eamd create weBean
+    eamd create mochaTest
+    if [ "$serverUpdate" == "true" ]; then
+        eamd update $component $version
+    fi 
+
+    getComponentDetails .
+
+    if [ "$gitEnabled" == "true" ]; then
+        console.log "xx1x git add ./*"
+        git add ./*
+
+        git commit -m "inital default files for $componentName/$version"
+        #git branch 1.0.0
+    fi
+
+    #cd ..
+    #git clone 0.0.0-GIT-Repository 1.0.0
+    #cd 1.0.0
+    #git checkout 1.0.0
+    #rm -Rf .git
+    #----
+    #cd $componentRootPath/$version
+    cd $componentAbsolutePath
+
+    eamd create version . 1.0.0
+
+    cd ../1.0.0
+    rm -Rf .git
+
+    getComponentDetails .
+
+    cd $workspacePrefix$EAMDdirectory$componentDir
+
+    if [ "$gitEnabled" == "true" ]; then
+        console.log "xx2x git add $componentRootPath*"
+        git add $componentRootPath*
+    fi
+
+    cd $workspacePrefix$EAMDdirectory$componentDir
+    if [ "$gitEnabled" == "true" ]; then
+        git status
+        console.log "xx4x git commit -m 'inital default files for $componentName/$version'"
+        git commit -m "inital default files for $componentName/$version"
+
+        console.log "xxx git push"
+        git push
+    fi
+
+    checkCommand tree
+    cd $workspacePrefix$componentRootPath
+    tree $workspacePrefix$componentRootPath
+}
+
+createComponentNamescpaces() {
+    component=$1
+    version=$2
+    debug.log " function ${FUNCNAME[0]}(component: $component, version: $version)"
+
+    init
+    namespace2ComponentPath $component $version
+    componentPath=$path
+
+    debug.log "      createComponentNamescpaces: $workspacePrefix$componentPath"
+    createPath $workspacePrefix$componentPath
+
+}
+
+createVersion() {
+    component=$1
+    newVersion=$2
+    oldVersion=$3
+    verion=$newVersion
+    debug.log " function ${FUNCNAME[0]}(component $component, newVersion: $newVersion, oldVersion $oldVersion)"
+
+    findComponent $component $oldVersion
+    oldVersion=$version
+
+    debug.log " function ${FUNCNAME[0]}(component $component, newVersion: $newVersion, oldVersion $oldVersion)"
+
+    current=$componentPath
+
+    debug.log "componentName $componentname, componentPath: $componentPath, current $current)"
+
+    if [ ! -d $current ]; then
+        err.log "$current does not exists"
+        exit -1
+    fi
+    current=$componentPath/../$newVersion
+    if [ ! -d $current ]; then
+    debug.log "componentName $componentname, componentPath: $componentPath, current $current)"
+        cp -R $componentPath $current
+        console.log "$current:"
+        ls -al $current
+    else
+        err.log "$current aready exists"
+        exit -1
+    fi
+
+}
+
+updateVersionTree() {
+    #echo "hello world"
+    component=$1
+    oldVersion=$2
+    newVersion=$3
+
+    verion=$newVersion
+    debug.log " function ${FUNCNAME[0]}(component $component, newVersion: $newVersion, oldVersion $oldVersion)"
+
+
+    getComponentDetails $component $oldVersion
+    oldVersion=$version
+
+    echo "cd $oldVersion"
+    cd $componentAbsolutePath
+    pwd
+
+    cd ../..
+    pwd
+
+    result=$( basename [A-Z]* )
+    #console.log "all SubComponents: $result"
+    components=$result
+
+
+
+   # list=$1
+   # next=$2
+   # seperator=$3
+   # first=$4
+   # last=$5
+   # prefix=$6
+   # suffix=$7
+
+
+    convertList "$components" " $newVersion $oldVersion \neamd create version $namespace." "" " eamd create version $namespace." " $newVersion $oldVersion" #"eamd create version " " $oldVersion $newVersion"
+    echo -e $result
+    #commands=$( echo -e $result )
+    #echo $commands
+}
+
+createFromNPM() {
+    component=$1
+    version=$2
+    npmPackageName=$3
+
+    if [ -z "$component" ]; then
+        component="."
+    fi
+
+    debug.log " function ${FUNCNAME[0]}(component $component, version: $version, npmPackageName $npmPackageName)"
+
+    #getComponentDetails $component $oldVersion
+    #oldVersion=$version
+    eamd create component $component $version
+    getComponentDetails $component $version
+
+    if [ -z "$component" ]; then
+        echo "npmPackageName not set..."
+    else
+        cd $componentAbsolutePath/src
+        pwd
+        npm i $npmPackageName@$version
+        ln -s node_modules/$npmPackageName/dist
+    fi
+
+
+
+
+}
+
+
+createWeBean() {
+    component=$1
+    if [ -z "$component" ]; then
+        component="."
+    fi
+    version=$2
+    weBeanName=$3
+    debug.log " function ${FUNCNAME[0]}(component $component, weBeanName: $weBeanName)"
+    if [ -z "$version" ]; then
+        version=$defaultVersion
+    fi
+
+    #createComponentNamescpaces $component
+    #findComponent $component $version
+    getComponentDetails $component $version
+
+    if [ -z "$weBeanName" ]; then
+        weBeanName=$componentName
+    fi
+    debug.log "workspacePrefix: $workspacePrefix  Path: $componentPath   Name: $componentName     weBeanName: $weBeanName"
+
+    createPath $workspacePrefix$componentRootPath/$version/src/html/weBeans
+    createFile $workspacePrefix$componentRootPath/$version/src/html/weBeans/$weBeanName.weBean.html
+
+    createPath $workspacePrefix$componentRootPath/$version/src/js
+    createFile $workspacePrefix$componentRootPath/$version/src/js/$weBeanName.class.js
+    
+    checkCommand tree
+    tree $workspacePrefix$componentRootPath$version/src
+
+}
+
+createDescriptor() {
+    current=$1
+    if [ -z "$current" ]; then
+        current=.
+    fi
+
+    debug.log " function ${FUNCNAME[0]}(path $current)"
+
+    createFile $current/Default.component.xml
+    update
+}
+
+createPath() {
+    console.log " function ${FUNCNAME[0]}($1) $@"
+
+
+    if [[ "$1" = /* ]]; then
+        cd "/"
+    fi
+
+    path=""
+    console.log "creating path in $(pwd)"
+
+    for current in ${1//// }; do
+
+        if [ -z "$path" ]; then
+            path=$current
+        else
+            path=$path/$current
+        fi
+        console.log "checking path: $path"
+
+        createDir $path
+    done
+}
+
+
+createDir() {
+    current=$1
+    if [ ! -d $current ]; then
+        debug.log "$current does not exist: creating it..."
+        mkdir -p $current
+    fi
+}
+
+createFile() {
+    current=$1
+    if [ ! -w $current ]; then
+        debug.log "$current does not exist: creating it..."
+        touch $current
+    fi
+}
+
+update() {
+    shift
+    debug.log " function ${FUNCNAME[0]}($1 $2 $3)"
+    component=$1
+
+    if [ -z "$component" ]; then
+        component=.
+    fi
+
+    findComponent $component $2 $3
+    getComponentDetails $component
+
+    echo "** componentRootPath: $componentRootPath"
+
+    if [ -w "$componentAbsolutePath/Default.component.xml" ]; then
+        console.log found
+        mv $componentAbsolutePath/Default.component.xml $componentAbsolutePath/$component.component.xml
+    fi
+
+    componentName=$component
+ #   createWeBean $component $version
+    cd $componentAbsolutePath/$version
+
+    downloadUnit . $componentName.component.xml
+    downloadUnit . src/html/weBeans/$componentName.weBean.html
+    downloadUnit . src/js/$componentName.class.js
+    
+    tmp.udateV1
+
+    #will be removed when fixed
+    #break;
+
+}
+
+tmp.udateV1() {
+    rm -Rf ../1.0.0
+    eamd create version . 1.0.0
+}
+
+
+namespace2ComponentPath() {
+    component=$1
+    version=$2
+    debug.log " function ${FUNCNAME[0]}(component: $component, version: $version)"
+
+    if [ "${component////}" = "$component" ] ; then
+        if [ "$component" = "." ]; then
+            debug.log "is path ."
+            path=.
+        else
+            debug.log "is namespcae"
+            namespace2path $component
+            componentName=$lastItem
+
+            path=$EAMDdirectory$componentDir$path$version
+        fi
+    else
+        debug.log "is path $component"
+        path=$component
+    fi
+
+    debug.log "looking for Component: $componentName in $path"
+}
+
+findComponent() {
+    debug.log " function ${FUNCNAME[0]}($1 $2 $3)"
+    component=$1
+    version=$2
+    if [ -z "$version" ]; then
+        version=$defaultVersion
+    fi
+    filePattern="*.component.xml"
+
+    namespace2ComponentPath $component $version
+    componentPath=$path
+
+    current=$path
+    dir=$path
+
+    while [ "$dir" != "$EAMDdirectoryName" ] && [ "$dir" != "/" ]; do
+        debug.log "$dir  --> $current"
+
+        if [ -d "$current" ] ; then
+            current=$(cd $current; pwd)
+        else
+            echo "$current is not a directory"
+            break;
+        fi
+
+        dir=$(basename $current)
+        debug.log "$dir  --> $current:    $current/$filePattern"
+
+        if ls $current/$filePattern 1> /dev/null 2>&1; then
+            break
+        else
+            debug.log "files do not exist"
+        fi
+        current=$current/..
+    done
+
+    if [ "$dir" == "$EAMDdirectoryName" ] || [ "$dir" == "/" ]; then
+        err.log "No component found. Please enter a Version directory of an existing component"
+        exit -1
+    fi
+
+    componentPath=$current
+    console.log "Found Component in: $componentPath"
+    version=$(basename $componentPath)
+}
+
+getComponentDetails() {
+    currentComponent=$1
+    if [ -z "$path" ]; then
+        currentComponent="."
+    fi
+    debug.log " function ${FUNCNAME[0]}(componentPath $currentComponent $2 $3)"
+    checkConfig
+
+    findComponent $currentComponent $2
+    #current=$1
+
+    filepath=$componentPath/../..
+    component=${filepath%/*}
+    component=$(cd $component; pwd)
+    component=$(basename $component)
+    debug.log "Component: $component    Path:$componentPath"
+
+    filepath=$componentPath/..
+    version=${filepath%/*}
+    version=$(cd $version; pwd)
+    version=$(basename $version)
+    debug.log "Version: $version"
+
+    workspace=""
+    # workspacePrefix=""  #first lines
+    workspaceFound=false
+    namespace=""
+    for current in ${componentPath//// }; do
+        debug.log "checking current: $current"
+
+
+        if $workspaceFound ; then
+                        debug.log "componentDir found: $componentDir"
+            if [ "$current" = "$componentDir" ]; then
+                namespace=""
+                debug.log "$componentDir found"
+            else
+                debug.log "is namespace: $current   -     $namespace"
+                if [ "$namespace" = "" ]; then
+                    namespace=$current
+                else
+                    namespace=$namespace.$current
+                fi
+            fi
+        else
+            workspacePrefix=$workspace
+            workspace=$workspace/$current
+        fi
+
+        if [ "$current" = "$EAMDdirectoryName" ]; then
+            workspaceFound=true
+            debug.log "Workspace found: $workspace"
+        fi
+
+        if [ "$current" = "$component" ]; then
+            break
+        fi
+    done
+
+    componentAbsolutePath=$componentPath
+    namespace2path $namespace
+    componentPath=$path
+    #componentRootPath=$workspace/$componentDir$componentPath
+    componentRootPath=/$EAMDdirectoryName/$componentDir$componentPath
+    componentName=$component
+
+    console.log "Component Path.....: componentAbsolutePath = $componentAbsolutePath"
+    console.log "$EAMDdirectoryName  Workspace: workspace       = $workspace"
+    console.log "$EAMDdirectoryName  Prefix   : workspacePrefix = $workspacePrefix"
+    console.log "Component Root Path: componentRootPath = $componentRootPath"
+    console.log "Component Namespace: namespace = $namespace"
+    console.log "Component Name.....: component = $component"
+    console.log "Component Version..: version = $version"
+    console.log "Component Descriptor         = $componentRootPath$version/$componentName.component.xml"
+}
+
+namespace2path() {
+    namespace=$1
+    debug.log " function ${FUNCNAME[0]}(namespace $namespace)"
+    convertList $namespace "/" "." "/" "/"
+    path=$result
+}
+
+path2namespace() {
+    path=$1
+    if [ -z "$path" ]; then
+        checkConfig
+        getComponentDetails .
+        path=$componentRootPath
+    fi
+
+    debug.log " function ${FUNCNAME[0]}(namespace $path)"
+    convertList $path "." "/"
+    namespcae=$result
+}
+
+convertList() {
+    list=$1
+    next=$2
+    seperator=$3
+    first=$4
+    last=$5
+
+    prefix=$6
+    suffix=$7
+
+
+    if [ -z "$first" ]; then
+        first=""
+    fi
+
+    if [ -z "$last" ]; then
+        last=""
+    fi
+
+    if [ -z "$prefix" ]; then
+        prefix=""
+    fi
+
+    if [ -z "$suffix" ]; then
+        suffix=""
+    fi
+
+    debug.log " function ${FUNCNAME[0]}(first $first, next: $next, last: $last, seperator: $seperator, list: $list)"
+
+    if [ -z "$list" ]; then
+        echo "usage: <?eamd test> ${FUNCNAME[0]} list newSeperator currentSeperator prefix suffix
+            eg: ${FUNCNAME[0]} 1:2:3:4  . : Hello World      
+                results in: Hello1.2.3.4World          and firstItem=1, lastItem=4
+        "
+    else
+        result=$first
+        firstItem=""
+        lastItem=""
+        for current in ${list//$seperator/ }; do
+                if [ "$result" = "$first" ]; then
+                    result=$result$current
+                else
+                    result=$result$next$current
+                fi
+            debug.log "$result"
+        done
+        result=$result$last
+        lastItem=$current
+        console.log "converted LIST: $result"
+    fi
+}
+
+loop() {
+    list="$1"
+    shift
+    seperator="$1"
+    shift
+    command="$1"
+    shift
+    item=$1
+    shift
+    option=$1
+    shift
+    nextCommand="$@"
+
+
+    
+
+
+    debug.log " function ${FUNCNAME[0]}(seperator $seperator, command: $command, item: $item, list: $list, option: $option)"
+
+    if [ -z "$list" ]; then
+        echo "usage: <?eamd test> ${FUNCNAME[0]} loop list <?seperator:":"> <?command:"echo "> <?item> <?moreItems>
+       <?eamd test> loop list <?command:echo > <?option:log> <?item...>
+       <?eamd test> loop list : <?option:silent>
+                   eg: ${FUNCNAME[0]} PATH 
+            commands are
+                add:    appends the new item       
+                put:    preppends the new item       
+                rm:     removes the item      
+                find:   stops at the item as last item
+                r:      replaces the seperator by item as a new seperator       
+                +:      concatenates items
+
+                env:    lists the environments variables values that are named in the list
+                set:    sets the items \$* values to the variables named in the list
+                clear:  clears environment variables named in the list
+
+                silent: just loops the list and sets $$firstItem and $$lastItem and results with $$list 
+
+            CAREFULL with these commands
+                test:   shows how call would call commands
+                call:   executes what was generated in with the test command               
+        "
+        length=0
+        firstItem=""
+        lastItem=""
+        reverse=""
+    else
+        result=""
+        if [ "$command" = "put" ]; then
+            result=$item
+        fi
+        if [ "$command" = "push" ]; then
+            result=$item
+        fi
+
+        if [ "$command" = "find" ]; then
+            found=""
+        fi
+
+        firstItem=""
+        lastItem=""
+        let i=0
+        for current in ${list//$seperator/ }; do
+            let i++
+            if [ "$firstItem" = "" ]; then
+                firstItem=$current
+            fi
+
+            if [ -z "$command" ]; then
+                command=silent
+                item=x
+            fi
+
+            case $command in
+                rm)
+                    debug.log "...remove..."
+                    if [ "$current" = "$item" ]; then
+                        continue
+                    fi
+
+                    if [ "$result" = "$first" ]; then
+                        result=$result$current
+                    else
+                        result=$result$seperator$current
+                    fi
+                    ;;
+                find)
+                    debug.log "...find..."
+                    if [ "$current" = "$item" ]; then
+                        found=$current
+                        break
+                    fi
+
+                    if [ "$result" = "$first" ]; then
+                        result=$result$current
+                    else
+                        result=$result$seperator$current
+                    fi
+                    ;;
+                +)
+                    debug.log "...concat..."
+                    if [ "$result" = "$first" ]; then
+                        result=$result$current
+                    else
+                        result=$result$seperator$current
+                    fi
+                    ;;
+                r)
+                    debug.log "...concat..."
+                    if [ "$result" = "" ]; then
+                        result=$current
+                    else
+                        result=$result$item$current
+                    fi
+                    ;;
+                add)
+                    if [ "$result" = "" ]; then
+                        result=$current
+                    else
+                        result=$result$seperator$current
+                    fi
+                    ;;
+                put)
+                    if [ "$result" = "" ]; then
+                        result=$current
+                    else
+                        result=$result$seperator$current
+                    fi
+                    ;;
+                push)
+                    if [ "$result" = "" ]; then
+                        result=$current
+                    else
+                        result=$result$seperator$current
+                    fi
+                    ;;
+                test)
+                    #echo "printf \"$item\n\"" $current
+                    echo $item $current ">>"$option
+                    ;;
+                call)
+                    $item $current >>$option
+                    ;;
+                env)
+                    echo "$current=${!current}"
+                    ;;
+                set)
+                    export $current=$1
+                    shift
+                    ;;
+                clear)
+                    export $current=""
+                    shift
+                    ;;
+                silent)
+                    if [ "$result" = "" ]; then
+                        result=$current
+                    else
+                        result=$result$seperator$current
+                    fi
+                    ;;
+                print)
+                    echo $current
+                    if [ "$result" = "" ]; then
+                        result=$current
+                    else
+                        result=$result$seperator$current
+                    fi
+                    ;;
+                reverse)
+                    debug.log "$current           and $reverse"
+                    reverse=$current$seperator$reverse
+                    ;;
+                *)
+                    echo "do not know ${FUNCNAME[0]} command: $command"
+            esac
+            
+        done
+        if [ "$command" = "add" ]; then
+            result=$result$seperator$item
+        fi
+        result=$result$last
+        export list=$result
+        lastItem=$current
+        length=$i
+
+        if [ "$command" = "reverse" ]; then
+            debug.log "reverse: $reverse"
+            list=$reverse
+        fi
+    fi
+    debug.log "firstItem: $firstItem"
+    debug.log "lastItem: $lastItem"
+    debug.log "length: $length"
+
+    if [ "$command" = "find" ]; then
+        if [ ! "$option" = "silent" ]; then
+            if [ "$found" = "" ]; then
+                warn.log "could not find: $item"
+            fi
+        fi
+    fi
+
+    if [ "$option" = "log" ]; then
+        console.log "result list: $list"
+    fi
+    if [ "$option" = "pipe" ]; then
+        echo "$list"
+    fi
+    if [ "$option" = "save" ]; then
+        save2file=$1
+        echo "$list 
+        save to: $save2file"
+        echo "$list" >$save2file
+        nextCommand=""
+    fi
+
+    if [ "$option" = "result" ]; then
+        save2file=$1
+        pwd
+        echo "$list
+        save results to: $save2file"
+        echo "list=$list" >$save2file
+        echo "firstItem=$firstItem" >>$save2file
+        echo "lastItem=$lastItem" >>$save2file
+        echo "length=$length" >>$save2file
+        nextCommand=""
+    fi
+
+    if [ -n "$nextCommand" ]; then
+        echo "call loop $result $nextCommand"
+        loop $list $nextCommand
+    fi
+
+}
+
+list() {
+    listname=$1
+    shift
+    command="$1"
+    shift
+    item=$*
+
+    if [ -z "$command" ]; then
+        command=test
+    fi
+
+
+    debug.log " function ${FUNCNAME[0]}(listname $listname, command: $command, item: $item, list: $list)"
+
+    if [ -z "$listname" ]; then
+        echo "usage: <?eamd test> ${FUNCNAME[0]} listname <?command:"echo "> <?item>
+            eg: ${FUNCNAME[0]} PATH 
+            commands are
+                add:    appends the new item       
+                put:    preppends the new item       
+                rm:     removes the item      
+                find:   stops at the item as last item
+                r;      replaces the seperator by item as a new seperator       
+                +:      concatenates items
+
+                silent: just loops the list and sets $$firstItem and $$lastItem and results with $$list 
+                
+            CAREFULL with these commands
+                test:   shows how call would call commands
+                call:   executes what was generated in with the test command               
+        "
+        length=0
+        firstItem=""
+        lastItem=""
+    else
+        debug.log "loop ${!listname} : $command $*"
+        loop ${!listname} : $command $*
+    fi
+}
+
+findVersions() {
+    component=$1
+    getComponentDetails $component $2
+
+    debug.log " function ${FUNCNAME[0]}(component $component)"
+    cd $componentAbsolutePath/..
+    result=$( basename [0-9]* )
+    console.log "all Versions:"
+    versions=$result
+
+    convertList "$versions" ", " "\ " #"[ " " ]"
+    latestVersion=$lastItem
+    console.log "latest Version: $latestVersion"
+}
+
+downloadComponentDescriptor() {
+    component=$1
+    if [ "$component" = "." ]; then
+        #findComponent $component
+        getComponentDetails $componentPath
+    fi
+    debug.log " function ${FUNCNAME[0]}(component $component)"
+
+    downloadFile $componentRootPath$version/$component.component.xml $componentAbsolutePath/$component.component.xml
+}
+
+downloadUnit() {
+    component=$1
+    unit=$2
+    if [ "$component" = "." ]; then
+        #findComponent $component
+        getComponentDetails $component $2
+    fi
+    debug.log " function ${FUNCNAME[0]}(component $component)"
+
+    downloadFile $componentRootPath$version/$unit $componentAbsolutePath/$unit
+}
+
+downloadFile() {
+    remoteFile=$1
+    localFile=$2
+    debug.log " function ${FUNCNAME[0]}(remoteFile $remoteFile, localFile $localFile)"
+    console.log "downloading $defaultServer$remoteFile"
+    console.log "         to $localFile"
+    curl -o $localFile $defaultServer$remoteFile
+}
+
+
+createDevEnvironment() {
+    devPath=$1
+    if [ -z "$devPath" ]; then
+        devPath=/var/
+    fi
+    debug.log " function ${FUNCNAME[0]}(devPath $devPath)"
+
+    createPath $devPath/dev/Server
+    createPath $devPath/dev/IDE
+    createPath $devPath/dev/GIT-Repositories
+    createPath $devPath/dev/Workspaces
+    createPath $devPath/dev/Workspaces/UCP
+    createPath $devPath/dev/Workspaces/eclipse
+    createPath $devPath/dev/Workspaces/structr
+}
+
+setupUser() {
+    userPath=$1
+    if [ -z "$userPath" ]; then
+        userPath="~/"
+    fi
+
+    createPath $userPath/scripts
+    ln -s $0 $userPath/scripts
+    echo PATH=$PATH:$userPath/scripts
+}
+
+lookupDescriptor() {
+    name=$1
+    debug.log " function ${FUNCNAME[0]}(devPath $name)"
+
+    curl ${defaultServer}/structr/rest/UcpComponentDescriptor?name=$name.component.xml | tr -d '\n' |   grep -o '"[A-Za-z_][A-Za-z_0-9]\+"\s*:\s*\("[^"]\+"\|[0-9\.]\+\|true\|false\|null\)' |   sed 's/"\(.*\)"\s*:\s*"\?\([^"]\+\)"\?/\1="\2"/'
+
+    if [ -z "$path" ]; then
+        err.log "$name not found"
+    else
+        console.log "Descriptor File: $path"
+    fi
+
+
+}
+
+createTest() {
+    component=$1
+    if [ -z "$component" ]; then
+        component="."
+    fi
+    version=$2
+    weBeanName=$3
+    debug.log " function ${FUNCNAME[0]}(component $component, version $version, weBeanName: $weBeanName)"
+    if [ -z "$version" ]; then
+        version=$defaultVersion
+    fi
+
+    #createComponentNamescpaces $component
+    #findComponent $component $version
+    getComponentDetails $component $version
+
+    if [ -z "$weBeanName" ]; then
+        weBeanName=$componentName
+    fi
+    debug.log "Path: $componentPath   Name: $componentName     weBeanName: $weBeanName"
+
+    # check if the component and version are ok, only then create the test file
+
+    if ls $componentAbsolutePath 1> /dev/null 2>&1; then
+        createPath $componentRootPath/$version/test/html/
+        createFile $componentRootPath/$version/test/html/${weBeanName}Test.html
+        checkCommand tree
+		tree $componentRootPath$version/test
+    else
+        echo "Either component or version is wrong! Enter the component with namespace eg. com.twitter.Bootstrap.Button"
+    fi
+}
+
+createMochaTest(){
+    component=$1
+    if [ -z "$component" ]; then
+        component="."
+    fi
+    version=$2
+
+    if [ -z "$version" ]; then
+        version=$defaultVersion
+    fi
+    echo "createMochaTest $component $version"
+    getComponentDetails $component $version
+
+    src="$mochaTemplateDir/$mochaTemplateVerison/js/default.js"
+
+    dstDir="$componentAbsolutePath/test/js"
+    dst="$dstDir/${component}.mochaTest.js"
+    descriptor="$componentRootPath$version/$componentName.component.xml"
+
+    createDir $dstDir
+    cat $src |sed s/%ComponentName%/$component/ | sed s/%ComponentVersion%/$version/ | awk "{ gsub(/%ComponentDescriptor%/, \"$descriptor\"); print }" > $dst
+
+}
+
+createTestFileForAllComponents() {
+
+    findAllLocalComponents
+
+    ctr=0
+    oddEven=0
+    npath=${p//@/ }
+
+    for i in $npath
+    do
+        #echo $i
+        let ctr++
+        oddEven=`expr $ctr % 2`
+
+        if [ $oddEven -eq 1 ]; then
+            component=$i
+        fi
+
+        if [ $oddEven -eq 0 ]; then
+            version=$i
+            if [ ! "$version" == "null" ]; then
+                component=${component//"/"/"."}
+                component=${component/".EAMD.ucp.Components."}
+                component=${component/%".$version".*/}
+                console.log "can call createtest with parameters $component and $version"
+                createTest $component $version
+            fi
+        fi
+    done
+    #echo $lst
+}
+
+findAllStructrUcpComponents() {
+    name=$1
+    debug.log " function ${FUNCNAME[0]}(devPath $name)"
+
+
+   path=$(curl -s ${defaultServer}/structr/rest/UcpComponentDescriptor/ui| jq '.result[]| "\(.path) \(.version | "\(.name)")"')
+   path=${path//.component.xml/@}
+   path=${path//\"/}
+   ctr=0
+    #echo $path
+    for i in $path
+    do
+        #echo $i
+         v=`expr $ctr % 2`
+
+        if [ $ctr -eq 0 ]; then
+        #echo "in first call"
+            p=$i
+        else
+            #echo $ctr
+            if [ $v -eq 0 ]; then
+            #echo "calling the path2namespace"
+                #path2namespace $i
+
+                #namespcae=${namespcae/"/"/"."}
+                namespcae=${namespcae/"/EAMD.ucp/Components/"/}
+                # echo "result of eamd replacement $namespcae"
+                #namespcae=${namespcae/$version.*/}
+                p+=$namespcae
+            #echo "result of namespace $namespcae"
+            else
+                p+=$i
+            fi
+        fi
+
+        if [ $v -gt 0 ]; then
+           #p="$p
+             #"
+			p+=$'\n'
+        fi
+
+        let ctr++
+
+    done
+
+
+    if [ -z "$path" ]; then
+        err.log "$name not found"
+    else
+        echo "$p"
+    fi
+
+
+}
+
+findAllLocalComponents() {
+
+    dWorkspace=$currentDirectory
+    debug.log " function ${FUNCNAME[0]}()"
+    debug.log " find /$EAMDdirectoryName/$componentDir -name *.component.xml"
+    list=`find "/$EAMDdirectoryName/$componentDir" -name "*.component.xml"`
+    # -exec createTest {} \;
+
+    for i in $list
+    do
+
+                namespcae=${i/"$/$EAMDdirectoryName/$componentDir/"/}
+
+                component=`echo $namespcae | rev | cut -d'/' -f-1 | rev`
+
+                namespcae=${namespcae/$component/}
+                component=${component/".component.xml"}
+
+                version=`echo $namespcae | rev | cut -d'/' -f-2 | rev`
+                version=${version/'/'}
+
+                namespcae=${namespcae/$version}
+                namespcae=${namespcae/"//"}
+                namespcae=${namespcae//"/"/.}
+
+                p+=$namespcae@$version
+
+			p+=$'\n'
+    done
+
+
+    if [ -z "$p" ]; then
+        err.log "$p not found"
+    else
+        echo "$p"
+    fi
+
+
+}
+
+
+repo() {
+    debug.log " function ${FUNCNAME[0]}($*)"
+    checkCommand git
+
+    if [ -z "$1" ]; then
+        echo "You can repo:
+    config
+    sync
+    master <?user:root>
+    dev - switch to origin/nextVersion
+    latestStable
+    hackathon
+    components
+        "
+    fi
+
+    while [ -n "$1" ]; do
+        let i++
+        debug.log "Parameter($i): $1"
+
+        case $1 in
+            sync)
+                debug.log "...init bshrc"
+                #stepDebugger ON
+                #. $userHome/scripts/templates/.bashrc
+                initProfile $2
+                ;;
+            config)
+                debug.log "...$0 ${FUNCNAME[0]}($*)"
+                #checkCommand tree
+                echo ">>> Current EAMD Repository Configuration:
+                "
+                echo ">>> $EAMDdirectory"
+                tree -L 1 $EAMDdirectory
+                echo "
+                "
+                current=$(cd $defaultWorkspace/../..;pwd)
+                echo ">>> $current"
+                tree -L 2 $current
+                    ;;
+            master)
+                debug.log "...switch to master branch"
+                cd $defaultWorkspace
+                git checkout master 
+                break
+                ;;
+            dev)
+                debug.log "... switch branch to origin/nextVersion"
+                cd $defaultWorkspace
+                git checkout nextVersion
+                break
+                ;;
+            latestStable)
+                debug.log "... switch branch to origin/latestStable"
+                cd $defaultWorkspace
+                git checkout latestStable 
+                break
+                ;;
+            hackathon)
+                debug.log "... switch branch to origin/hackathon"
+                cd $defaultWorkspace
+                git checkout -b hackathon --track origin/hackathon
+                break
+                ;;
+            components)
+                debug.log "create descriptor"
+                warn.log $2 $3 $4
+                break
+                ;;
+            *)
+                err.log "don\'t know command: $1"
+                console.log "You can do $0 ${FUNCNAME[0]}: sync | master | dev | hackathon | latestStable"
+
+                ;;
+       esac
+
+        shift
+    done
+
+
+}
+
+
+
+stepDebugger() {
+    echo " function ${FUNCNAME[0]}($1)"
+    if [ "$1" = "ON" ]; then
+        echo step debugger is now ON
+        trap step DEBUG
+    fi
+}
+
+function step {
+    set +x
+    if [[ -n "$BASH_COMMAND" ]]; then
+      echo "<-----------------------------------------"
+      echo \> \'$BASH_COMMAND\'
+      read -p '' CONT
+
+      #warn.log "Cont: $CONT"
+
+      if [[ ! "$CONT" = "" ]]; then
+          case $CONT in
+              h)
+                  echo "
+                  h     this help
+                  n     next command   
+                  ENTER silent next command
+
+                  d     toggle debug messages
+                  s     continue silently
+                  c     in full debug
+                  p     print PATH
+                  ll    list dir
+                  cd    changing to entered path
+                  r     tree root
+                  home  tree home
+                  i     check eamd
+                  eamd  tree workspace
+
+                  cmd   runn command (BE CAREFULL)
+
+                  all other commands exit
+                  "
+                  step
+                  ;;
+              p)
+                  console.log "PATH=$PATH"
+                  step
+                  ;;
+              s)
+                  trap "" DEBUG
+                  trap
+                  echo "cleard TRAP DEBUG"
+                  export DEBUG=
+                  set +x
+                  ;;
+              ll)
+                  pwd
+                  ls -alF
+                  step
+                  ;;
+              r)
+                  tree -aL 2 /root
+                  step
+                  ;;
+              home)
+                  tree -aL 2 /home
+                  step
+                  ;;
+              eamd)
+                  tree -aL 2 /$defaultWorkspace/..
+                  step
+                  ;;
+              i)
+                  eamd check
+                  step
+                  ;;
+              cd)
+                  read -p 'cd to?   >' CD_DIR
+                  cd $CD_DIR
+                  step
+                  ;;
+              cmd)
+                  read -p 'command?  BE CAREFULL >' command
+                  set -x
+                  $command
+                  step
+                  ;;
+
+              c)
+                  trap "" DEBUG
+                  trap
+                  echo "cleard TRAP DEBUG"
+                  export DEBUG=
+                  set -x
+                  ;;
+              d)
+                if [ "ON" = "$DEBUG" ]; then 
+                  DEBUG=OFF
+                else
+                  DEBUG=ON
+                fi
+                warn.log "Toggeld DEBUG to $DEBUG"
+                  step
+                  ;;
+              n)
+                echo "      next..."
+                set -x
+                ;;
+              *)
+                  warn.log "Exiting prematurely because of command $CONT"
+                  exit 1
+                  ;;
+          esac
+      else
+        set +x
+      fi
+      #warn.log "$CONT"
+      #set -x
+    fi
+  }
+
+checkUser() {
+    if [ -z "$1" ]; then
+        user=root
+        debug.log "   Root User: $user"
+    else
+        user=$1
+    fi
+
+    if [ "$user" = "root" ]; then
+        userHome=/$user
+    else 
+        userHome=/home/$user
+    fi
+    
+    debug.log "   User Home: $userHome"
+    gitUserHome=$(cd ~/.;pwd)
+    debug.log "GitUser Home: $gitUserHome"
+    console.log "checkUser userHome: $userHome"
+
+    if [ ! -d "$userHome" ]; then
+        checkPMs 
+        debug.log "   User Home: $userHome    does not exist!      ... creating it"
+        $groupAddCommand dev
+        $userAddCommand -g dev $user
+    fi
+}
+
+checkInstallation() {
+    shift
+    debug.log " function ${FUNCNAME[0]}($*)"
+
+    checkUser $1
+
+    #USERNAME is defined in the Dockerfile for WODA immage "woda" as workspace
+    USERNAME=$user
+
+
+    #NAME is defined in the Dockerfile for WODA immage "woda" as workspace
+    if [ -z "$NAME" ]; then
+        targetDir=$workspacePrefix
+    else
+        targetDir=$userHome/$NAME
+    fi
+
+    echo ""
+    echo ""
+    checkOne "User initialized" -d $userHome/scripts "eamd init user"
+    checkOne "User $user" -d $userHome/scripts "eamd init user $user"
+    checkOne "profile" -G $userHome/.bashrc "eamd init profile $user"
+    checkOne "SSH Keys" -d $userHome/.ssh "eamd init ssh $user"
+    #checkOne workspace -d $workspace "eamd init components"
+    checkOne workspacePrefix -d $workspacePrefix "eamd init all"
+    checkOne EAMDdirectory -d $EAMDdirectory "eamd init links"
+    checkOne "EAMD Componnents" -d $defaultWorkspace "eamd init fix"
+
+    checkOne "EAMD Repositiory" -d $defaultWorkspace/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/ "eamd init components"
+
+    #repo config
+
+    checkConfig list
+    echo "-------------------
+    done - SUCESS"
+}
+
+checkConfig() {
+    debug.log " function ${FUNCNAME[0]}($1, $2,$3)"
+
+    if [ -z "$currentDirectory" ]; then
+        currentDirectory=$(pwd)
+        debug.log currentDirectory $currentDirectory
+    fi
+
+    if [ -d $currentDirectory ]; then
+        workspace=""
+        previous=""
+        current=""
+        next=""
+        # workspacePrefix=""  #first lines
+        for current in ${currentDirectory//// }; do
+            debug.log "checking namespace: $current"
+            debug.log "checking path: $previous/$current"
+
+            if [ -n "$workspace" ]; then
+                next=$current
+                break
+            else
+                workspacePrefix=$previous
+                previous=$previous/$current
+            fi
+            if [ "$current" = "$EAMDdirectoryName" ]; then
+                workspace=$previous
+            fi
+        done
+        componentDir=$next
+        checkAndFix "componentDir" -n "$componentDir" "export componentDir=Components" silent
+
+        if [ "$workspacePrefix" = "/home" ]; then
+            debug.log "currently in User Home: $workspace"
+            userHome=$currentDirectory
+            workspacePrefix=$userHome/Workspace
+            workspace=$workspacePrefix/$EAMDdirectoryName
+            currentWorkspace=$workspace/Components
+        fi
+
+        if [ "$workspace" = "" ]; then
+            debug.log "**** NO WORKSPACE: $workspace"
+            #userHome=$currentDirectory
+            workspacePrefix=$currentDirectory
+            workspace=$currentDirectory/$EAMDdirectoryName
+            currentWorkspace=$workspace/Components
+        fi
+
+
+        if [ -z "$user" ]; then
+            user=$defaultUser
+        fi
+        #checkAndFix "workspace" -n "$workspace" "export workspace=$(cd $workspacePrefix/$EAMDdirectoryName;pwd)" silent
+        currentWorkspace=$workspace/$componentDir
+    else
+        err.log "current Workspace does not exist: $currentDirectory"
+        exit -1
+    fi
+
+
+
+    if [ "$1" = "list" ]; then
+    echo "
+           
+  attributes
+    EAMDdirectory.......: $EAMDdirectory
+    componentDir........: $componentDir
+    scenarioDir.........: $scenarioDir
+
+    workspace...........: $workspace
+    workspacePrefix.....: $workspacePrefix
+    currentWorkspace....: $currentWorkspace
+    currentDirectory....: $currentDirectory
+    
+    user................: $user
+    userHome............: $userHome
+    loggedInUser........: $loggedInUser
+
+  properties:
+    EAMDdirectoryName...: $EAMDdirectoryName
+    scenarioDir.........: $scenarioDir
+
+    defaultWorkspace....: $defaultWorkspace        
+
+    defaultServer.......: $defaultServer
+    defaultGitRepo......: $defaultGitRepo
+    defaultUser.........: $defaultUser
+
+    defaultGitServer....: $defaultGitServer 
+    defaultGitUser......: $defaultGitUser
+
+    defaultVersion......: $defaultVersion
+    mochaTemplateDir....: $mochaTemplateDir
+    mochaTemplateVerison: $mochaTemplateVerison
+
+    "    
+    fi
+
+}
+
+checkOne() {
+    debug.log " function ${FUNCNAME[0]}(current:$1, condition:$2 value:$3)"
+    if [ $2 $3 ]; then
+    	echo "ok            : $1: $3"
+    else
+        echo "does not exist: $1: $3" 
+        echo ">     fix with:                                          $4"
+    fi
+}
+
+checkCommand() {
+    current=$1
+    package=$2
+    if [ -z "$package" ]; then
+        package=$current
+    fi   
+
+    checkPMs
+    if ! [ -x "$(command -v $current)" ]; then
+        echo "no $current"
+        if [ -n "$PM" ]; then
+            $PM $package
+        else
+            echo no package manger
+        fi
+    fi
+}
+
+checkPMs() {
+    checkPM brew "brew install"    
+    checkPM apt "apt-get -y install" "groupadd -f" "useradd -g dev"
+    checkPM apk "apk add" "addgroup" "adduser -g dev"
+    checkPM dpkg "dpkg install"
+}
+
+checkPM() {
+    packageManager=$1
+    packageManagerCommand=$2
+
+
+    if [ -z "$packageManagerCommand" ]; then
+        package=$packageManager
+    fi   
+    if ! [ -x "$(command -v $packageManager)" ]; then
+        debug.log "no $packageManager"
+    else
+        if [ -z "$PM" ]; then
+            export PM=$packageManagerCommand
+            export groupAddCommand=$3
+            export userAddCommand=$4
+            echo "Package Manager found: using $PM somePackage"
+            if [ "$packageManager" = "apt" ]; then
+                apt-get update
+            fi
+        fi
+    fi
+}
+
+
+
+
+
+component() {
+    shift
+    debug.log " function ${FUNCNAME[0]}($*)"
+    while [ -n "$1" ]; do
+        let i++
+        debug.log "Parameter($i): $1"
+
+        case $1 in
+            export)
+                debug.log "...export"
+                #stepDebugger ON
+                #. $userHome/scripts/templates/.bashrc
+                componentExport $2
+                break
+                ;;
+            exportVersion)
+                debug.log "...export"
+                #stepDebugger ON
+                #. $userHome/scripts/templates/.bashrc
+                componentExportVersion $2
+                break
+                ;;
+            import)
+                debug.log "...componentImport"
+                componentImport $*
+                break
+                ;;
+            *)
+                err.log "don\'t know $1"
+                console.log "You can component: export | import | profile | ssh | components | 3rdPartyComponents"
+
+                ;;
+       esac
+
+        shift
+    done
+    echo "You can component:"
+    echo "      export"
+    echo "      import <?user:root>"
+    echo "      ssh <?user:root>"
+    echo "      bash"
+    echo "      profile"
+    echo "      components"
+    echo "      3rdPartyComponents"
+    echo ""
+
+}
+
+componentExport() {
+    shift
+    debug.log " function ${FUNCNAME[0]}($1 $2 $3)"
+    component=$1
+
+    if [ -z "$component" ]; then
+        component=.
+    fi
+
+    findComponent $component $2 $3
+    getComponentDetails $component
+
+    checkCommand zip
+
+    cd $defaultWorkspace
+    namespace2path $namespace
+
+    zip -r $component.zip $defaultWorkspace/$componentDir$path
+    checkAndFix "component export path" -d $defaultWorkspace/../export "createPath $defaultWorkspace/../export"
+    cd $defaultWorkspace
+    mv $component.zip $defaultWorkspace/../export
+    echo ""
+
+    echo "done - SUCESS"
+}
+
+packageExport() {
+    package=$(pwd)
+
+    cd $defaultWorkspace
+    namespace2path $namespace
+    zip -r $1-package.zip $package
+    checkAndFix "component export path" -d $defaultWorkspace/../export "createPath $defaultWorkspace/../export"
+    cd $defaultWorkspace
+    mv $1-package.zip $defaultWorkspace/../export
+    echo ""
+
+    echo "done - SUCESS"
+}
+
+componentExportVersion() {
+    shift
+    debug.log " function ${FUNCNAME[0]}($1 $2 $3)"
+    component=$1
+
+    if [ -z "$component" ]; then
+        component=.
+    fi
+
+    findComponent $component $2 $3
+    getComponentDetails $component
+
+    checkCommand zip
+
+    cd $defaultWorkspace
+    namespace2path $namespace
+    zip -r $component.$version.zip .$path$version
+    checkAndFix "component export path" -d $defaultWorkspace/../export "createPath $defaultWorkspace/../export"
+    cd $defaultWorkspace
+    mv $component.$version.zip $defaultWorkspace/../export
+    echo ""
+
+    echo "done - SUCESS"
+}
+
+componentImport() {
+    shift
+    debug.log " function ${FUNCNAME[0]}($1 $2 $3)"
+    component=$1
+    targetDir=$2
+    if [ -z "$targetDir" ]; then
+        targetDir=$defaultWorkspace
+    fi
+
+    if [ -z "$component" ]; then
+        echo ""
+
+        echo "done - FAILED: please specify zip file e.g.: eamd component import Better.2.0.0.zip"
+        exit -1
+    fi  
+
+    checkCommand unzip
+
+
+    #cd $targetDir
+    cd /
+    unzip $defaultWorkspace/../export/$1
+    echo ""
+
+    echo "done - SUCESS"
+}
+
+
+oinit() {
+    shift
+    debug.log " function ${FUNCNAME[0]}($*)"
+
+    if [ -z "$1" ]; then
+        echo "You can do: ${FUNCNAME[0]} repo:
+         all
+         user <?user:root>
+         ssh <?user:root>
+         bash
+         profile
+         components
+         3rdPartyComponents
+        "
+    fi
+
+    while [ -n "$1" ]; do
+        let i++
+        debug.log "Parameter($i): $1"
+
+        case $1 in
+            profile)
+                debug.log "...init bshrc"
+                #stepDebugger ON
+                #. $userHome/scripts/templates/.bashrc
+                initProfile $2
+                ;;
+            all)
+                debug.log "...init EAMDdirectory ($*)"
+                checkUser $defaultUser
+
+                initSSH
+                initSSH $defaultUser
+                
+                #stepDebugger ON
+                
+                initEAMDComponents
+                initEAMDdirectory
+                op which
+                break
+                ;;
+            links)
+                initEAMDdirectory $2
+                break
+                ;;
+            user)
+                debug.log "... init User"
+                initUser $2 $3 $4
+                break
+                ;;
+            ssh)
+                debug.log "... init SSH"
+                initSSH $2 $3 $4
+                break
+                ;;
+            components)
+                debug.log "checkout repository"
+                initEAMDComponents
+                break
+                ;;
+            3rdPartyComponents)
+                debug.log "create 3rdPartyComponents"
+                cd $defaultWorkspace/..
+                mkdir 3rdPartyComponents
+                break
+                ;;
+            *)
+                err.log "don\'t know eamd init $1"
+                console.log "You can init: all | user | profile | ssh | components | 3rdPartyComponents"
+
+                ;;
+       esac
+
+        shift
+    done
+
+    checkInstallation
+}
+
+initEAMDdirectory() {
+
+    debug.log " function ${FUNCNAME[0]}(currentDirectory:$1, $2 $3)"
+    #if [ -n "$1" ]; then
+    #    currentDirectory=$1
+    #    debug.log currentDirectory $currentDirectory
+    #fi
+    checkConfig 
+
+    checkAndFix "EAMDdirectory Root" -d $workspacePrefix/$EAMDdirectoryName "createPath $workspacePrefix/$EAMDdirectoryName"
+    checkAndFix "EAMDdirectory Workspace" -d $defaultWorkspace "rm $defaultWorkspace"
+    checkAndFix "EAMDdirectory Workspace" -d $defaultWorkspace "createDir /var/dev/$EAMDdirectoryName"
+    checkAndFix "EAMDdirectory Workspace" -d $defaultWorkspace "ln -s $currentWorkspace $defaultWorkspace"
+    #checkAndFix "EAMD directory components" -d $defaultWorkspace/.git "eamd init components"
+    checkAndFix "/root/scripts/eamd" -L "/root/scripts/eamd" "rm /root/scripts/eamd" 
+    checkAndFix "/root/scripts/eamd" -L "/root/scripts/eamd" "ln -s $currentWorkspace/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd /root/scripts/eamd" 
+    
+    checkAndFix "userHome" -n "$userHome" "checkUser $loggedInUser" 
+    checkAndFix "$userHome/scripts/eamd" -L "$userHome/scripts/eamd" "rm $userHome/scripts/eamd" 
+    checkAndFix "$userHome/scripts/eamd" -L "$userHome/scripts/eamd" "ln -s $currentWorkspace/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd $userHome/scripts/eamd" 
+
+    checkConfig list
+    op which
+
+    if [ ! -d $EAMDdirectory ]; then
+        err.log "$EAMDdirectoryName Directory does not exist: $EAMDdirectory"
+        if [ ! -L $EAMDdirectory ]; then
+            err.log "current Link does not exist: $EAMDdirectory"
+            console.log "create link $EAMDdirectory --> $workspace"
+            createPath $EAMDdirectory
+            ln -sf  $workspace/$componentDir $EAMDdirectory$componentDir
+        else
+            console.log "EAMD.ucp exists and is a link"
+        fi
+    else
+        console.log "$EAMDdirectoryName Directory exists: $EAMDdirectory"
+        if [ ! -d $EAMDdirectory/Components ]; then
+            rm $EAMDdirectory/Components
+        fi
+        if [ ! -L $EAMDdirectory/Components ]; then
+            err.log "current Link does not exist: $EAMDdirectory/Components"
+            console.log "create link $EAMDdirectory/Components --> $workspace"
+            createPath $EAMDdirectory
+            ln -sf  $defaultWorkspace $EAMDdirectory/Components
+        else
+            console.log "EAMD.ucp/Components exists and is a link"
+        fi
+    fi
+}
+
+initEAMDComponentsOriginal() {
+    debug.log " function ${FUNCNAME[0]}(currentDirectory:$1, $2 $3)"
+
+
+    createPath "$workspacePrefix/$EAMDdirectoryName"
+    cd $workspacePrefix/$EAMDdirectoryName
+    if [ -d $workspacePrefix/$EAMDdirectoryName/$componentDir/.git ]; then
+        console.log "$workspacePrefix/$EAMDdirectoryName/$componentDir is present"
+    else
+        console.log "cloning git repository into $workspacePrefix/$EAMDdirectoryName/$componentDir"
+
+        checkCommand ssh openssh
+        checkCommand git
+
+
+        if [ ! -d $workspacePrefix/$EAMDdirectoryName/$defaultGitRepo ]; then
+            git clone -c core.symlinks=true $defaultGitUser@$defaultGitServer:/var/dev/GIT/$defaultGitRepo.git -q
+        fi
+
+       #stepDebugger ON
+        echo workspacePrefix $workspacePrefix
+        if [ -d $workspacePrefix/$EAMDdirectoryName/$componentDir ]; then
+            mv $workspacePrefix/$EAMDdirectoryName/$componentDir $workspacePrefix/$EAMDdirectoryName/$componentDir.old
+            warn.log "moved previous Components away"
+        fi
+        mv $defaultGitRepo $componentDir
+        cd Components
+        git checkout -b nextVersion --track origin/nextVersion
+    fi
+
+    if [ -d /$EAMDdirectoryName ]; then
+        console.log "/$EAMDdirectoryName is present"
+    else
+        warn.log "missing /$EAMDdirectoryName"
+        console.log "creating /$EAMDdirectoryName"
+        mkdir /$EAMDdirectoryName
+        chown $user /$EAMDdirectoryName
+        cd /EAMD.ucp
+        ln -s $workspacePrefix/$EAMDdirectoryName/$componentDir
+    fi
+
+    if [ -w "$workspacePrefix/EAMD.ucp/Components/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd" ]; then
+        if [ -w "$userHome/scripts/eamd" ]; then
+            rm $userHome/scripts/eamd
+        fi
+        cd $userHome/scripts
+        ln -s $workspacePrefix/EAMD.ucp/Components/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd
+        echo "eamd ist now a Link in scripts"
+    fi
+
+    if [ -n "$user" ]; then
+        echo User is /$user/ ...changing ownership
+        cd /home
+        chown -R $user:$user $user
+        chown -R $user:$user /EAMD.ucp/Components/.git
+    fi
+
+    echo "SUCCESS   all went well"
+}
+
+initEAMDComponents() {
+    debug.log " function ${FUNCNAME[0]}(currentDirectory:$1, $2 $3)"
+
+    checkCommand ssh openssh
+    checkCommand git
+    checkConfig list
+
+    #stepDebugger ON
+
+    checkAndFix "Workspace" -d "$workspacePrefix" "createDir $workspacePrefix"
+    cd $workspacePrefix
+    console.log "$workspacePrefix  ...  starting to clone"
+    
+    if [ -x $currentWorkspace/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd ]; then
+        console.log "Component already present !!!   $defaultUser"
+
+        checkAndFix "/root/scripts/eamd" -L "/root/scripts/eamd" "rm /root/scripts/eamd" 
+        checkAndFix "/root/scripts/eamd" -L "/root/scripts/eamd" "ln -s $currentWorkspace/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd /root/scripts/eamd" 
+        
+        checkAndFix "userHome" -n "$userHome" "checkUser $defaultUser" 
+        checkAndFix "$userHome/scripts/eamd" -L "$userHome/scripts/eamd" "rm $userHome/scripts/eamd" 
+        checkAndFix "$userHome/scripts/eamd" -L "$userHome/scripts/eamd" "ln -s $currentWorkspace/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd $userHome/scripts/eamd" 
+    else
+        git clone -c core.symlinks=true git@bitbucket.org:donges/eamd.ucp.git 
+
+        checkAndFix "workspace" "! -d" "$workspace" "mv $workspace $workspacePrefix/Backup.$EAMDdirectoryName" 
+        mv eamd.ucp EAMD.ucp
+        
+        if [ "$user" = "root" ]; then
+            checkUser $defaultUser
+        fi
+
+        checkAndFix "/var/dev/EAMD.ucp" "! -d" "$defaultWorkspace" "mv $defaultWorkspace $defaultWorkspace.previous" 
+        checkAndFix "/var/dev/EAMD.ucp" -d "$defaultWorkspace/.." "createDir /var/dev/$EAMDdirectoryName" 
+        checkAndFix "/var/dev/EAMD.ucp" -d "$defaultWorkspace" "ln -s $currentWorkspace $defaultWorkspace" 
+
+        checkAndFix "/root/scripts/eamd" -L "/root/scripts/eamd" "rm /root/scripts/eamd" 
+        checkAndFix "/root/scripts/eamd" -L "/root/scripts/eamd" "ln -s $currentWorkspace/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd /root/scripts/eamd" 
+        
+        checkAndFix "$userHome/scripts/eamd" -L "$userHome/scripts/eamd" "rm $userHome/scripts/eamd" 
+        checkAndFix "$userHome/scripts/eamd" -L "$userHome/scripts/eamd" "ln -s $currentWorkspace/tla/EAMD/UcpComponentSupport/1.0.0/src/sh/eamd $userHome/scripts/eamd" 
+    fi
+    ls -alF /root/scripts
+    echo "SUCCESS   all went well"
+}
+
+initUser() {
+    export PS4='+${LINENO}: '
+    #set -x
+    debug.log " function ${FUNCNAME[0]}(currentDirectory:$1, $2 $3)"
+
+    checkUser $1
+    #NAME is defined in the Dockerfile for WODA immage "woda" as workspace
+    if [ -z "$NAME" ]; then
+        targetDir=$workspacePrefix
+    else
+        targetDir=$userHome/$NAME
+    fi
+
+    if [ ! -d "$userHome/scripts" ]; then
+        warn.log "$userHome/scripts does not exist..."
+        console.log "creating $userHome/scripts"
+        #git clone cerulean.it/var/dev/GIT/scripts.git
+        checkCommand wget
+        checkCommand unzip
+        rm scripts.zip*
+        debug.log "wget http://$defaultGitServer/EAMD.ucp/Components/com/ceruleanCircle/EAM/1_infrastructure/NewUserStuff/scripts.zip"
+        wget http://$defaultGitServer/EAMD.ucp/Components/com/ceruleanCircle/EAM/1_infrastructure/NewUserStuff/scripts.zip
+        unzip scripts.zip -d $userHome/
+        chmod +x -R $userHome/scripts
+        cp $eamdDir/eamd $userHome/scripts
+        # chown -R $user:dev $userHome
+        # chown -R $user:dev $userHome/.*
+        chown -R $user:dev $userHome/scripts/*
+        chsh -s $(which bash) $user
+    else
+        cd $userHome/scripts
+        checkCommand git
+        git pull
+        #git clone $defaultGitUser@$defaultGitServer:/home/dev/GIT/scripts.git
+    fi
+    console.log "updating PATH"
+    PATH=.:$userHome/scripts:~/scripts:$PATH:$targetDir
+    console.log PATH set to: $PATH
+}
+
+initProfile() {
+    checkUser $1
+
+    checkAndFix "User initialized" -d $userHome/scripts "initUser $1"
+
+
+
+    cd $userHome/
+
+    if [ ! -w "$userHome/.bashrc" ]; then
+        warn.log "$userHome/.bashrc does not exist..."
+        console.log "creating it..."
+        cp $userHome/scripts/templates/.bashrc $userHome
+        if [ ! -w "$userHome/.profile" ]; then
+            #touch $userHome/.profile
+            ln -s .bashrc .profile
+            chmod +x $userHome/.bashrc
+        fi
+        #link for mac osx
+        ln -s .bashrc .bash_profile
+        . $userHome/.bashrc
+    else
+        if [ -w $userHome/scripts/templates/bashrc_addonTemplate ]; then
+            #console.log "improving .bashrc"
+            #cat $userHome/scripts/templates/bashrc_addonTemplate >>$userHome/.bashrc
+            #rm $userHome/scripts/templates/bashrc_addonTemplate
+            warn.log "prevented bash enhancement"
+        else 
+            console.log ".bashrc already improved"
+        fi
+    fi
+}
+
+initSSH() {
+    #stepDebugger ON
+
+    checkUser $1
+
+
+    checkCommand ssh openssh
+    checkAndFix "User initialized" -d $userHome/.bash_profile "initProfile $user"    
+
+
+    if [ ! -d "$gitUserHome/.ssh" ]; then
+        warn.log "$gitUserHome/.ssh does not exist..."
+        cp -R $userHome/scripts/templates/developking.ssh $gitUserHome/.ssh
+        chmod 600 $gitUserHome/.ssh/*
+        cp -R $userHome/scripts/templates/developking.ssh $userHome/.ssh
+        chmod 600 $userHome/.ssh/*
+    #else
+        # if [ -d $gitUserHome/ssh.backup ]; then
+        #     echo "Es existiert schon ein Backup von .ssh"
+        #     echo "Bitte löschen oder verschieben sie es zuerst ..."
+        #     exit -1
+        # fi
+
+        # if [ ! -d $gitUserHome/.ssh/developking.ssh ]; then
+        #     mv $gitUserHome/.ssh ssh.bakup
+        # fi
+
+    fi
+    
+    checkCommand tree
+    tree -L 2 $userHome/.ssh    
+    echo ""
+
+    echo "done - SUCESS"
+}
+
+
+PS4='+${LINENO}: '
+if [ -z "$1" ]; then
+    script=$(basename $0)
+	echo "usage: $0 command parameter
+        options are
+            -x  get debug log
+            -X  enable stepDebugger    c continues ... most other exit ... try ll,r,h,cd,cmd
+        commands are                           - Short details what it does
+
+            check: checks the installation and settings
+            reset: ensures all properties are set do default. 
+                   !!! USE: . $script reset
+            init:  creates the /$EAMDdirectoryName link
+                $script init                      - shows init options
+                $script init user <?user:root>    - installes the 'user scripts' for convenience
+                $script init profile              - includes init user....also the othe init options are additiv
+                $script init ssh <?user:root>     - sets up the SSH config to sync with the EAMD.ucp Repository
+                $script init components           - Clones the EAMD.ucp Repository to the local directroy
+                
+                $script init all                  - all of the abave
+            create:
+                $script create component some.component.Name 0.1.0         - commits and pusches to git
+                $script create local component some.component.Name 0.1.0   - no git actions
+
+                $script create local component some.component.Name <?version>
+                $script create version   some.component.Name 0.2.0
+                $script create version   . 0.2.0
+                $script create weBean    . <?version> <?weBeanName=Name>
+                $script create test      some.namespace.component 0.1.0
+                $script create mochaTest some.namespace.component 0.1.0
+            component:
+                $script component export
+                $script component exportVersion
+                $script component import Some.zip <?targetdir:$defaultWorkspace> - in /$EAMDdirectoryName/eport
+                $script test packageExport packagename
+            update:
+            list: <?componentFullQualifiedName=.> <?version> <?weBeanName=Name>
+            repo:   acts on branches of git
+                $script repo                      - shows repo options
+            test:
+                $script test someFunction some parameters
+                $script test namespace2path some.namespace
+                $script test path2namespcae /some/path
+                $script test findVersions .
+
+                $script test createFromNPM org.playground.Bootstrap 4.0.0 bootstrap
+                $script test updateVersionTree com.twitter.Bootstrap 3.3.7 5.0.0
+
+                $script test checkCommand ssh openssh
+                $script test checkCommand ssh openssh
+            
+            only for developer use:
+            v:    get a version timestamp
+            op:   update the script itself from once on localhost...use v to check the timestamp if it worked
+                $script op x down: like op but for root only
+                $script op x here: like op but for the current user
+
+
+"
+    exit -1
+fi
+
+i=0
+initialParameter=$*
+
+while [ -n "$1" ]; do
+    let i++
+    debug.log "Parameter($i): $1"
+
+    # if [ "ON" = "$DEBUG" ]; then 
+    #     stepDebugger ON
+    # fi
+
+    case $1 in
+        oinit)
+            debug.log "...init..."
+            oinit $*
+            break
+            ;;
+        repo)
+            debug.log "...repo..."
+            shift
+            repo $*
+            break
+            ;;
+        component)
+            debug.log "...create..."
+            component $*
+            ;;
+        create)
+            debug.log "...create..."
+            create $*
+            ;;
+        update)
+            debug.log "update component"
+            update $*
+            ;;
+        list)
+            debug.log "list"
+            getComponentDetails .
+            ;;
+        call)
+            shift
+            $*
+            break
+            ;;
+        test)
+            debug.log "$*"
+            shift
+            $*
+            break
+            ;;
+        check)
+            debug.log "$*"
+            shift
+            checkInstallation
+            #break
+            ;;
+        cmd)
+            debug.log "$*"
+            shift
+            checkCommand $*
+            break
+            ;;
+        reset)
+            debug.log "$*"
+            shift
+            reset
+            #break
+            ;;
+        pm)
+            . eamd PM
+            ;;
+        PM)
+            console.log "to export package manager install command as property type: 
+                . eamd PM
+            
+            This prevents reopeating updates on apt-get...
+            "
+            checkPMs
+            echo "  package manager install command: $PM"
+            echo "  current parameter..............: $PM"
+            echo "  current parameter..............: $groupAddCommand someGroup"
+            echo "  current parameter..............: $userAddCommand someUser"
+            shift
+            #break
+            ;;
+        sync)
+            debug.log "op $*"
+            shift
+            #stepDebugger ON
+            $defaultWorkspace/com/ceruleanCircle/EAM/1_infrastructure/NewUserStuff/updateScriptZip
+            git pull
+            git push
+            #break
+            ;;
+        -x)
+            DEBUG=ON
+            ;;
+        -X)
+            stepDebugger ON
+            ;;
+        -i)
+            shift
+            bash -c ". $0 $*"
+            exit 0
+            ;;
+        op)
+            debug.log "op $*"
+            shift
+            op $*
+            break
+            ;;
+        v)
+            echo $EAMD_VERSION
+            break
+            ;;
+        log)
+            log $*
+            break
+            ;;
+        class)
+            debug.log "class $*"
+            shift
+            current=$1
+            shift
+            debug.log $current $*
+            $current $*
+            break
+            ;;
+        *)
+            warn.log "dont know $1"
+            ;;
+    esac
+
+    case $i in
+        1)
+            debug.log "setting var1 to $1"
+            var1=$1
+            ;;
+        2)
+            debug.log "setting var2 to $1"
+            var2=$1
+            ;;
+        3)
+            debug.log "setting var3 to $1"
+            var3=$1
+            ;;
+    esac
+
+
+    shift
+done
+
+if [ -n "$INTERACTIVE" ]; then
+    echo "ENTERING interactive mode"
+    #bash --noprofile --norc
+    bash --noprofile --norc
+    exit 0
+else
+    echo "SUCCESS - done"
+fi
+
+#break

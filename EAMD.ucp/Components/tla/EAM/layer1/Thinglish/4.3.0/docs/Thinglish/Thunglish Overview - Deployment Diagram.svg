@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="3465px" preserveAspectRatio="none" style="width:3071px;height:3465px;" version="1.1" viewBox="0 0 3071 3465" width="3071px" zoomAndPan="magnify"><defs><filter height="300%" id="finmn3d0y68sh" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="387" x="1341" y="16.708">Thunglish Overview - Deployment Diagram</text><!--MD5=[86f7e5877ca9d460bfed9584a3285baf]
+cluster EAM--><rect fill="#FFFFFF" filter="url(#finmn3d0y68sh)" height="2825" style="stroke: #000000; stroke-width: 1.5;" width="2975" x="14" y="458.9531"/><path d="M57,459.9531 L57,468.25 L47,478.25 L14,478.25 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="33" x="17" y="472.9482">EAM</text><!--MD5=[2bda1e6ed10186b742bcb39c4c6a9ef1]
+cluster layer5:ux--><rect fill="#FFFFFF" filter="url(#finmn3d0y68sh)" height="108" style="stroke: #000000; stroke-width: 1.5;" width="104" x="2853" y="538.4531"/><path d="M2937,539.4531 L2937,547.75 L2927,557.75 L2853,557.75 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="74" x="2856" y="552.4482">layer5:ux</text><!--MD5=[611d8c1b21c89346e32f4e4c791f7d36]
+cluster layer4:processes--><rect fill="#FFFFFF" filter="url(#finmn3d0y68sh)" height="109" style="stroke: #000000; stroke-width: 1.5;" width="169" x="2812" y="791.9531"/><path d="M2960,792.9531 L2960,801.25 L2950,811.25 L2812,811.25 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="138" x="2815" y="805.9482">layer4:processes</text><!--MD5=[5d0cb9bef57e86c6aa271548a37797c4]
+cluster layer3:services--><rect fill="#FFFFFF" filter="url(#finmn3d0y68sh)" height="106" style="stroke: #000000; stroke-width: 1.5;" width="138" x="2828" y="993.9531"/><path d="M2960,994.9531 L2960,1003.25 L2950,1013.25 L2828,1013.25 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="122" x="2831" y="1007.9482">layer3:services</text><!--MD5=[043ed0ba2a781c9829420390c9a78832]
+cluster layer2:systems--><rect fill="#FFFFFF" filter="url(#finmn3d0y68sh)" height="544.5" style="stroke: #000000; stroke-width: 1.5;" width="467" x="2337" y="547.4531"/><path d="M2468,548.4531 L2468,556.75 L2458,566.75 L2337,566.75 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="121" x="2340" y="561.4482">layer2:systems</text><!--MD5=[bb5f0028ed7ed0c735fd2c020c504273]
+cluster layer1:infrastructure--><rect fill="#FFFFFF" filter="url(#finmn3d0y68sh)" height="2790" style="stroke: #000000; stroke-width: 1.5;" width="2307" x="22" y="485.9531"/><path d="M197,486.9531 L197,495.25 L187,505.25 L22,505.25 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="165" x="25" y="499.9482">layer1:infrastructure</text><!--MD5=[16fab723be418f7eaf2ea4bd895a8e51]
+entity C--><rect fill="#F8E7C0" filter="url(#finmn3d0y68sh)" height="54.2969" rx="12.5" ry="12.5" style="stroke: #000000; stroke-width: 1.5;" width="87" x="2861.5" y="584.4531"/><image height="18" width="16" x="2897" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAIAAADdWck9AAAAWklEQVR4XmP48fwASYgBUwg/wqKBAQYwpbBoQFaHVQ+6EMkaIOpIcxIyIKABUwUWETxyWMXJ0gB2LQGAogHTGEwROBdJK3F6YPqIUw3VwEAEQOhEM5ggor0GADDnZXXxQDjBAAAAAElFTkSuQmCC" y="594.4531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="67" x="2871.5" y="625.4482">Checkout</text><!--MD5=[626ad08abde0879284d52f51a0eb42aa]
+entity P--><rect fill="#EFEFFF" filter="url(#finmn3d0y68sh)" height="55.2969" rx="12.5" ry="12.5" style="stroke: #000000; stroke-width: 1.5;" width="44" x="2820" y="837.9531"/><image height="19" width="16" x="2834" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAATCAIAAAAWBRqYAAAAPUlEQVR4XmN4//4/SYgBUwg/Gi4aGPACLBogejANwyqF4BCpB1U3EXrItYFI1VANsPDADtD1YxqJH41IDQBwKxC4q2aBowAAAABJRU5ErkJggg==" y="847.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="24" x="2830" y="879.9482">Pay</text><!--MD5=[ca4fca654d8994778fee589c6b3ae58e]
+entity R--><rect fill="#EFEFFF" filter="url(#finmn3d0y68sh)" height="55.2969" rx="12.5" ry="12.5" style="stroke: #000000; stroke-width: 1.5;" width="73" x="2899.5" y="837.9531"/><image height="19" width="16" x="2928" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAATCAIAAAAWBRqYAAAAPUlEQVR4XmN4//4/SYgBUwg/Gi4aGPACLBogejANwyqF4BCpB1U3EXrItYFI1VANsPDADtD1YxqJH41IDQBwKxC4q2aBowAAAABJRU5ErkJggg==" y="847.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="53" x="2909.5" y="879.9482">Reciept</text><!--MD5=[8ad42e69c823d91e931492f14bc2a1bb]
+entity S--><rect fill="#C9FFC9" filter="url(#finmn3d0y68sh)" height="52.2969" rx="12.5" ry="12.5" style="stroke: #000000; stroke-width: 1.5;" width="56" x="2869" y="1039.9531"/><image height="16" width="16" x="2889" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAXElEQVR4Xp2NQRLAIAgD+f/PfFV7wCnIRhzLcJAkG20842qNUr8LYJvRAD2pLwDTtOZrV083AOYKE0Bf/wGe+fWD37MAk10NsFgA2ZNAKMUmUJV8eKI5BXDca+AF9ooLqwR0Y8gAAAAASUVORK5CYII=" y="1049.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="36" x="2879" y="1078.9482">Shop</text><!--MD5=[0e47b29f81f33a7af60eeb11b3642471]
+entity Thinglish--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="82" x="2504" y="593.4531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2499" y="598.4531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2499" y="619.75"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="62" x="2514" y="616.4482">Thinglish</text><!--MD5=[1a4680157ad849d84e0888213e2e4e5d]
+entity TypedFunction--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="123" x="2345.5" y="593.4531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2340.5" y="598.4531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2340.5" y="619.75"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="103" x="2355.5" y="616.4482">TypedFunction</text><!--MD5=[01662713e0c01d293b5fbfc799a74846]
+entity Interface--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="80" x="2621" y="593.4531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2616" y="598.4531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2616" y="619.75"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="2631" y="616.4482">Interface</text><!--MD5=[ad01f9ea348631990b344f0fd8805589]
+entity TestInterface--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="111" x="2596.5" y="1047.9531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2591.5" y="1052.9531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2591.5" y="1074.25"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="91" x="2606.5" y="1070.9482">TestInterface</text><!--MD5=[742f309588485cc09a132aa7a119ce4f]
+entity Test--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="51" x="2742.5" y="1047.9531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2737.5" y="1052.9531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2737.5" y="1074.25"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="31" x="2752.5" y="1070.9482">Test</text><!--MD5=[dc0c68addad2c727748b73ef6cfe9ce0]
+entity Thing--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="36.2969" style="stroke: #A80036; stroke-width: 1.5;" width="59" x="2736.5" y="593.4531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2731.5" y="598.4531"/><rect fill="#FEFECE" height="5" style="stroke: #A80036; stroke-width: 1.5;" width="10" x="2731.5" y="619.75"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="39" x="2746.5" y="616.4482">Thing</text><!--MD5=[9521769999330d5b6b2af3ad917f6962]
+entity ONCE--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="887,541.9531,897,531.9531,1051,531.9531,1051,681.4375,1041,691.4375,887,691.4375,887,541.9531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1041" x2="1050" y1="541.9531" y2="532.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="887" x2="1041" y1="541.9531" y2="541.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1041" x2="1041" y1="541.9531" y2="691.4375"/><image height="16" width="16" x="956" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAATUlEQVR4XmM49OE/SYgBUwg/QtfAgBtg0QAXxWoKugY8qpFlYRRe1egaoG7EBrDoROagoWGlAUUnQQ1osliEkDVgSkE14AJYTMEUwo8ARV0VBZt7UE0AAAAASUVORK5CYII=" y="551.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="40" x="902" y="580.9482">ONCE</text><line style="stroke: #000000; stroke-width: 1.0;" x1="887" x2="1041" y1="584.25" y2="584.25"/><line style="stroke: #000000; stroke-width: 1.0;" x1="1041" x2="1051" y1="584.25" y2="574.25"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="55" x="908" y="601.2451">Loaders</text><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 1.0,2.0;" x1="887" x2="1041" y1="608.5469" y2="608.5469"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 1.0,2.0;" x1="1041" x2="1051" y1="608.5469" y2="598.5469"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="41" x="908" y="625.542">EAMD</text><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 1.0,2.0;" x1="887" x2="1041" y1="632.8438" y2="632.8438"/><line style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 1.0,2.0;" x1="1041" x2="1051" y1="632.8438" y2="622.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="908" y="649.8389">DocumentScript</text><line style="stroke: #000000; stroke-width: 1.0;" x1="887" x2="1041" y1="657.1406" y2="657.1406"/><line style="stroke: #000000; stroke-width: 1.0;" x1="1041" x2="1051" y1="657.1406" y2="647.1406"/><line style="stroke: #000000; stroke-width: 1.0;" x1="887" x2="1041" y1="659.1406" y2="659.1406"/><line style="stroke: #000000; stroke-width: 1.0;" x1="1041" x2="1051" y1="659.1406" y2="649.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="51" x="908" y="674.1357">node.js</text><!--MD5=[bf1e387646397ecf433ac1a2b9fba31f]
+entity Neo4j--><path d="M207,1053.4531 C207,1043.4531 237,1043.4531 237,1043.4531 C237,1043.4531 267,1043.4531 267,1053.4531 L267,1078.75 C267,1088.75 237,1088.75 237,1088.75 C237,1088.75 207,1088.75 207,1078.75 L207,1053.4531 " fill="#C2F0FF" filter="url(#finmn3d0y68sh)" style="stroke: #000000; stroke-width: 1.5;"/><path d="M207,1053.4531 C207,1063.4531 237,1063.4531 237,1063.4531 C237,1063.4531 267,1063.4531 267,1053.4531 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="40" x="217" y="1080.4482">Neo4j</text><!--MD5=[326cb15fd02b1652dbd8741273fdc226]
+entity docNeo4j--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="22.2969" style="stroke: #000000; stroke-width: 1.5;" width="128" x="343" y="1054.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="108" x="353" y="1070.9482">Structr embedd</text><!--MD5=[c127d5e6ad7f9ab6365647e27167fb70]
+entity structr--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="678.5,598.4531,688.5,588.4531,851.5,588.4531,851.5,624.75,841.5,634.75,678.5,634.75,678.5,598.4531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="841.5" x2="850.5" y1="598.4531" y2="589.4531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="678.5" x2="841.5" y1="598.4531" y2="598.4531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="841.5" x2="841.5" y1="598.4531" y2="634.75"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="133" x="693.5" y="621.4482">Structr Server 2.1.4</text><!--MD5=[c1a522f1a96e2cf381b7e73c35d1f8a9]
+entity docStructr--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="54.8906" style="stroke: #000000; stroke-width: 1.5;" width="577" x="1086.5" y="583.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="412" x="1096.5" y="599.9482">/var/dev/Workspaces/exports/WODA.export/files/EAMD.ucp/</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1100.5" y="616.2451"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="557" x="1096.5" y="632.542">/EAMD.ucp/Components/org/structr/StructrServer/2.1.4/src/nginx_samba_structr</text><!--MD5=[1f28eeabef15a3d640cb6913f835d402]
+entity apache2--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="1710.5,2175.9531,1720.5,2165.9531,1811.5,2165.9531,1811.5,2202.25,1801.5,2212.25,1710.5,2212.25,1710.5,2175.9531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1801.5" x2="1810.5" y1="2175.9531" y2="2166.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1710.5" x2="1801.5" y1="2175.9531" y2="2175.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1801.5" x2="1801.5" y1="2175.9531" y2="2212.25"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="1725.5" y="2198.9482">Apache2</text><!--MD5=[f01b6bde10c0735c052f6cff6daeb00d]
+entity docApache2--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="136.375" style="stroke: #000000; stroke-width: 1.5;" width="425" x="1887.5" y="2120.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="388" x="1897.5" y="2136.9482">/var/www/vhosts/wo-da.de/WODA.export/files/EAMD.ucp</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1901.5" y="2153.2451"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="29" x="1897.5" y="2169.542">ln -s</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="346" x="1897.5" y="2185.8389">Components -&gt; /var/dev/EAMD.ucp/Components/</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="405" x="1897.5" y="2202.1357">3rdPartyComponents -&gt; /EAMD.ucp/3rdPartyComponents/</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="247" x="1897.5" y="2218.4326">Scenarios -&gt; /EAMD.ucp/Scenarios/</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1901.5" y="2234.7295"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="162" x="1897.5" y="2251.0264">service apache2 restart</text><!--MD5=[947f261e3f508be5b82fabf5b10d8342]
+entity dockerImage_structr2_1_4--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="304.5,1837.9531,314.5,1827.9531,527.5,1827.9531,527.5,1864.25,517.5,1874.25,304.5,1874.25,304.5,1837.9531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="517.5" x2="526.5" y1="1837.9531" y2="1828.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="304.5" x2="517.5" y1="1837.9531" y2="1837.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="517.5" x2="517.5" y1="1837.9531" y2="1874.25"/><a href="http://wo-da.de/EAMD.ucp/3rdPartyComponents/com/docker/compose/nginx_samba_structr" target="_top" title="http://wo-da.de/EAMD.ucp/3rdPartyComponents/com/docker/compose/nginx_samba_structr" xlink:actuate="onRequest" xlink:href="http://wo-da.de/EAMD.ucp/3rdPartyComponents/com/docker/compose/nginx_samba_structr" xlink:show="new" xlink:title="http://wo-da.de/EAMD.ucp/3rdPartyComponents/com/docker/compose/nginx_samba_structr" xlink:type="simple"><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="183" x="319.5" y="1860.9482">dockerImage_structr2_1_4</text></a><!--MD5=[b302f8ea56a72f386d439e09433dfaee]
+entity docDockerImage_structr2_1_4--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="168.9688" style="stroke: #000000; stroke-width: 1.5;" width="697" x="67.5" y="1395.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="617" x="77.5" y="1411.9482">old /EAMD.ucp/3rdPartyComponents/com/docker/compose/registry/docker-compose.yml</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="677" x="77.5" y="1428.2451">/EAMD.ucp/Components.original/org/structr/StructrServer/2.1.4/src/nginx_samba_structr/2.1.4.yml</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="173" x="77.5" y="1444.542">0.0.0.0:8021-&gt;8021/tcp,</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="169" x="77.5" y="1460.8389">0.0.0.0:8082-&gt;8082/tcp</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="169" x="77.5" y="1477.1357">0.0.0.0:7574-&gt;7688/tcp</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="69" x="77.5" y="1493.4326">docker ps</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="105" x="77.5" y="1509.7295">5ac9de8e9a42</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="65" x="77.5" y="1526.0264">registry:2</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="151" x="77.5" y="1542.3232">"/entrypoint.sh /etc…"</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="210" x="77.5" y="1558.6201">nginx_samba_structr_structr_1</text><!--MD5=[e37caff035b72dbbfeba65559529edbf]
+entity dockerImage_certbot--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="1081.5,1837.9531,1091.5,1827.9531,1268.5,1827.9531,1268.5,1864.25,1258.5,1874.25,1081.5,1874.25,1081.5,1837.9531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1258.5" x2="1267.5" y1="1837.9531" y2="1828.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1081.5" x2="1258.5" y1="1837.9531" y2="1837.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1258.5" x2="1258.5" y1="1837.9531" y2="1874.25"/><a href="http://wo-da.de/" target="_top" title="http://wo-da.de/" xlink:actuate="onRequest" xlink:href="http://wo-da.de/" xlink:show="new" xlink:title="http://wo-da.de/" xlink:type="simple"><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="147" x="1096.5" y="1860.9482">dockerImage_certbot</text></a><!--MD5=[35edc403017e89a55ab8b1129d358896]
+entity docDockerImage_certbot--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="120.0781" style="stroke: #000000; stroke-width: 1.5;" width="612" x="800" y="1420.4531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="592" x="810" y="1436.4482">/EAMD.ucp/3rdPartyComponents/com/docker/compose/registry/docker-compose.yml</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="169" x="810" y="1452.7451">0.0.0.0:5000-&gt;5000/tcp</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="69" x="810" y="1469.042">docker ps</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="103" x="810" y="1485.3389">96b427e07fd2</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="203" x="810" y="1501.6357">cerulean.it:5000/structr:2.1.4</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="105" x="810" y="1517.9326">"bin/docker.sh"</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="215" x="810" y="1534.2295">nginx_samba_structr_certbot_1</text><!--MD5=[d6c61019d5d49ee9a1bea343abc89206]
+entity dockerImage_registry--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="1394,1837.9531,1404,1827.9531,1582,1827.9531,1582,1864.25,1572,1874.25,1394,1874.25,1394,1837.9531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1572" x2="1581" y1="1837.9531" y2="1828.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1394" x2="1572" y1="1837.9531" y2="1837.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1572" x2="1572" y1="1837.9531" y2="1874.25"/><a href="http://wo-da.de/EAMD.ucp/3rdPartyComponents/com/docker/compose/registry" target="_top" title="http://wo-da.de/EAMD.ucp/3rdPartyComponents/com/docker/compose/registry" xlink:actuate="onRequest" xlink:href="http://wo-da.de/EAMD.ucp/3rdPartyComponents/com/docker/compose/registry" xlink:show="new" xlink:title="http://wo-da.de/EAMD.ucp/3rdPartyComponents/com/docker/compose/registry" xlink:type="simple"><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="148" x="1409" y="1860.9482">dockerImage_registry</text></a><!--MD5=[fa36c515c03b41b7d46724dcac254b91]
+entity docDockerImage_registry--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="120.0781" style="stroke: #000000; stroke-width: 1.5;" width="612" x="1447" y="1420.4531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="592" x="1457" y="1436.4482">/EAMD.ucp/3rdPartyComponents/com/docker/compose/registry/docker-compose.yml</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="169" x="1457" y="1452.7451">0.0.0.0:5000-&gt;5000/tcp</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="69" x="1457" y="1469.042">docker ps</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="103" x="1457" y="1485.3389">96b427e07fd2</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="203" x="1457" y="1501.6357">cerulean.it:5000/structr:2.1.4</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="105" x="1457" y="1517.9326">"bin/docker.sh"</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="125" x="1457" y="1534.2295">registry_registry_1</text><!--MD5=[db2063fae1be89b7a21c39ee65dc336a]
+entity dockerImage_woda--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="2102,1837.9531,2112,1827.9531,2276,1827.9531,2276,1864.25,2266,1874.25,2102,1874.25,2102,1837.9531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="2266" x2="2275" y1="1837.9531" y2="1828.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="2102" x2="2266" y1="1837.9531" y2="1837.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="2266" x2="2266" y1="1837.9531" y2="1874.25"/><a href="https://2cu.atlassian.net/wiki/spaces/CCU/pages/38436869/ONCE+Documentation#start-on-docker" target="_top" title="https://2cu.atlassian.net/wiki/spaces/CCU/pages/38436869/ONCE+Documentation#start-on-docker" xlink:actuate="onRequest" xlink:href="https://2cu.atlassian.net/wiki/spaces/CCU/pages/38436869/ONCE+Documentation#start-on-docker" xlink:show="new" xlink:title="https://2cu.atlassian.net/wiki/spaces/CCU/pages/38436869/ONCE+Documentation#start-on-docker" xlink:type="simple"><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="134" x="2117" y="1860.9482">dockerImage_woda</text></a><!--MD5=[d73320bbea91db0d3edc1541134141c4]
+entity docDockerImage_woda--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="87.4844" style="stroke: #000000; stroke-width: 1.5;" width="189" x="2094.5" y="1436.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="2104.5" y="1452.9482">port:80:80</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="92" x="2104.5" y="1469.2451">port:777:777</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="110" x="2104.5" y="1485.542">port:8080:8080</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="78" x="2104.5" y="1501.8389">installation:</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="169" x="2104.5" y="1518.1357">docker run -it --rm alpine</text><!--MD5=[7c0f197cad09c4d86c8b8989e1030b9e]
+entity docker--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="1176,2175.9531,1186,2165.9531,1264,2165.9531,1264,2202.25,1254,2212.25,1176,2212.25,1176,2175.9531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1254" x2="1263" y1="2175.9531" y2="2166.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1176" x2="1254" y1="2175.9531" y2="2175.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1254" x2="1254" y1="2175.9531" y2="2212.25"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="48" x="1191" y="2198.9482">docker</text><!--MD5=[00dbe28264f62ad01394b5dc7321427b]
+entity docDocker--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="71.1875" style="stroke: #000000; stroke-width: 1.5;" width="336" x="1340" y="2153.4531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="283" x="1350" y="2169.4482">Docker version 19.03.8, build afacb8b7f0</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="316" x="1350" y="2185.7451">/EAMD.ucp/3rdPartyComponents/com/docker</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1354" y="2202.042"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="69" x="1350" y="2218.3389">docker ps</text><!--MD5=[214fc6f59502964dfd20d835b6a31a3e]
+entity Nodejs--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="1313,1052.9531,1323,1042.9531,1465,1042.9531,1465,1079.25,1455,1089.25,1313,1089.25,1313,1052.9531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1455" x2="1464" y1="1052.9531" y2="1043.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1313" x2="1455" y1="1052.9531" y2="1052.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1455" x2="1455" y1="1052.9531" y2="1089.25"/><a href="http://wo-da.de/EAMD.ucp/Components/js/node/NodeJS/" target="_top" title="http://wo-da.de/EAMD.ucp/Components/js/node/NodeJS/" xlink:actuate="onRequest" xlink:href="http://wo-da.de/EAMD.ucp/Components/js/node/NodeJS/" xlink:show="new" xlink:title="http://wo-da.de/EAMD.ucp/Components/js/node/NodeJS/" xlink:type="simple"><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="48" x="1328" y="1075.9482">Nodejs</text></a><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="60" x="1380" y="1075.9482">v12.13.0</text><!--MD5=[d1befb33e1748c33d98cc554ae073ff1]
+entity docNodejs--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="22.2969" style="stroke: #000000; stroke-width: 1.5;" width="360" x="1541" y="1054.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="340" x="1551" y="1070.9482">/EAMD.ucp/Components/js/node/NodeJS/12.13.0</text><!--MD5=[08ee850ec5decdbced733cf3d81003d8]
+entity ubuntu1--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="1377,2542.4531,1387,2532.4531,1603,2532.4531,1603,2585.0469,1593,2595.0469,1377,2595.0469,1377,2542.4531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1593" x2="1602" y1="2542.4531" y2="2533.4531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1377" x2="1593" y1="2542.4531" y2="2542.4531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1593" x2="1593" y1="2542.4531" y2="2595.0469"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="186" x="1392" y="2565.4482">«GNU/Linux 4.4.0 x86_64»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="137" x="1416.5" y="2581.7451">Ubuntu 16.04.6 LTS</text><!--MD5=[1fa1a8b55f335505aa907557ee91c606]
+entity docUbuntu1--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="120.0781" style="stroke: #000000; stroke-width: 1.5;" width="310" x="1679" y="2503.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="109" x="1689" y="2519.9482">Host WODA.dev</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="120" x="1689" y="2536.2451">User developking</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="1689" y="2552.542">Port 22</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="148" x="1689" y="2568.8389">HostName cerulean.it</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="290" x="1689" y="2585.1357">IdentityFile /home/developking/.ssh/id_rsa</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="1693" y="2601.4326"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="125" x="1689" y="2617.7295">service --status-all</text><!--MD5=[a1f53774921e86cf73b168609776ebe7]
+entity DevOps01--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="1419,2892.9531,1429,2882.9531,1561,2882.9531,1561,2935.5469,1551,2945.5469,1419,2945.5469,1419,2892.9531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1551" x2="1560" y1="2892.9531" y2="2883.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1419" x2="1551" y1="2892.9531" y2="2892.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1551" x2="1551" y1="2892.9531" y2="2945.5469"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="102" x="1434" y="2915.9482">«ESXi-VM 6.5»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="52" x="1438.5" y="2932.2451">1blu.de</text><a href="https://v32109.1blu.de/" target="_top" title="https://v32109.1blu.de/" xlink:actuate="onRequest" xlink:href="https://v32109.1blu.de/" xlink:show="new" xlink:title="https://v32109.1blu.de/" xlink:type="simple"><text fill="#0000FF" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" text-decoration="underline" textLength="37" x="1494.5" y="2932.2451">Plesk</text></a><!--MD5=[59e87c4e0384cc8a8b91819b418199b0]
+entity docDevOps01--><rect fill="#FEFECE" filter="url(#finmn3d0y68sh)" height="87.4844" style="stroke: #000000; stroke-width: 1.5;" width="314" x="1637" y="2870.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="1647" y="2886.9482">plesk login</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="294" x="1647" y="2903.2451">https://v32109.1blu.de:8443/login_up.php</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="216" x="1647" y="2919.542">8 CPU, 16GB RAM, 250GB HDD</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="117" x="1647" y="2935.8389">cat /proc/cpuinfo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="1647" y="2952.1357">cat /proc/meminfo</text><!--MD5=[57c308b8e126dfc1c9d27259abba551e]
+entity Host5--><polygon fill="#C2F0FF" filter="url(#finmn3d0y68sh)" points="1432.5,3214.9531,1442.5,3204.9531,1547.5,3204.9531,1547.5,3257.5469,1537.5,3267.5469,1432.5,3267.5469,1432.5,3214.9531" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1537.5" x2="1546.5" y1="3214.9531" y2="3205.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1432.5" x2="1537.5" y1="3214.9531" y2="3214.9531"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1537.5" x2="1537.5" y1="3214.9531" y2="3267.5469"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="75" x="1447.5" y="3237.9482">«ESXi 6.5»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="55" x="1457.5" y="3254.2451">Host-05</text><!--MD5=[8b944653c655024075d894af29a33c78]
+entity SC--><ellipse cx="3024" cy="1181.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="19" x="3014.5" y="1211.9482">SC</text><!--MD5=[fd5ab4d63c4a471359bc67b77da8c341]
+entity UcpComponent--><ellipse cx="866" cy="295.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="109" x="811.5" y="325.9482">UcpComponent</text><!--MD5=[245d2f63106c9e261e62f339c1a83039]
+entity Component--><ellipse cx="853" cy="176.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="82" x="812" y="206.9482">Component</text><!--MD5=[008c691f7e82bb19183cd940056f6005]
+entity UcpModel--><ellipse cx="1182" cy="176.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="69" x="1147.5" y="206.9482">UcpModel</text><!--MD5=[d98cb1d0eeb2b90d1ef52cfc0fcf4fea]
+entity Model--><ellipse cx="1182" cy="57.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="1161" y="87.9482">Model</text><!--MD5=[c2a7a8e67ff94d1a0beba41832632312]
+entity UcpControler--><ellipse cx="1811" cy="176.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="91" x="1765.5" y="206.9482">UcpControler</text><!--MD5=[b969996ad885b600264ff2d4609a1d69]
+entity Controler--><ellipse cx="1811" cy="57.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="64" x="1779" y="87.9482">Controler</text><!--MD5=[eb3b1a432dae0e43fa4833398d0a08cd]
+entity UcpView--><ellipse cx="1509" cy="176.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="59" x="1479.5" y="206.9482">UcpView</text><!--MD5=[854490cbfb8eedee4432d73740ee6d75]
+entity View--><ellipse cx="1509" cy="57.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="1493" y="87.9482">View</text><!--MD5=[82b80dee3197c410af338237497b4b74]
+entity DefaultView--><ellipse cx="1705" cy="295.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="81" x="1664.5" y="325.9482">DefaultView</text><!--MD5=[92590c38c7fe90f11ad079223b67b15b]
+entity ItemView--><ellipse cx="1468" cy="295.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="62" x="1437" y="325.9482">ItemView</text><!--MD5=[6c7102ea7e49bdd041d74d9df75a9257]
+entity OverView--><ellipse cx="1582" cy="295.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="64" x="1550" y="325.9482">OverView</text><!--MD5=[cd666b0f056ed0f36dd5b47b2076f0c2]
+entity DetailView--><ellipse cx="1831" cy="295.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="1795.5" y="325.9482">DetailView</text><!--MD5=[8ce2cd59cb42697d326cdd848a9d3711]
+entity WODAViews--><ellipse cx="1673" cy="176.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="1631" y="206.9482">WODAViews</text><!--MD5=[8722db9c0c9cf55139c23ed8f9bd4e30]
+entity DefaultUcpView--><ellipse cx="1332" cy="295.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="108" x="1278" y="325.9482">DefaultUcpView</text><!--MD5=[5fc5e9167170dc512f498e7ef4bc4aff]
+entity StructrObject--><ellipse cx="1182" cy="295.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="91" x="1136.5" y="325.9482">StructrObject</text><!--MD5=[5a6a595dc2195d85343d49c34f2d7c34]
+entity HTTPClient--><ellipse cx="1062" cy="295.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="76" x="1024" y="325.9482">HTTPClient</text><!--MD5=[0ba5ee7700168656dc1b457c6fe9fdac]
+entity Client--><ellipse cx="1051" cy="57.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="39" x="1031.5" y="87.9482">Client</text><!--MD5=[a177d2af557a7e0e58d40899189b0311]
+entity CRUDClient--><ellipse cx="985" cy="176.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="945" y="206.9482">CRUDClient</text><!--MD5=[8391f5af243bd07b8a2c53bf7af4d00f]
+entity RESTClient--><ellipse cx="985" cy="295.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="76" x="947" y="325.9482">RESTClient</text><!--MD5=[48c61298a68b8ccd436f9d717ba2e397]
+entity StructrClient--><ellipse cx="965" cy="394.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="922.5" y="424.9482">StructrClient</text><!--MD5=[51637875f75f6ac795c5899702c02e67]
+entity WODA--><ellipse cx="912" cy="394.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="890" y="424.9482">WODA</text><!--MD5=[520044da5c109f89ad56422c69d1d27a]
+entity EAMD--><ellipse cx="765" cy="394.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="41" x="744.5" y="424.9482">EAMD</text><!--MD5=[8e426f14c9635d4946001ddd0d6bd749]
+entity docEAMD--><ellipse cx="859" cy="394.9531" fill="#FEFECE" filter="url(#finmn3d0y68sh)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="67" x="825.5" y="424.9482">docEAMD</text><!--MD5=[e15de074aab4b64909ccee2ce75cd2b6]
+reverse link Interface to TestInterface--><path d="M2658.9094,649.7218 C2657.5391,678.0751 2656,717.6632 2656,752.4531 C2656,752.4531 2656,752.4531 2656,954.4531 C2656,987.3823 2654.2361,1025.7465 2653.051,1047.8063 " fill="none" id="Interface&lt;-TestInterface" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="2651.9212,649.3118,2659.9396,629.6979,2665.9027,650.0312,2651.9212,649.3118" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[bde8b5538b25872145b366802614f117]
+reverse link Thing to Test--><path d="M2766.4181,649.7343 C2766.6922,678.0938 2767,717.6842 2767,752.4531 C2767,752.4531 2767,752.4531 2767,954.4531 C2767,987.3624 2767.441,1025.7332 2767.7373,1047.7996 " fill="none" id="Thing&lt;-Test" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="2759.4183,649.7759,2766.2121,629.705,2773.4175,649.6319,2759.4183,649.7759" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[17161c4429dfd7adb60e7197db902e0d]
+reverse link C to P--><path d="M2895.1218,651.2795 C2882.2515,703.1692 2860.075,792.5794 2848.8846,837.6961 " fill="none" id="C&lt;-P" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2898.2579,638.6355,2892.9311,643.4961,2895.3689,650.2826,2900.6958,645.422,2898.2579,638.6355" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[15fe243e334cfbb68e5859f3bce6c90b]
+reverse link C to R--><path d="M2909.9011,651.6105 C2916.24,703.5486 2927.1177,792.6752 2932.6123,837.6961 " fill="none" id="C&lt;-R" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2908.3175,638.6355,2905.074,645.076,2909.7715,650.5471,2913.015,644.1067,2908.3175,638.6355" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[904602689293b2141ae3107adab46379]
+reverse link P to S--><path d="M2851.0669,898.5059 C2861.9342,938.1224 2879.9192,1003.6859 2889.8538,1039.9019 " fill="none" id="P&lt;-S" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2849.6475,893.3318,2848.1709,903.0694,2850.9702,898.1537,2855.8859,900.953,2849.6475,893.3318" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1901d2c4d4f8665f79060cede9c4f578]
+link P to R--><path d="M2864.0313,865.4531 C2873.1635,865.4531 2882.2958,865.4531 2891.428,865.4531 " fill="none" id="P-&gt;R" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2899.4534,865.4531,2891.4534,862.4531,2891.4534,868.4531,2899.4534,865.4531" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9a8b5547cee7d18f1ba057f17af25bf3]
+link S to SC--><path d="M2925.1854,1091.6973 C2953.8315,1117.8621 2996.5365,1156.8684 3014.981,1173.7153 " fill="none" id="S-SC" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M2973.4566,1126.2108 A10,10 0 0 0 2963.919 1136.6527" fill="#FFFFFF" style="stroke: #A80036; stroke-width: 1.5;"/><ellipse cx="2973.9088" cy="1136.2005" fill="#FFFFFF" rx="6" ry="6" style="stroke: #A80036; stroke-width: 1.5;"/><!--MD5=[dc84757031446c6cc47d9df178925235]
+reverse link Component to UcpComponent--><path d="M856.1964,206.2125 C859.0705,232.5212 863.1183,269.5741 864.9847,286.6587 " fill="none" id="Component&lt;-UcpComponent" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="849.2335,206.9328,854.0201,186.2908,863.1507,205.4123,849.2335,206.9328" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f11edb13189e05faa2b4c039a881629c]
+reverse link Model to UcpModel--><path d="M1182,87.614 C1182,113.8969 1182,150.6608 1182,167.6587 " fill="none" id="Model&lt;-UcpModel" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1175.0001,87.2909,1182,67.2908,1189.0001,87.2908,1175.0001,87.2909" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a01694faa3a0d0653a3928da995b862f]
+reverse link Controler to UcpControler--><path d="M1811,87.614 C1811,113.8969 1811,150.6608 1811,167.6587 " fill="none" id="Controler&lt;-UcpControler" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1804.0001,87.2909,1811,67.2908,1818.0001,87.2908,1804.0001,87.2909" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ded41435b25a90ec4150b7f914090348]
+reverse link View to UcpView--><path d="M1509,87.614 C1509,113.8969 1509,150.6608 1509,167.6587 " fill="none" id="View&lt;-UcpView" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1502.0001,87.2909,1509,67.2908,1516.0001,87.2908,1502.0001,87.2909" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[30077fdd29d7101dbefaba7e729ddfde]
+reverse link UcpView to DefaultView--><path d="M1535.3661,192.9611 C1579.6393,219.8412 1666.8961,272.8186 1695.6012,290.2467 " fill="none" id="UcpView&lt;-DefaultView" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1531.6535,198.8962,1518.1906,182.5331,1538.9192,186.9292,1531.6535,198.8962" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d5aeb23a7b130febb9875e86c6f1b8d6]
+reverse link UcpView to ItemView--><path d="M1499.1939,205.4146 C1490.1146,231.7668 1477.1483,269.4006 1471.2023,286.6587 " fill="none" id="UcpView&lt;-ItemView" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1492.6496,202.9197,1505.7828,186.2908,1505.886,207.4802,1492.6496,202.9197" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[754d5c6eaffea77ccbd2d0a273024f0b]
+reverse link UcpView to OverView--><path d="M1525.2545,203.4501 C1541.4572,229.8628 1565.4455,268.967 1576.2984,286.6587 " fill="none" id="UcpView&lt;-OverView" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1519.2194,206.9991,1514.7282,186.2908,1531.153,199.6784,1519.2194,206.9991" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[734c4c4c4f7de04991ad23b6247577fa]
+reverse link UcpView to DetailView--><path d="M1537.4475,185.4992 C1585.9965,200.3548 1687.682,232.6508 1771,266.9531 C1789.4012,274.5289 1810.1608,285.0158 1821.803,291.0822 " fill="none" id="UcpView&lt;-DetailView" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1535.3122,192.1666,1518.196,179.675,1539.3662,178.7664,1535.3122,192.1666" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[aa4c298844b8591a815a9d7416ad35e0]
+reverse link WODAViews to DefaultView--><path d="M1680.7606,205.8127 C1687.8414,232.1445 1697.8832,269.4873 1702.5007,286.6587 " fill="none" id="WODAViews&lt;-DefaultView" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1673.9448,207.4225,1675.511,186.2908,1687.4646,203.7869,1673.9448,207.4225" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[0a4d4c3e41fc1eef6448d5bf13f0c854]
+reverse link WODAViews to ItemView--><path d="M1646.387,192.4016 C1600.1933,219.2165 1507.2525,273.1675 1477.4362,290.4755 " fill="none" id="WODAViews&lt;-ItemView" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1643.1157,186.2067,1663.9269,182.2199,1650.1442,198.3146,1643.1157,186.2067" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2458fcff0aac5173509cf1ed12b09910]
+reverse link WODAViews to OverView--><path d="M1653.6223,202.2932 C1633.4227,228.7081 1602.8354,268.7068 1589.1074,286.6587 " fill="none" id="WODAViews&lt;-OverView" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1648.1498,197.9258,1665.8594,186.2908,1659.2709,206.4302,1648.1498,197.9258" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a42b80d3dba92b628508e63998de42d3]
+reverse link WODAViews to DetailView--><path d="M1698.7391,196.3388 C1734.7047,223.4269 1798.2362,271.2766 1821.8368,289.0517 " fill="none" id="WODAViews&lt;-DetailView" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="1694.1748,201.6646,1682.4105,184.0407,1702.5975,190.4816,1694.1748,201.6646" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[8d24406473e01730e4039146e4143267]
+reverse link UcpView to DefaultUcpView--><path d="M1483.2905,194.238 C1443.1404,221.2316 1367.4342,272.1301 1341.2149,289.7578 " fill="none" id="UcpView&lt;-DefaultUcpView" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="1479.476,188.3676,1499.9792,183.0179,1487.2872,199.986,1479.476,188.3676" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[593b23db1b1f86e0a31f4a5fcbf89739]
+reverse link UcpModel to StructrObject--><path d="M1182,206.614 C1182,232.8969 1182,269.6608 1182,286.6587 " fill="none" id="UcpModel&lt;-StructrObject" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="1175.0001,206.2909,1182,186.2908,1189.0001,206.2908,1175.0001,206.2909" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[febe71d8820c0516fd018d66e96ef858]
+reverse link Client to HTTPClient--><path d="M1052.3501,87.1644 C1054.8471,141.1903 1060.0701,254.1973 1061.5818,286.9048 " fill="none" id="Client&lt;-HTTPClient" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="1045.3487,87.2942,1051.4178,66.9924,1059.3338,86.6478,1045.3487,87.2942" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ac7a09463317e100fe3f817ef9b85586]
+reverse link Client to CRUDClient--><path d="M1036.0883,84.8394 C1021.4428,111.2457 999.919,150.0537 990.1549,167.6587 " fill="none" id="Client&lt;-CRUDClient" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="1029.9991,81.3858,1045.8211,67.2908,1042.2422,88.1761,1029.9991,81.3858" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[22b37f252a3859166eee3a29cd8c955e]
+reverse link CRUDClient to RESTClient--><path d="M985,206.614 C985,232.8969 985,269.6608 985,286.6587 " fill="none" id="CRUDClient&lt;-RESTClient" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="978.0001,206.2909,985,186.2908,992.0001,206.2908,978.0001,206.2909" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d5f633ab102415dfc9c2e2cbe1c29881]
+link RESTClient to HTTPClient--><path d="M994.0234,295.9531 C1009.2211,295.9531 1024.4187,295.9531 1039.6164,295.9531 " fill="none" id="RESTClient-&gt;HTTPClient" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1052.9719,295.9531,1046.9719,291.9531,1040.9719,295.9531,1046.9719,299.9531,1052.9719,295.9531" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9b8c994ac1742651b065fb55a0c2b48d]
+reverse link RESTClient to StructrClient--><path d="M979.1326,324.9966 C974.9539,345.6815 969.6067,372.1498 966.8412,385.839 " fill="none" id="RESTClient&lt;-StructrClient" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="972.3324,323.3071,983.1543,305.0893,986.0552,326.0795,972.3324,323.3071" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[959d4023320983e6a601c56b8bd0bf21]
+link StructrClient to structr--><path d="M955.807,399.6206 C937.8372,409.0525 897.4181,431.8115 870,458.9531 C831.4607,497.1037 798.1169,551.1992 779.8577,583.6565 " fill="none" id="StructrClient-&gt;structr" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="777.2743,588.2838,785.154,582.3753,779.7116,583.9181,778.1688,578.4757,777.2743,588.2838" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[c5fcd6a5f9e3fa8690dd34cd42486559]
+link structr to Neo4j--><path d="M678.4403,628.2508 C574.2164,651.0081 413,695.4265 413,752.4531 C413,752.4531 413,752.4531 413,954.4531 C413,997.3236 361.4623,971.4058 325,993.9531 C303.641,1007.1609 281.7784,1025.0224 265.1875,1039.6506 " fill="none" id="structr-&gt;Neo4j" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="261.0865,1043.2952,270.471,1040.3066,264.8239,1039.9738,265.1567,1034.3268,261.0865,1043.2952" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1901f5a14dea4f9af414e850da3516e7]
+reverse link structr to docStructr--><path d="M776.79,583.6243 C792.5472,550.4779 823.9388,496.7346 870,473.9531 C949.2778,434.7429 982.52,455.4161 1069,473.9531 C1167.2358,495.01 1272.0211,550.1205 1329.926,583.8313 " fill="none" id="structr&lt;-docStructr" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="774.5787,588.3591,782.0113,581.8971,776.6944,583.8288,774.7628,578.512,774.5787,588.3591" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="1017.5" y="447.02">«doc»</text><!--MD5=[b432d5f82fd3715e50ba8de78fdf5191]
+link Neo4j to dockerImage_structr2_1_4--><path d="M206.604,1069.058 C149.3016,1076.7679 31,1102.3273 31,1181.9531 C31,1181.9531 31,1181.9531 31,1766.4531 C31,1794.2464 186.0504,1820.7945 299.3585,1836.4847 " fill="none" id="Neo4j-&gt;dockerImage_structr2_1_4" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="304.3835,1837.1772,296.014,1831.9858,299.4303,1836.4945,294.9216,1839.9109,304.3835,1837.1772" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[23cef3662c5efac8aaea5a9bc2a2f707]
+reverse link Neo4j to docNeo4j--><path d="M272.0544,1065.9531 C292.4542,1065.9531 318.802,1065.9531 342.7946,1065.9531 " fill="none" id="Neo4j&lt;-docNeo4j" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="267.0013,1065.9531,276.0013,1069.9531,272.0013,1065.9531,276.0013,1061.9531,267.0013,1065.9531" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="285.5" y="1059.02">«doc»</text><!--MD5=[cab647c10568385bfd458b2b37f4ca7f]
+reverse link UcpComponent to WODA--><path d="M878.7258,323.3413 C888.4406,344.2493 901.2335,371.7818 907.7651,385.839 " fill="none" id="UcpComponent&lt;-WODA" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="872.3246,326.1767,870.2451,305.0893,885.021,320.2773,872.3246,326.1767" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[74b8ab5556611b46f3aed4f9ab6ea885]
+link WODA to StructrClient--><path d="M921.1094,394.9531 C928.2343,394.9531 935.3592,394.9531 942.4841,394.9531 " fill="none" id="WODA-&gt;StructrClient" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="955.7418,394.9531,949.7418,390.9531,943.7418,394.9531,949.7418,398.9531,955.7418,394.9531" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[25b491f7c35e8cb8ebf30515c0afd5c0]
+reverse link EAMD to WODA--><path d="M784.5022,378.6095 C805.3219,363.243 839.2689,344.1618 868.5,355.4531 C884.1059,361.4813 897.5691,375.9967 905.2304,385.6511 " fill="none" id="EAMD&lt;-WODA" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="774.1473,386.759,781.336,386.1916,783.5771,379.3375,776.3884,379.905,774.1473,386.759" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[edd7f45ca9800dca4ab090bae23bbee0]
+link EAMD to structr--><path d="M765,403.9802 C765,434.3255 765,533.5181 765,582.9386 " fill="none" id="EAMD-&gt;structr" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="765,588.1368,769,579.1368,765,583.1368,761,579.1368,765,588.1368" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[adc7be4805eed173fb04753d228cb470]
+reverse link EAMD to docEAMD--><path d="M779.0932,394.9531 C798.6355,394.9531 833.4123,394.9531 849.8761,394.9531 " fill="none" id="EAMD&lt;-docEAMD" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="774.0131,394.9531,783.0131,398.9531,779.0131,394.9531,783.0131,390.9531,774.0131,394.9531" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="792.5" y="388.02">«doc»</text><!--MD5=[17a74b172f13336df315ec9e4fb0bab7]
+link WODA to ONCE--><path d="M914.3766,403.9802 C919.9173,425.025 934.1759,479.1827 946.7356,526.8874 " fill="none" id="WODA-&gt;ONCE" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="948.0232,531.778,949.5997,522.0562,946.75,526.9428,941.8634,524.0932,948.0232,531.778" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[6ddf78c6046aa98a178d4fc9110388b9]
+link ONCE to Nodejs--><path d="M1051.1642,678.4575 C1057.1222,682.7932 1063.1055,687.0001 1069,690.9531 C1115.5188,722.1499 1179,696.4421 1179,752.4531 C1179,752.4531 1179,752.4531 1179,954.4531 C1179,1015.3807 1248.8097,1043.1164 1307.9294,1055.6809 " fill="none" id="ONCE-&gt;Nodejs" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1312.8883,1056.705,1304.8835,1050.9671,1307.9917,1055.6936,1303.2652,1058.8017,1312.8883,1056.705" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1af24e2c112b59511f5a5a6c077c3993]
+link Nodejs to dockerImage_woda--><path d="M1465.334,1087.2139 C1484.3806,1091.9548 1504.8398,1096.5716 1524,1099.9531 C1611.5593,1115.4061 2320,1093.0406 2320,1181.9531 C2320,1181.9531 2320,1181.9531 2320,1766.4531 C2320,1793.7148 2299.7179,1812.6054 2275.1148,1825.4919 " fill="none" id="Nodejs-&gt;dockerImage_woda" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="2270.4745,1827.8289,2280.3119,1827.3533,2274.9402,1825.58,2276.7135,1820.2082,2270.4745,1827.8289" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[0929feded2c4bc3dca7d74371be44859]
+reverse link Nodejs to docNodejs--><path d="M1470.314,1065.9531 C1491.9268,1065.9531 1516.1554,1065.9531 1540.8046,1065.9531 " fill="none" id="Nodejs&lt;-docNodejs" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="1465.1675,1065.9531,1474.1675,1069.9531,1470.1675,1065.9531,1474.1675,1061.9531,1465.1675,1065.9531" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="1483.5" y="1059.02">«doc»</text><!--MD5=[7aef23c6337d88f0d527187ad5c2b51d]
+link apache2 to ubuntu1--><path d="M1738.1824,2212.2025 C1701.8726,2249.2266 1635,2317.539 1635,2318.4531 C1635,2318.4531 1635,2318.4531 1635,2442.4531 C1635,2481.1141 1604.3415,2509.9103 1571.2196,2529.7394 " fill="none" id="apache2-&gt;ubuntu1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1566.7459,2532.3562,1576.5341,2531.2647,1571.0617,2529.8317,1572.4948,2524.3593,1566.7459,2532.3562" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a8d908add5b84adb220d51fb2538b73b]
+reverse link apache2 to docApache2--><path d="M1816.8201,2188.9531 C1837.1034,2188.9531 1861.4157,2188.9531 1887.1577,2188.9531 " fill="none" id="apache2&lt;-docApache2" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="1811.7517,2188.9531,1820.7517,2192.9531,1816.7517,2188.9531,1820.7517,2184.9531,1811.7517,2188.9531" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="1830" y="2182.02">«doc»</text><!--MD5=[6d2f4b056acc2ec161fb0c49f96bd0b3]
+link dockerImage_structr2_1_4 to docker--><path d="M527.6857,1855.545 C634.6851,1863.086 780,1882.9855 780,1935.4531 C780,1935.4531 780,1935.4531 780,2059.4531 C780,2140.1712 1055.9528,2174.2598 1170.7835,2184.9506 " fill="none" id="dockerImage_structr2_1_4-&gt;docker" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1175.7965,2185.412,1167.201,2180.604,1170.8175,2184.9537,1166.4678,2188.5703,1175.7965,2185.412" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b1c5468c0ffd48942e71d58df64d3af3]
+link docDockerImage_structr2_1_4 to dockerImage_structr2_1_4--><path d="M416,1564.9907 C416,1585.1326 416,1606.5555 416,1626.4531 C416,1626.4531 416,1626.4531 416,1766.4531 C416,1785.0372 416,1805.9203 416,1822.2765 " fill="none" id="docDockerImage_structr2_1_4-&gt;dockerImage_structr2_1_4" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="416,1827.64,420,1818.64,416,1822.64,412,1818.64,416,1827.64" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="417" y="1701.02">«doc»</text><!--MD5=[56ad05b774cf7a0dee6353b5a037eee9]
+link dockerImage_certbot to docker--><path d="M1181.3614,1874.0705 C1185.4496,1890.9446 1190,1914.4448 1190,1935.4531 C1190,1935.4531 1190,1935.4531 1190,2059.4531 C1190,2095.1519 1200.9535,2134.9914 1209.6232,2160.9333 " fill="none" id="dockerImage_certbot-&gt;docker" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1211.3228,2165.931,1212.212,2156.1224,1209.7129,2161.1973,1204.638,2158.6982,1211.3228,2165.931" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7a7be9d28fb2ca85b6f5a7afd022fd62]
+link docDockerImage_certbot to dockerImage_certbot--><path d="M1110.7922,1540.7911 C1112.496,1567.0846 1114,1598.2755 1114,1626.4531 C1114,1626.4531 1114,1626.4531 1114,1766.4531 C1114,1788.6372 1127.9926,1808.9546 1142.5744,1824.1046 " fill="none" id="docDockerImage_certbot-&gt;dockerImage_certbot" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="1146.2862,1827.843,1142.7834,1818.6381,1142.7633,1824.2949,1137.1064,1824.2748,1146.2862,1827.843" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="1115" y="1701.02">«doc»</text><!--MD5=[795361c4fc842d8498c19bd40ca1311b]
+link dockerImage_registry to docker--><path d="M1449.5,1874.1496 C1430.25,1888.9235 1411,1910.0485 1411,1935.4531 C1411,1935.4531 1411,1935.4531 1411,2059.4531 C1411,2061.7226 1315.2276,2125.7127 1259.3184,2162.8749 " fill="none" id="dockerImage_registry-&gt;docker" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1255.0323,2165.7231,1264.742,2164.0733,1259.1966,2162.9558,1260.3142,2157.4104,1255.0323,2165.7231" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4e32c1f32936e32bcc0f6eebe1e9a75a]
+link docDockerImage_registry to dockerImage_registry--><path d="M1621.459,1540.6565 C1593.3877,1562.5711 1572,1590.9254 1572,1626.4531 C1572,1626.4531 1572,1626.4531 1572,1766.4531 C1572,1790.6841 1554.4121,1810.4325 1535.332,1824.727 " fill="none" id="docDockerImage_registry-&gt;dockerImage_registry" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="1530.9843,1827.8763,1540.6195,1825.8361,1535.0336,1824.9432,1535.9265,1819.3572,1530.9843,1827.8763" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="1573" y="1701.02">«doc»</text><!--MD5=[badd6ff04da7bd9bfaa45149e935c96f]
+link dockerImage_woda to docker--><path d="M2101.9437,1861.6777 C2024.0279,1873.7844 1922,1896.9824 1922,1935.4531 C1922,1935.4531 1922,1935.4531 1922,2059.4531 C1922,2126.3585 1386.0102,2098.4575 1323,2120.9531 C1296.7346,2130.3303 1270.5522,2147.7499 1251.1578,2162.6101 " fill="none" id="dockerImage_woda-&gt;docker" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1246.8768,2165.9332,1256.439,2163.5742,1250.8265,2162.8673,1251.5334,2157.2548,1246.8768,2165.9332" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[18dce9b2ca73ea41c03912846799e13a]
+link docDockerImage_woda to dockerImage_woda--><path d="M2189,1524.2155 C2189,1553.2174 2189,1592.1076 2189,1626.4531 C2189,1626.4531 2189,1626.4531 2189,1766.4531 C2189,1785.0372 2189,1805.9203 2189,1822.2765 " fill="none" id="docDockerImage_woda-&gt;dockerImage_woda" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="2189,1827.64,2193,1818.64,2189,1822.64,2185,1818.64,2189,1827.64" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="2190" y="1701.02">«doc»</text><!--MD5=[b3014744c23f0ec7d0a752676e74f695]
+link docker to ubuntu1--><path d="M1264.0687,2211.2391 C1300.4034,2233.0949 1346,2270.1456 1346,2318.4531 C1346,2318.4531 1346,2318.4531 1346,2442.4531 C1346,2480.9577 1376.447,2509.7413 1409.3406,2529.6025 " fill="none" id="docker-&gt;ubuntu1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1413.7834,2532.2238,1408.0646,2524.2054,1409.4771,2529.6831,1403.9994,2531.0956,1413.7834,2532.2238" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d2623c21486dd053b2c293a25f6beebb]
+reverse link docker to docDocker--><path d="M1269.1048,2188.9531 C1289.36,2188.9531 1314.1305,2188.9531 1339.963,2188.9531 " fill="none" id="docker&lt;-docDocker" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="1264.0545,2188.9531,1273.0545,2192.9531,1269.0545,2188.9531,1273.0545,2184.9531,1264.0545,2188.9531" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="1282.5" y="2182.02">«doc»</text><!--MD5=[1551cb2a5b579f82fb8cbc50f7493309]
+reverse link ubuntu1 to docUbuntu1--><path d="M1608.2417,2563.9531 C1630.9463,2563.9531 1655.0403,2563.9531 1678.7083,2563.9531 " fill="none" id="ubuntu1&lt;-docUbuntu1" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="1603.1149,2563.9531,1612.1149,2567.9531,1608.1149,2563.9531,1612.1149,2559.9531,1603.1149,2563.9531" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="1621.5" y="2557.02">«doc»</text><!--MD5=[87be3d9931a1c95c7cfd57f0317ed2cb]
+link ubuntu1 to DevOps01--><path d="M1490,2595.675 C1490,2620.191 1490,2654.9726 1490,2685.4531 C1490,2685.4531 1490,2685.4531 1490,2809.4531 C1490,2832.1399 1490,2857.5839 1490,2877.7426 " fill="none" id="ubuntu1-&gt;DevOps01" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1490,2882.7489,1494,2873.7489,1490,2877.7489,1486,2873.7489,1490,2882.7489" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2985ea3650a2ac2dfa8694cde2898544]
+link DevOps01 to Host5--><path d="M1490,2946.1573 C1490,2966.9899 1490,2994.8437 1490,3019.4531 C1490,3019.4531 1490,3019.4531 1490,3143.4531 C1490,3161.8896 1490,3182.382 1490,3199.4282 " fill="none" id="DevOps01-&gt;Host5" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1490,3204.6017,1494,3195.6017,1490,3199.6017,1486,3195.6017,1490,3204.6017" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[25cc7b621b48deb2483a3a61979df5e9]
+reverse link DevOps01 to docDevOps01--><path d="M1566.4094,2914.4531 C1587.9838,2914.4531 1612.2838,2914.4531 1636.765,2914.4531 " fill="none" id="DevOps01&lt;-docDevOps01" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="1561.2745,2914.4531,1570.2745,2918.4531,1566.2745,2914.4531,1570.2745,2910.4531,1561.2745,2914.4531" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="39" x="1579.5" y="2907.52">«doc»</text><rect fill="#DDDDDD" height="144.7813" rx="5" ry="5" style="stroke: #000000; stroke-width: 1.0;" width="414" x="2646" y="3309.9531"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="402" x="2652" y="3327.9482">Example from the "Archisurance case study" (OpenGroup).</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="27" x="2652" y="3344.2451">See</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="0" x="2656" y="3360.542"/><image height="18" width="16" x="2652" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAIAAADdWck9AAAAWElEQVR4XrWO0Q4AEAwD9/8/TRAzVWMS9zTdLiopiGBwggjSwUUFU3tHHYzCQomilSywLQfTY7kgyZiWXQPyJ8GW3jEJzdGIJvr0KlHn6Qct6jBMnS75L2RsrLthKjiD7wAAAABJRU5ErkJggg==" y="3363.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="95" x="2672" y="3378.542">: UX use case</text><image height="19" width="16" x="2652" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAATCAIAAAAWBRqYAAAAO0lEQVR4XmP4TyJgQBcgBIaLBga8AIsGEIUhAQdoUggOkXpQdROhh1wbiFQN4kKE8ABk1VANJIERqQEAvI0y+BoqqTgAAAAASUVORK5CYII=" y="3381.8438"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="132" x="2672" y="3397.542">: business process</text><image height="16" width="16" x="2652" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAXklEQVR4Xp2NUQ7AIAhDuf+ltxAWKC3O6PuC1of2HGIc7GiCLWhvapJuzJuQMzEIq/MBtiVUP9GE//NBvrn6IfbvgIDtLESSObY+a5fJGHKtAie4+C4Crp7QvuVYeAH3/2G729cfkgAAAABJRU5ErkJggg==" y="3401.1406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="125" x="2672" y="3413.8389">: business service</text><image height="16" width="16" x="2652" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAATUlEQVR4XqXOQQ4AIAgDQf7/aT0htFbQOCclrNHGI+NB5yOwCxyssxTB/owEAU0lCDJedBHke+EjgA+dMwhoKkGQ8aKLIN8LImhBcGkCGJlD2StAVvcAAAAASUVORK5CYII=" y="3417.4375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="143" x="2672" y="3430.1357">: system component</text><image height="16" width="16" x="2652" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAUUlEQVR4Xt2OQQ7AIAzD+v9PM8FQCSYD7YoPiKaO1Cg/CQYnWIhvugBbx8QXNna+9aPpyvC00G90mKYO4KrC1MSsvDm2JkqiwTAXFthVZnDiAUj4T83sWzHrAAAAAElFTkSuQmCC" y="3433.7344"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="161" x="2672" y="3446.4326">: infrastructure platform</text><!--MD5=[1a7623f47745fb4aa69227886ad55023]
+@startuml
+
+title Thunglish Overview - Deployment Diagram 
+
+skinparam rectangle<<behavior>> {
+	roundCorner 25
+}
+
+sprite $workflow [16x16/16] {
+0000000000000000
+0000000000000000
+000000FFF0000000
+00000F000F000000
+00000F000F000000
+000000FFF0000000
+00000FFFFF000000
+0000F00000F00000
+000F0000000F0000
+000F0000000F0000
+0FFFFFFFFFFFF000
+00F00000F0000F00
+000F00000F0000F0
+00F00000F0000F00
+0FFFFFFFFFFFF000
+0000000000000000
+0000000000000000
+0000000000000000
+}
+
+sprite $bProcess {
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0FFFFFFFFFF00000
+00F00000000F0000
+000F00000000F000
+0000F00000000F00
+000F00000000F000
+00F00000000F0000
+0FFFFFFFFFF00000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+0000000000000000
+}
+
+sprite $aService [16x16/16] {
+0000000000000000
+0000000000000000
+0000FFFFFFFF0000
+000FF000000FF000
+000F00000000F000
+00FF00000000FF00
+00F0000000000F00
+0FF0000000000FF0
+00F0000000000F00
+00FF0FFFFFF0FF00
+00FF0F0000F0FF00
+000F0F0000F0F000
+0000FF0000FF0000
+00000F0000F00000
+0000000000000000
+0000000000000000
+
+}
+sprite $aComponent [16x16/16] {
+0000000000000000
+0000000000000000
+0000000000000000
+000FFFFFFFFFFFF0
+000F0000000000F0
+0FFFFF00000000F0
+0F000F00000000F0
+0FFFFF00000000F0
+000F0000000000F0
+000F0000000000F0
+0FFFFF00000000F0
+0F000F00000000F0
+0FFFFF00000000F0
+000F0000000000F0
+000FFFFFFFFFFFF0
+0000000000000000
+}
+sprite $infrastructure [16x16/16] {
+0000000000000000
+0000000000000000
+00000FFFFFFFFF00
+0000F0000000FF00
+000F0000000F0F00
+00F0000000F00F00
+0FFFFFFFFF000F00
+0F0000000F000F00
+0F0000000F000F00
+0F0000000F000F00
+0F0000000F000F00
+0F0000000F00F000
+0F0000000F0F0000
+0F0000000FF00000
+0FFFFFFFFF000000
+0000000000000000
+}
+
+
+frame EAM {
+    frame layer5:ux {
+        rectangle "Checkout" as C <<$workflow>><<behavior>> #Strategy
+    }   
+    frame layer4:processes {
+        rectangle "Pay" as P <<$bProcess>><<behavior>> #Motivation
+        rectangle "Reciept" as R <<$bProcess>><<behavior>> #Motivation
+    }   
+    frame layer3:services {
+        rectangle "Shop" as S <<$aService>><<behavior>> #Technology
+    }
+
+        frame layer2:systems {
+            component Thinglish
+            component TypedFunction
+            component Interface
+            component TestInterface
+            TestInterface -up-|> Interface
+            component Test
+            component Thing
+            Test -up-|> Thing
+        }
+
+        frame layer1:infrastructure {
+            node ONCE <<$infrastructure>> #Application [
+                ONCE
+                - - - -
+                Loaders
+                ....
+                EAMD
+                ....
+                DocumentScript
+                ====
+                node.js
+            ]
+            database Neo4j #Application
+            card docNeo4j [
+              Structr embedd
+            ]
+
+            node structr as "Structr Server 2.1.4" #Application
+            card docStructr [
+                /var/dev/Workspaces/exports/WODA.export/files/EAMD.ucp/
+
+                /EAMD.ucp/Components/org/structr/StructrServer/2.1.4/src/nginx_samba_structr
+            ]
+
+            node apache2 as "Apache2" #Application
+            card docApache2 [
+                /var/www/vhosts/wo-da.de/WODA.export/files/EAMD.ucp
+                
+                ln -s 
+                Components -> /var/dev/EAMD.ucp/Components/
+                3rdPartyComponents -> /EAMD.ucp/3rdPartyComponents/
+                Scenarios -> /EAMD.ucp/Scenarios/
+
+                service apache2 restart
+            ]
+
+
+            node dockerImage_structr2_1_4 as "[[http://wo-da.de/EAMD.ucp/3rdPartyComponents/com/docker/compose/nginx_samba_structr dockerImage_structr2_1_4]]"  #Application
+            card docDockerImage_structr2_1_4 [
+                old /EAMD.ucp/3rdPartyComponents/com/docker/compose/registry/docker-compose.yml
+                /EAMD.ucp/Components.original/org/structr/StructrServer/2.1.4/src/nginx_samba_structr/2.1.4.yml
+                0.0.0.0:8021->8021/tcp, 
+                0.0.0.0:8082->8082/tcp 
+                0.0.0.0:7574->7688/tcp
+                docker ps
+                  5ac9de8e9a42 
+                  registry:2 
+                  "/entrypoint.sh /etc…" 
+                  nginx_samba_structr_structr_1            
+            ]
+
+            node dockerImage_certbot as "[[http://wo-da.de/ dockerImage_certbot]]"  #Application
+            card docDockerImage_certbot [
+                /EAMD.ucp/3rdPartyComponents/com/docker/compose/registry/docker-compose.yml
+                0.0.0.0:5000->5000/tcp 
+                docker ps
+                  96b427e07fd2 
+                  cerulean.it:5000/structr:2.1.4 
+                  "bin/docker.sh" 
+                  nginx_samba_structr_certbot_1
+            ]
+
+            node dockerImage_registry as "[[http://wo-da.de/EAMD.ucp/3rdPartyComponents/com/docker/compose/registry dockerImage_registry]]"  #Application
+            card docDockerImage_registry [
+                /EAMD.ucp/3rdPartyComponents/com/docker/compose/registry/docker-compose.yml
+                0.0.0.0:5000->5000/tcp 
+                docker ps
+                  96b427e07fd2 
+                  cerulean.it:5000/structr:2.1.4 
+                  "bin/docker.sh" 
+                  registry_registry_1
+            ]
+
+            node dockerImage_woda as "[[https://2cu.atlassian.net/wiki/spaces/CCU/pages/38436869/ONCE+Documentation#start-on-docker dockerImage_woda]]"  #Application
+            card docDockerImage_woda [
+                port:80:80
+                port:777:777
+                port:8080:8080
+                installation: 
+                docker run -it - -rm alpine
+            ]
+
+            node docker #Application
+            card docDocker [
+              Docker version 19.03.8, build afacb8b7f0
+              /EAMD.ucp/3rdPartyComponents/com/docker
+
+              docker ps
+            ]
+
+            node Nodejs as "[[http://wo-da.de/EAMD.ucp/Components/js/node/NodeJS/ Nodejs]] v12.13.0" #Application
+            card docNodejs [
+              /EAMD.ucp/Components/js/node/NodeJS/12.13.0
+            ]
+
+
+            node "Ubuntu 16.04.6 LTS" as ubuntu1 <<GNU/Linux 4.4.0 x86_64>> #Application
+            card docUbuntu1 [
+              Host WODA.dev
+              User developking
+              Port 22
+              HostName cerulean.it
+              IdentityFile /home/developking/.ssh/id_rsa
+
+              service - -status-all
+            ]
+
+            node "1blu.de [[https://v32109.1blu.de/ Plesk]]" as DevOps01 <<ESXi-VM 6.5>> #Application
+            card docDevOps01 [
+              plesk login
+              https://v32109.1blu.de:8443/login_up.php
+              8 CPU, 16GB RAM, 250GB HDD
+              cat /proc/cpuinfo
+              cat /proc/meminfo
+            ]
+
+            node "Host-05" as Host5 <<ESXi 6.5>> #Application
+                }   
+}
+
+C *-down- P
+C *-down- R
+
+S -up-> P
+P -right->> R
+S -(0- SC
+
+UcpComponent .up.|> Component
+UcpModel .up.|> Model
+UcpControler .up.|> Controler
+UcpView .up.|> View
+
+
+DefaultView .up.|> UcpView
+ItemView .up.|> UcpView
+OverView .up.|> UcpView
+DetailView .up.|> UcpView
+
+DefaultView .up.|> WODAViews
+ItemView .up.|> WODAViews
+OverView .up.|> WODAViews
+DetailView .up.|> WODAViews
+
+
+DefaultUcpView -up-|> UcpView
+StructrObject -up-|> UcpModel
+
+
+HTTPClient -up-|> Client
+CRUDClient -up-|> Client
+RESTClient -up-|> CRUDClient
+RESTClient -right-* HTTPClient
+StructrClient -up-|> RESTClient
+
+StructrClient - -> structr
+structr - -> Neo4j
+structr <.right. docStructr:<<doc>>
+
+Neo4j - - -> dockerImage_structr2_1_4
+Neo4j <.right. docNeo4j:<<doc>>
+
+WODA -up-|> UcpComponent
+WODA -right-* StructrClient
+WODA -left-* EAMD
+
+EAMD - -> structr
+EAMD <.right. docEAMD:<<doc>>
+WODA - -> ONCE
+
+ONCE - -> Nodejs
+
+
+Nodejs - - -> dockerImage_woda
+Nodejs <.right. docNodejs:<<doc>>
+
+apache2 - -> ubuntu1
+apache2 <.right. docApache2:<<doc>>
+
+
+dockerImage_structr2_1_4 - -> docker
+dockerImage_structr2_1_4 <.up. docDockerImage_structr2_1_4:<<doc>>
+
+dockerImage_certbot - -> docker
+dockerImage_certbot <.up. docDockerImage_certbot:<<doc>>
+
+dockerImage_registry - -> docker
+dockerImage_registry <.up. docDockerImage_registry:<<doc>>
+
+dockerImage_woda - -> docker
+dockerImage_woda <.up. docDockerImage_woda:<<doc>>
+
+
+docker - -> ubuntu1
+docker <.right. docDocker:<<doc>>
+
+ubuntu1 <.right. docUbuntu1:<<doc>>
+ubuntu1 - -> DevOps01
+
+DevOps01 - -> Host5
+DevOps01 <.right. docDevOps01:<<doc>>
+
+legend right
+Example from the "Archisurance case study" (OpenGroup).
+See
+
+<$workflow> : UX use case
+<$bProcess> : business process
+<$aService> : business service
+<$aComponent> : system component
+<$infrastructure> : infrastructure platform
+endlegend
+
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 15:05:57 IST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.7+10-post-Ubuntu-2ubuntu218.04
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: IN
+--></g></svg>

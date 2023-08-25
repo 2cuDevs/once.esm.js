@@ -1,0 +1,8 @@
+{
+  "realm": "master",
+  "auth-server-url": "https://test.wo-da.de/auth/",
+  "ssl-required": "external",
+  "resource": "shifternetzwerk",
+  "public-client": true,
+  "confidential-port": 0
+}

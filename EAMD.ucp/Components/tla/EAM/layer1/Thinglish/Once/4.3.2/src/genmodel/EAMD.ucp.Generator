@@ -1,0 +1,359 @@
+[comment]
+/*******************************************************************************
+ * Copyright (c) 2014-2017 GenMyModel
+ * See the file located at https://github.com/genmymodel/generators/blob/master/LICENSE for copying permission.
+ *
+ * This is a MTL generator template
+ * See: 
+ * Language Reference: http://help.eclipse.org/juno/topic/org.eclipse.acceleo.doc/pages/reference/language.html?cp=5_3_0
+ * Operations: http://help.eclipse.org/juno/topic/org.eclipse.acceleo.doc/pages/reference/operations.html?cp=5_3_2
+ * Text production rules: http://help.eclipse.org/juno/topic/org.eclipse.acceleo.doc/pages/reference/textproductionrules.html?cp=5_3_5
+ *
+ * This generator is still an early version, contributions are welcome.
+ * Support:
+ * -> Class, Interface and Enums (one file per item)
+ * -> TypeScript <Reference> are automatically generated 
+ * -> Package are generated as folders and TypeScript modules
+ * -> Class and Interface inheritance, Class implements
+ * -> Associations
+ *
+ * See : http://help.genmymodel.com/forums/169180-ideas-and-feature-requests/suggestions/9741069-typescript-code-generation
+ *
+ * Author:  Adrien Baron - GenMyModel
+ *******************************************************************************
+[/comment]
+[module simpleUML2TypeScript('http://www.eclipse.org/uml2/4.0.0/UML')/]
+
+[**
+ * The main entry for Class - looks over the UML diagram and creates one ts file per class.
+ * @param c UML Class.
+*/]
+[template public generate(c : Class) ? (c.name.isValid())]
+[comment @main/]
+[file ('src/'.concat(c.qualifiedName.path()).concat('.class.js'), false, 'UTF-8')]
+
+/* Generated with GenMyModel */
+
+    
+[c.elementComment()/][if (c.owner->selectByKind(Model)->isEmpty())]
+Namespace.declare([c.getQualifiedName().replace('::.*$', '').replaceAll('::', '.')/],['\n'/][/if]
+    [c.genClass()/]
+[if (c.owner->selectByKind(Model)->isEmpty())]);[/if]
+[/file]
+[/template]
+
+[**
+ * The main entry for Interface - looks over the UML diagram and creates one ts file per interface.
+ * @param c UML Interface.
+*/]
+[template public generate(i : Interface) ? (i.name.isValid())]
+[comment @main/]
+[file ('src/'.concat(i.qualifiedName.path()).concat('.interface.js'), false, 'UTF-8')]
+
+/* Generated with GenMyModel */
+
+[i.generalization.general
+    ->asSet()
+    ->addAll(i.attribute.type->selectByKind(Classifier))
+    ->addAll(i.ownedOperation.type->selectByKind(Classifier)).genReference(i)/]
+    
+[i.elementComment()/][if (i.owner->selectByKind(Model)->isEmpty())]
+Namespace.declare([i.getQualifiedName().replace('::.*$', '').replaceAll('::', '.')/],['\n'/][/if]
+    [i.genInterface()/]
+[if (i.owner->selectByKind(Model)->isEmpty())]);[/if]
+[/file]
+[/template]
+
+[**
+ * The main entry for Enums - looks over the UML diagram and creates one ts file per Enum.
+ * @param e UML Enum.
+*/]
+[template public generate(e : Enumeration) ? (e.name.isValid())]
+[comment @main/]
+[file ('src/'.concat(e.qualifiedName.path()).concat('.ts'), false, 'UTF-8')]
+
+/* Generated with GenMyModel */
+
+[e.elementComment()/][if (e.owner->selectByKind(Model)->isEmpty())]
+module [e.getNearestPackage().qualifiedName.nameSpace()/] {
+	export [/if]
+[e.genEnum()/]
+[if (e.owner->selectByKind(Model)->isEmpty())]}[/if]
+[/file]
+[/template]
+
+[**
+ * Generates the class.
+ * @param c UML Class.
+*/]
+[template public genClass(c : Class) ? (c.name.isValid())]
+class [c.name/][if (not c.generalization->isEmpty())] extends [/if][for (g : Generalization | c.generalization) separator(', ')][g.general.qualifiedClassifierName()/][/for]
+{
+    static implements() {
+        return ['[\n'/]
+            [for (ir : InterfaceRealization | c.interfaceRealization) separator(',\n')][ir.contract.qualifiedClassifierName()/][/for]
+        ['];'/]
+    }
+    
+    static dependencies() {
+        return ['['/]
+                    [c.generalization.general
+                        ->asSet()
+                        ->addAll(c.interfaceRealization.contract)
+                        ->addAll(c.attribute.type->selectByKind(Classifier))
+                        ->addAll(c.getAssociations().navigableOwnedEnd->select(type <> c).type->selectByKind(Classifier))
+                        ->addAll(c.ownedOperation.type->selectByKind(Classifier))
+                        ->addAll(c.implements().attribute.type->selectByKind(Classifier))
+                        ->addAll(c.implements().getAssociations().navigableOwnedEnd->select(type <> c).type->selectByKind(Classifier))
+                        ->addAll(c.implements().ownedOperation.type->selectByKind(Classifier)).genReference(c)/]
+        ['];'/]
+    }
+    
+    constructor() {
+        super();
+    }
+
+    init() {
+        super.init();
+        this.model = {
+            [for (a : Property | c.attribute->union(c.getAssociationProperty())->select(isReadOnly))]
+            "[a.name/]": "@[a.type/]";
+            [/for]
+        };
+        return this;
+    }
+        
+        
+    // Attributes
+	[c.attribute.genAttribute()/][c.getAssociations().navigableOwnedEnd->select(type <> c).genAttribute()/]
+    // Implemented attributes
+	[c.implements().attribute.genAttribute()/][c.implements().getAssociations().navigableOwnedEnd->select(type <> c).genAttribute()/]
+    // Operations
+	[c.ownedOperation.genFunctionSignatureClass()/] 
+	// Implemented operations
+	[c.implements().ownedOperation.genFunctionSignatureClass()/]
+}
+[/template]
+
+[**
+ * Generates the interface.
+ * @param i UML Interface.
+*/]
+[template public genInterface(i : Interface) ? (i.name.isValid())]
+class [i.name/] extends [if (i.generalization->isEmpty())]Interface[/if][for (g : Generalization | i.generalization) separator(', ')][g.general.qualifiedClassifierName()/][/for]
+{
+    static implements() {
+        return ['['/]
+            [for (ir : Interface | i.getAllUsedInterfaces()) separator(',\n')][ir.qualifiedClassifierName()/][/for]
+        ['];'/]
+    }
+    
+    static dependencies() {
+        return ['['/]
+        [i.generalization.general
+            ->asSet()
+            ->addAll(i.attribute.type->selectByKind(Classifier))
+            ->addAll(i.ownedOperation.type->selectByKind(Classifier)).genReference(i)/]
+        ['];'/]
+    }
+    
+    // Attributes
+    [i.attribute.genAttribute()/][i.getAssociations().navigableOwnedEnd->select(type <> i).genAttribute()/]
+    // Operations
+    [i.ownedOperation.genFunctionSignatureInterface()/]
+}
+[/template]
+
+[**
+ * Generates the enum.
+ * @param e UML Enum.
+*/]
+[template public genEnum(e : Enumeration) ? (e.name.isValid())]
+enum [e.name/]
+{
+    [for (el : EnumerationLiteral | e.ownedLiteral) separator(',\n')]
+    [el.elementComment()/][el.name/][/for]
+
+}
+[/template]
+
+[**
+ * Generates attribute code
+ * @param p UML Property.
+*/]
+[template public genAttribute(p : Property) ? (p.type = null or (p.type <> null and p.type.name.isValid()))]
+[p.elementComment()/][p.name/][p.genPropertyType()/];['\n'/]
+[/template]
+
+
+[**
+ * Generates function signature (name, parameters and return type) for a Class
+ * @param o UML Operation.
+*/]
+[template public genFunctionSignatureClass(o : Operation) ? (o.name.isValid())]
+[o.elementComment()/][o.genFunctionSignature()/] {
+[if (o.getReturnResult() <> null and o.getReturnResult().type <> null)]['\t'/]return [o.getReturnResult().genParameterValue()/]; //TODO: Implement[/if]
+}['\n\n'/]
+[/template]
+[**
+ * Generates function signature (name, parameters and return type) for an Interface
+ * @param o UML Operation.
+*/]
+[template public genFunctionSignatureInterface(o : Operation) ? (o.name.isValid())]
+[o.elementComment()/][o.genFunctionSignature()/];['\n'/]
+[/template]
+[**
+ * Generates function signature (name, parameters and return type).
+ * @param o UML Operation.
+*/]
+[template public genFunctionSignature(o : Operation) ? (o.name.isValid())]
+[o.name/]([for (p : Parameter | o.ownedParameter->excluding(o.getReturnResult())) separator(', ')][p.genFunctionParameter()/][/for])[o.getReturnResult()->any(true)->asBag().genParameterType()/]
+[/template]
+[**
+ * Generates function parameter code (name and visibility).
+ * If the parameter visibility is set to "package", then it will be considered as protected. 
+ * @param p UML Parameter.
+*/]
+[template public genFunctionParameter(p : Parameter) ? (p.type = null or (p.type <> null and p.type.name.isValid()))]
+[p.name/][p.genParameterType()/]
+[/template]
+
+
+[**
+ * Generate a type signature if needed
+ * @param t Type.
+*/]
+[template public genParameterType(p : Parameter) ? (p <> null and p.type <> null and p.type.name.isValid())]
+: [if (p.isMultivalued())]Array<[/if][p.type.toType().trim()/][if (p.isMultivalued())]>[/if]
+[/template]
+[**
+ * Generate a type signature if needed
+ * @param t Type.
+*/]
+[template public genPropertyType(p : Property) ? (p <> null and p.type <> null and p.type.name.isValid())]
+: [if (p.isMultivalued())]Array<[/if][p.type.toType().trim()/][if (p.isMultivalued())]>[/if]
+[/template]
+[**
+ * Translates UML Type to it's equivalent in ts.
+ * @param s String.
+*/]
+[template public toType(t : Type)]
+[if (t.name.equalsIgnoreCase('Integer') or t.name.equalsIgnoreCase('Long') or t.name.equalsIgnoreCase('Double') or t.name.equalsIgnoreCase('Float') or t.name.equalsIgnoreCase('Real') or t.name.equalsIgnoreCase('UnlimitedNatural'))]	number
+	[elseif (t.name.equalsIgnoreCase('ByteArray'))]	Array<number>
+	[elseif (t.name.equalsIgnoreCase('Date'))]	Date
+	[elseif (t.name.equalsIgnoreCase('Char'))]	string
+	[elseif (t.name.equalsIgnoreCase('Boolean') or t.name.equalsIgnoreCase('String'))]	[t.name.toLower()/]
+[else] [t.oclAsType(Classifier).qualifiedClassifierName()/]
+[/if]
+[/template]
+
+
+[**
+ * Generate single values for methods initialization.
+ * @param p The parameter we want to generate a value for
+*/]
+[template public genParameterValue(p : Parameter) ? (not p.type.oclIsUndefined()) post (trim())]
+[if (p.isMultivalued())]['[]'/][else]
+[let t : Type = p.type]
+
+[if (t.name = 'String')]""
+[elseif (t.name = 'UnlimitedNatural')]0
+[elseif (t.name = 'Double')]0.0
+[elseif (t.name = 'Real')]0.0
+[elseif (t.name = 'Float')]0.0
+[elseif (t.name = 'Long')]0.0
+[elseif (t.name = 'Integer')]0
+[elseif (t.name = 'Short')]0
+[elseif (t.name = 'Byte')]0
+[elseif (t.name = 'ByteArray')]['['/]]
+[elseif (t.name = 'Boolean')]false
+[elseif (t.name = 'Date')]new Date()
+[elseif (t.name = 'Char')]''
+[elseif (t.oclIsKindOf(Enumeration))][if (not t.oclAsType(Enumeration).ownedLiteral->isEmpty())][t.oclAsType(Enumeration).qualifiedClassifierName()/].[t.oclAsType(Enumeration).ownedLiteral->at(1).name/][else]null[/if]
+[elseif (t.oclIsKindOf(Classifier))]null
+[else]null[/if][if (p.isMultivalued())][']'/][/if]
+
+[/let]
+[/if]
+[/template]
+
+[**
+ * Generates "reference" for used elements.
+ * @param rc Referenced classifier.
+ * @param c Base classifier (classifier that reference rc).
+*/]
+[template public genReference(rc : Classifier, c : Classifier) ? (rc <> c and rc.getModel() = c.getModel())]
+    //"[rc.genRelativePath(c)/][rc.name/].component.xml",['\n'/]
+[/template]
+[**
+ * Generates the relative from the element c to the element rc
+ * @param rc Target classifier.
+ * @param c Base classifier.
+*/]
+[template public genRelativePath(rc : Classifier, c : Classifier)]
+[let rcPath : Sequence(String) = rc.getNearestPackage().qualifiedName.tokenize('::')->drop(1)]
+[let cPath : Sequence(String) = c.getNearestPackage().qualifiedName.tokenize('::')->drop(1)]
+[for (folder : String | cPath)]
+[if (rcPath->size() < i or (not rcPath->at(i).equalsIgnoreCase(folder)))]../[/if][/for]
+[for (folder : String | rcPath)]
+[if (cPath->size() < i or (not cPath->at(i).equalsIgnoreCase(folder)))][folder/]/[/if][/for]
+[/let][/let]
+[/template]
+
+[**
+ * Generate the name of a classifier with it's full package path (ignore model package)
+*/]
+[template public qualifiedClassifierName(c : Classifier)]
+[if (c.owner->selectByKind(Model)->isEmpty())][c.getNearestPackage().qualifiedName.nameSpace()/].[/if][c.name/]
+[/template]
+
+[**
+ * Generate the name of a classifier with it's full package path (ignore model package)
+*/]
+[template public elementComment(e : Element) ? (e <> null and e.ownedComment <> null and not e.ownedComment->isEmpty())]
+/*
+[e.ownedComment.genComment('\t')/]
+*/
+
+[/template]
+[template public genComment(c : Comment, prefix : String)]
+[prefix/][c.genBody()/]
+[/template]
+[template public genBody(c : Comment)]
+[c._body.replaceAll('</div>', '\n').replaceAll('<br>', '\n').replaceAll('<[^>]*>', '')/]
+[/template]
+
+[**
+ * Return the list of Implemented interface by a class
+ * @param n String.
+*/]
+[query public implements(c : Class) : OrderedSet(Interface) =
+	c.interfaceRealization.contract->asOrderedSet()->addAll(c.interfaceRealization.contract.generalization.general->filter(Interface))
+/]
+[**
+ * Verify if the given string is not null and not empty.
+ * @param n String.
+*/]
+[query public isValid(n : String) : Boolean =
+	n <> null and n <> ''
+/]
+[**
+ * Translates the given string to a path.
+ * Example : A::B::C::D produces B/C/D.
+ * @param n String.
+*/]
+[query public path(n : String) : String =
+	 n.replaceAll('[^:]*::(.*)', '$1').replaceAll('::', '/')
+/]
+[**
+ * Translates the given string to a nameSpace.
+ * Example : A::B::C::D produces A.B.C.D
+ * @param n String.
+*/]
+[query public nameSpace(n : String) : String =
+	 n.replaceAll('[^:]*::(.*)', '$1').replaceAll('::', '.')
+/]
+
+[query public getAssociationProperty(c : Class) : Bag(Property) =
+    c.getAssociations().navigableOwnedEnd->select(type <> c)
+/]

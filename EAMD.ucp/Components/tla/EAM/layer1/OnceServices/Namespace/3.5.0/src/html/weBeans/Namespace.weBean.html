@@ -1,0 +1,28 @@
+<template id="Namespace" is="namespace">
+    <div class="panel panel-default" id="$-{this.viewId}">
+        <div class="panel-heading" role="tab">
+            <h4 class="panel-title">
+                <a role="button" href="#$-{this.parentViewId} .$-{this.viewId}" data-parent="#$-{this.parentViewId}" data-toggle="collapse">
+                    $-{this.model.name}
+                </a>
+            </h4>
+        </div>
+        <div class="panel-collapse collapse $-{this.viewId} in"  role="tabpanel" style="min-height: 25px;">
+            <div class="panel-body" style="padding: 0px !important;">
+                <div class="$-{this.viewId}_container" webean-role="$-{this.viewId}:container">
+                    ${this.model.attribute1}
+
+                    <!--<bootstrap-progress-bar view-id="${this.id}_pb1"></bootstrap-progress-bar> -->
+                    <!-- <bootstrap-progress-bar view-id="${this.id}_pb2"></bootstrap-progress-bar> -->
+
+        <!-- <bootstrap-collapsible-panel heading="Details" webean-property="details">
+        </bootstrap-collapsible-panel>
+        <bootstrap-collapsible-panel heading="Editor" webean-property="editor">
+        </bootstrap-collapsible-panel> 
+        <ideal-component></ideal-component>
+        -->
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

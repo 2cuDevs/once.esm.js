@@ -1,0 +1,18 @@
+<template id="NamespaceMinimalDetailsView" is="namespace-minimal-details-view">
+    <div class="$-{this.model.cssClasses}" >
+        $-{this.model.itemViewModel.name}
+
+        <!--
+    <bootstrap-accordion id="$-{this.id}_Accordion" view-id="$-{this.viewId}_Accordion"  role="tablist">
+        -->
+
+        <bootstrap-collapsible-panel heading="Details" webean-property="details">
+        </bootstrap-collapsible-panel>
+        <bootstrap-collapsible-panel heading="Editor" webean-property="editor">
+        </bootstrap-collapsible-panel>
+
+        <!--
+    </bootstrap-accordion>
+        -->
+    </div>
+</template>

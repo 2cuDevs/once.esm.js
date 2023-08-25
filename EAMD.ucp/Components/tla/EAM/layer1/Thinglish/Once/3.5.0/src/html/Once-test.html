@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html onload="">
+
+<head>
+    <title>ONCE 1.0.0</title>
+    <meta charset="utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+
+        class App {
+            static get implements() {
+                return [];
+            };
+            static start() {
+                if(ONCE.eventSupport) {
+                    ONCE.eventSupport.addEventListener('testing', this, function (event, data) {
+                        const div = document.createElement('div');
+                        const h = document.createElement('h2');
+                        h.innerHTML = `${data.category}: ${data.subcategory}`;
+                        div.appendChild(h);
+                        const pre = document.createElement('pre');
+                        delete data.category;
+                        delete data.subcategory;
+                        pre.innerHTML = JSON.stringify(data, null, 2);
+                        div.appendChild(pre);
+                        document.getElementById('testDiv').appendChild(div);
+                    });
+                }
+
+                const a = document.createElement('a');
+                a.href = 'http://localhost:8888/EAMD.ucp/Components/com/twitter/Bootstrap/Panel/3.3.7/Panel.component.xml';
+
+                const event = new MouseEvent('drop', {
+                    bubbles: true,
+                    cancelable: true,
+                });
+                // const event = document.createEvent('MouseEvents');
+                // event.initMouseEvent('drop', true, true, window, 1, 1, 1, 10, 10, false, false, false, false, 0, document.body);
+                event.dataTransfer = new DataTransfer();
+                event.dataTransfer.setData('URL', a.href);
+                document.body.dispatchEvent(event);
+                return "Hello World ;)";
+            }
+            static init() {
+                console.debug("start loading App components...");
+                return "start loading App components...";
+            }
+
+            discover() {
+                return this.models;
+            }
+
+        }
+        var app = new App();
+
+    </script>
+    <script src="/EAMD.ucp/Components/tla/EAM/layer1/Thinglish/Once/1.0.0/src/js/Once.class.js" type="text/javascript"></script>
+
+    <style type="text/css">
+
+        #testDiv {
+            background-color: #f6ebbc;
+            width: 100%;
+            max-height: 30vh;
+            overflow: scroll;
+        }
+
+        #testDiv pre{
+            padding: 5px;
+        }
+        #testDiv h2{
+            font-family: "Courier New";
+            font-size: 14px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="testing" id="testDiv"></div>
+
+    <div class="center-bold" id="mainDiv">Drag and Drop Component to Load</div>
+</body>
+
+</html>
