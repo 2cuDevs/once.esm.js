@@ -1,7 +1,7 @@
 {
   "name": "once",
   "version": "3.5.0",
-  "description": "Object Network Communication Engine",
+  "description": "Object Network Communication Engine - v3.5.0 es modules on node 14",
   "main": "src/js/Once.class.mjs",
   "directories": {
     "doc": "docs",
