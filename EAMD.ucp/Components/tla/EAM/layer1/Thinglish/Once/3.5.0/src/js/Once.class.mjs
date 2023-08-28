@@ -5,7 +5,13 @@ import Thinglish from '../../../../../Thinglish/3.5.0/src/mjs/Thinglish.class.mj
 import Loader from '../../../../../OnceServices/Loader/3.5.0/src/mjs/Loader.class.mjs';
 
 class Once {
-    static STATES = { "LOADED":"loaded",  "STARTED":"started", "NEW":"new", "INITIALIZED":"initialized", "SHUTDOWN":"shutdown" };
+    static STATES = { 
+        "LOADED":"loaded",  
+        "STARTED":"started", 
+        "NEW":"new", 
+        "INITIALIZED":"initialized", 
+        "SHUTDOWN":"shutdown" 
+    };
     #state = Once.STATES.LOADED;
     #setState = (aState) => {
         this.#state = aState;
