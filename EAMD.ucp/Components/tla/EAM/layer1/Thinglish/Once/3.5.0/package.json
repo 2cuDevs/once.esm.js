@@ -10,6 +10,8 @@
   "scripts": {
     "test": "jest",
     "tootsie": "node ./test/mjs/Once.test.class.mjs",
+    "cli": "node ./src/mjs/OnceCLI.class.mjs",
+    "debugcli": "node inspect ./src/mjs/OnceCLI.class.mjs",
     "start": "node ./src/js/Once.class.mjs"
   },
   "author": "Marcel Donges",
