@@ -1,6 +1,6 @@
-import Once from '../js/Once.class.mjs';
+import OnceBase from './OnceBase.class.mjs';
 
-class OnceBrowser extends Once {
+class OnceBrowser extends OnceBase {
     static start() {
         if (window.ONCE) {
             console.log("ONCE already started");

@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Once 3.5.0",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "/Users/Shared/EAMD.ucp/Components/tla/EAM/layer1/Thinglish/Once/3.5.0/src/js/Once.class.mjs"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Test Once 3.5.0",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "/Users/Shared/EAMD.ucp/Components/tla/EAM/layer1/Thinglish/Once/3.5.0/test/mjs/Once.test.class.mjs"
+        },
+        {
+            "type": "node",
+            "name": "vscode-jest-tests.v2",
+            "request": "launch",
+            "args": [
+                "test",
+                "--",
+                "--runInBand",
+                "--watchAll=false",
+                "--testNamePattern",
+                "${jest.testNamePattern}",
+                "--runTestsByPath",
+                "${jest.testFile}"
+            ],
+            "cwd": "/Users/Shared/Workspaces/2cuDevs/once.esm.js/EAMD.ucp/Components/tla/EAM/layer1/Thinglish/Once/3.5.0",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "disableOptimisticBPs": true,
+            "runtimeExecutable": "npm"
+        }
+    ]
+}

@@ -1,6 +1,6 @@
-import Once from '../js/Once.class.mjs';
+import OnceBase from './OnceBase.class.mjs';
 
-class OnceNode extends Once {
+class OnceNode extends OnceBase {
 
     static start() {
         if (global.ONCE) {
@@ -11,12 +11,13 @@ class OnceNode extends Once {
         global.ONCE = ONCE;
         //let superOnce = Object.getPrototypeOf(ONCE);
         
-        ONCE.log("ONCE Node started: ",ONCE.state);
+        ONCE.log("ONCE Node created: ",ONCE.state);
 
         return ONCE;
     }
     constructor() {
       super();
+      this.name = "OnceNode "+Date.now();
     }
 }
 
